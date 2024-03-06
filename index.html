@@ -14,6 +14,26 @@
   <h1 style="color:red;">Sleepy Offers</h1>
   <p style="color:white;">This is a paragraph.</p>
 
+  <button id="myButton" style="color: blue; font-size: 20px;">Click me!</button>
+
+  <script>
+    let clickCount = 0;
+    const myButton = document.getElementById('myButton');
+
+    myButton.addEventListener('click', () => {
+      clickCount++;
+
+      if (clickCount === 1) {
+        myButton.innerHTML = "Go to Google";
+        myButton.addEventListener('click', () => window.open("http://google.com", "_blank"));
+      } else if (clickCount === 2) {
+        myButton.innerHTML = "Go to YouTube";
+        myButton.addEventListener('click', () => window.open("http://youtube.com", "_blank"));
+        clickCount = 0; // Reset clickCount after opening YouTube
+      }
+    });
+  </script>
+
 </body>
 
 </html>
