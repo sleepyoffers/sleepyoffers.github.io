@@ -3,34 +3,25 @@
 
 <head>
   <style>
-    body {background-color: black;}
+    body {background-color: black; color: white; font-family: Arial, sans-serif;}
+    h1 {color: red;}
+    .button {color: blue; font-size: 20px; background-color: white; padding: 10px 20px; text-decoration: none; display: inline-block; margin: 10px;}
   </style>
 </head>
 
 <body>
 
-  <marquee style="color:white; font-size: 30px;">Welcome to Sleepy Offers!</marquee>
+  <marquee style="font-size: 30px;">Welcome to Sleepy Offers!</marquee>
 
-  <h1 style="color:red;">Sleepy Offers</h1>
-  <p style="color:white;">This is a paragraph.</p>
+  <h1>Sleepy Offers</h1>
+  <p>This is a paragraph.</p>
 
-  <button id="myButton" style="color: blue; font-size: 20px; background-color: white;">Click me!</button>
+  <div>
+    <a href="home.html" class="button">Home</a>
+    <a href="offers.html" class="button">Offers</a>
+  </div>
 
-  <script>
-    let clickCount = 0;
-    const myButton = document.getElementById('myButton');
-
-    myButton.addEventListener('click', () => {
-      clickCount++;
-
-      if (clickCount === 1 || clickCount === 2) {
-        window.open("http://google.com", "_blank");
-      } else if (clickCount === 3) {
-        window.open("http://youtube.com", "_blank");
-        clickCount = 0;
-      }
-    });
-  </script>
+  <p id="p1" style="color: white;">This is another paragraph.</p>
 
 </body>
 
