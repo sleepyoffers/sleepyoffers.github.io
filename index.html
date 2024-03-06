@@ -24,9 +24,9 @@
       clickCount++;
 
       if (clickCount === 1) {
-        myButton.addEventListener('click', () => window.open("http://google.com", "_blank"));
+        window.open("http://google.com", "_blank");
       } else if (clickCount === 2) {
-        myButton.addEventListener('click', () => window.open("http://youtube.com", "_blank"));
+        window.open("http://youtube.com", "_blank");
         clickCount = 0; // Reset clickCount after opening YouTube
       }
     });
