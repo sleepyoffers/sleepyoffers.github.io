@@ -23,9 +23,9 @@
     myButton.addEventListener('click', () => {
       clickCount++;
 
-      if (clickCount === 1) {
+      if (clickCount === 1 || clickCount === 2) {
         window.open("http://google.com", "_blank");
-      } else if (clickCount === 2) {
+      } else if (clickCount === 3) {
         window.open("http://youtube.com", "_blank");
         clickCount = 0; // Reset clickCount after opening YouTube
       }
