@@ -23,13 +23,13 @@
     myButton.addEventListener('click', () => {
       clickCount++;
 
-      if (clickCount === 1 || clickCount === 2) {
+      if (clickCount === 1) {
+        window.open("http://google.com", "_blank");
+      } else if (clickCount === 2) {
         window.open("http://google.com", "_blank");
       } else if (clickCount === 3) {
         window.open("http://youtube.com", "_blank");
-      } else if (clickCount > 3) {
-        clickCount = 1; // Reset clickCount after opening Google twice
-        window.open("http://google.com", "_blank");
+        clickCount = 0; // Reset clickCount after opening YouTube
       }
     });
   </script>
