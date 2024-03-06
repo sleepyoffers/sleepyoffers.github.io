@@ -17,12 +17,19 @@
   <button id="myButton" style="color: blue; font-size: 20px; background-color: white;">Click me!</button>
 
   <script>
+    let clickCount = 0;
     const myButton = document.getElementById('myButton');
 
     myButton.addEventListener('click', () => {
-      window.open("http://google.com", "_blank");
-    });
+      clickCount++;
 
+      if (clickCount === 1) {
+        myButton.addEventListener('click', () => window.open("http://google.com", "_blank"));
+      } else if (clickCount === 2) {
+        myButton.addEventListener('click', () => window.open("http://youtube.com", "_blank"));
+        clickCount = 0; // Reset clickCount after opening YouTube
+      }
+    });
   </script>
 
 </body>
