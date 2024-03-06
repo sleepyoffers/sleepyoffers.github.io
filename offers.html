@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {background-color: black; color: white; font-family: Arial, sans-serif;}
+    h1 {color: red;}
+    .button {color: blue; font-size: 20px; background-color: white; padding: 10px 20px; text-decoration: none; display: inline-block; margin: 10px;}
+  </style>
+</head>
+
+<body>
+
+  <marquee style="font-size: 30px;">Check out our amazing offers!</marquee>
+
+  <h1>Special Offers</h1>
+  <p>Explore our fantastic deals and discounts.</p>
+
+  <button id="myButton" class="button">Click me for Offers!</button>
+
+  <script>
+    let clickCount = 0;
+    const myButton = document.getElementById('myButton');
+
+    myButton.addEventListener('click', () => {
+      clickCount++;
+
+      if (clickCount === 1 || clickCount === 2) {
+        window.open("http://example.com", "_blank");
+      } else if (clickCount === 3) {
+        window.open("http://anotherexample.com", "_blank");
+        clickCount = 0;
+      }
+    });
+  </script>
+
+</body>
+
+</html>
