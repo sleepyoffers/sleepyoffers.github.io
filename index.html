@@ -59,13 +59,16 @@
       
 	}
     
-.navbar a[href="index.html"]:hover,
-.navbar a[href="index.html"]:focus,
-.navbar a[href="offers.html"]:hover,
-.navbar a[href="offers.html"]:focus {
-  text-decoration: underline;
-}
-    
+    .navbar a[href="index.html"].active {
+      text-decoration: underline;
+    }
+
+    .navbar a[href="index.html"]:hover,
+    .navbar a[href="index.html"]:focus,
+    .navbar a[href="offers.html"]:hover,
+    .navbar a[href="offers.html"]:focus {
+      text-decoration: underline;
+    }
 
     /* Change color on hover */
     .navbar a:hover {
@@ -81,7 +84,7 @@
 
   <div class="navbar">
     <a href="offers.html">Offers</a>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
   </div>
   
   <div class="header">
