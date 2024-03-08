@@ -60,7 +60,7 @@
       font-size: 20px;
 	}
     
-    .navbar a[href="index.html"].active {
+    .navbar a[href="offers.html"].active {
       text-decoration: underline;
     }
 
@@ -115,6 +115,32 @@
         window.open("http://anotherexample.com", "_blank");
         clickCount = 0;
       }
+    });
+  </script>
+
+  </div>
+
+<footer>
+  <p>Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.<br>
+</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get all the navbar links
+      var navLinks = document.querySelectorAll('.navbar a');
+
+      // Add a click event listener to each link
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          // Remove 'active' class from all links
+          navLinks.forEach(function(innerLink) {
+            innerLink.classList.remove('active');
+          });
+
+          // Add 'active' class to the clicked link
+          link.classList.add('active');
+        });
+      });
     });
   </script>
 
