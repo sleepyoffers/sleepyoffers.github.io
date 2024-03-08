@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
@@ -12,21 +12,73 @@
     .button {color: blue; font-size: 20px; background-color: white; padding: 10px 20px; text-decoration: none; display: inline-block; margin: 10px;}
   </style>
   <title>Sleepy Offers</title>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    .header {
+      padding: 15px;
+      text-align: left;
+      background: #1abc9c;
+      color: white;
+    }
+    
+    .header h1 {
+    	font-size: 40px;
+        margin-top: 10px; /* Adjusted the margin here */
+  		margin-bottom: 10px;
+  	}
+
+	.header p {
+    	margin-top: 15px;
+    }
+
+
+    /* Style the top navigation bar */
+    .navbar {
+      overflow: shown;
+      background-color: #333;
+      
+    }
+
+    /* Style the navigation bar links */
+    .navbar a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      margin: 15px 15px;
+      text-decoration: none;
+    }
+
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
-  
-  <marquee style="font-size: 30px;">Welcome to Sleepy Offers!</marquee>
 
-  <div>
-    <a href="index.html" class="button">Home</a>
-    <a href="offers.html" class="button">Offers</a>
+  <marquee style="font-size: 25px; background: black; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Welcome to Sleepy Offers!</marquee>
+
+  <div class="navbar">
+    <a href="offers.html">Offers</a>
+    <a href="index.html">Home</a>
   </div>
-
-  <h1>Sleepy Offers</h1>
-  <p>This is a paragraph.</p>
-
-  <p id="p1" style="color: white;">This is another paragraph.</p>
+  
+  <div class="header">
+    <h1>My Website</h1>
+    <p>A website created by me.</p>
+  </div>
 
 </body>
 
