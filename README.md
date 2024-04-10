@@ -1,3 +1,3 @@
 # sleepyoffers.github.io
 
-This site is currently in development stage.
+This site is a test site.
