@@ -155,9 +155,9 @@ color: white;
 <section>
   <nav>
     <ul>
-      <li><a href="#" onclick="showCity('london'); return false;">London</a></li>
-      <li><a href="#" onclick="showCity('paris'); return false;">Paris</a></li>
-      <li><a href="#" onclick="showCity('tokyo'); return false;">Tokyo</a></li>
+      <li><a href="#" onclick="showPage('foffers'); return false;">Featured Offers</a></li>
+      <li><a href="#" onclick="showPage('alloffers'); return false;">All Offers</a></li>
+      <li><a href="#" onclick="showPage('newoffers'); return false;">New Offers</a></li>
     </ul>
   </nav>
   
@@ -183,14 +183,14 @@ color: white;
 
 
 <script>
-function showCity(cityName) {
+function showPage(pageName) {
   // Hide all articles
   var articles = document.querySelectorAll('article');
   articles.forEach(function(article) {
     article.style.display = 'none';
   });
   
-  // Show the selected city article
+  // Show the selected page
   var selectedArticle = document.getElementById(cityName);
   if (selectedArticle) {
     selectedArticle.style.display = 'block';
