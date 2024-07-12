@@ -155,9 +155,9 @@ color: white;
 <section>
   <nav>
     <ul>
-      <li><a href="#" onclick="showPage('featured offers'); return false;">Featured Offers</a></li>
-      <li><a href="#" onclick="showPage('all offers'); return false;">All Offers</a></li>
-      <li><a href="#" onclick="showPage('new offers'); return false;">New Offers</a></li>
+      <li><a href="#" onclick="showPage('featuredoffers'); return false;">Featured Offers</a></li>
+      <li><a href="#" onclick="showPage('alloffers'); return false;">All Offers</a></li>
+      <li><a href="#" onclick="showPage('newoffers'); return false;">New Offers</a></li>
     </ul>
   </nav>
   
@@ -191,7 +191,7 @@ function showPage(pageName) {
   });
   
   // Show the selected page
-  var selectedArticle = document.getElementById(cityName);
+  var selectedArticle = document.getElementById(pageName);
   if (selectedArticle) {
     selectedArticle.style.display = 'block';
   }
