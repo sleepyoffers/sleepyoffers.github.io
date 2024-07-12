@@ -1,4 +1,3 @@
-<!-- offers.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,212 +5,197 @@
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="logo.webp" type="image/webp">
 
   <style>
-    body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
-    h1 {color: red;}
-    .button {color: blue; font-size: 20px; background-color: white; padding: 10px; text-decoration: none; display: inline-block;}
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-    /* Style the top navigation bar */
-    .navbar {
-      overflow: shown;
-      background-color: #333;
-      
+    body {
+      background-color: #2b2b2b;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Style the navigation bar links */
+    h1 {
+      color: red;
+    }
+
+    .button {
+      color: blue;
+      font-size: 20px;
+      background-color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
     .navbar a {
-      float: right;
-      display: block;
       color: white;
       text-align: center;
-      padding: 25px 40px;
-      margin: 15px 15px;
+      padding: 15px;
       text-decoration: none;
       font-size: 20px;
-	}
-    
-    .navbar a[href="offers.html"],
-    .navbar a[href="offers.html"]:hover,
-    .navbar a[href="offers.html"]:focus,
-    .navbar a[href="index.html"]:hover,
-    .navbar a[href="index.html"]:focus {
-      text-decoration: underline;
+      flex: 1;
     }
 
-
-    /* Change color on hover */
+    .navbar a.active,
     .navbar a:hover {
       background-color: #ddd;
       color: black;
     }
 
-    footer {
-	text-align: center;
-	padding: 3px;
-	background-color: #2b2b2b;
-	color: white;
+    header {
+      background-color: #7B68EE;
+      padding: 10px;
+      text-align: center;
+      font-size: 15px;
+      color: white;
     }
-    
-    hr { 
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;
-    color: white
-	} 
-    
-/* Style the header */
-header {
-  background-color: #7B68EE;
-  padding: 1px;
-  text-align: center;
-  font-size: 15px;
-  color: white;
-}
 
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 20%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #FFB6C1;
-  padding: 5px;
-}
+    nav {
+      width: 100%;
+      background: #FFB6C1;
+      padding: 10px;
+    }
 
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: 1;
-  padding: 1;
-}
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
-article {
-  float: left;
-  padding: 20px;
-  width: 80%;
-  background-color: #48D1CC;
-  height: 300px; /* only for demonstration, should be removed */
-  display: none; /* Initially hide all articles */
-}
+    nav ul li {
+      margin: 10px 0;
+    }
 
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    article {
+      padding: 20px;
+      background-color: #48D1CC;
+      display: none;
+      width: 100%;
+    }
 
-footer {
-text-align: center;
-padding: 3px;
-background-color: #2b2b2b;
-color: white;
-}
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #2b2b2b;
+      color: white;
+      margin-top: 20px;
+    }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
+    hr {
+      border-style: inset;
+      border-width: 1px;
+      color: white;
+      margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .navbar a {
+        padding: 10px;
+        font-size: 18px;
+      }
+
+      nav, article {
+        width: 100%;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
-<body>
 
-  <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Check out our amazing offers!</marquee>
+<body>
+  <marquee style="font-size: 25px; color: white;">Check out our amazing offers!</marquee>
 
   <div class="navbar">
-    <a href="offers.html">Offers</a>
     <a href="index.html" class="active">Home</a>
+    <a href="offers.html">Offers</a>
   </div>
 
-  <div class="header">
-     <h1><img src="logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
-     
+  <header>
+    <h1><img src="logo.webp" alt="Logo" style="height: 80px;"></h1>
+    <hr>
+    <p style="color:red;"><b>MUST READ BEFORE YOU COMPLETE ANY OFFERS!!!</b></p>
+    <p>* All offers should only be <b>completed once</b>! <i>If you complete the same offer more than once, you will not be able to claim your rewards. Please note that, we have a record of all offer completions.</i></p>
+    <p>* You will need to send an <b>DM on Discord to @sleepypika1</b> to claim your prize! (you must meet all the offer requirements and provide proof that you completed it or else no claim)</p>
+    <p>* After sending the claim DM, <b>please wait patiently for your reward</b>. We manually give the reward, as this is <b>to prevent errors! Also, no estimated claim time.</b></p>
+    <p>* Please report not working offer links to our email (<i>sleepysurveys01@gmail.com</i>)! Your help will be truly appreciated :)</p>
+  </header>
 
-<hr style="width:100%;text-align:left;margin-left:0">
-
-
-     <p style="color:red;"><b>MUST READ BEFORE YOU COMPLETE ANY OFFERS!!!</b></p>
-     <p style="color:white;">* All offers should only be <b>completed once</b>! <i>If you complete the same offer more than once, you will not be able to claim your rewards. Please note that, we have a record of all offer completions.</i></p>
-     <p style="color:white;">* You will need to send an <b>DM on Discord to @sleepypika1</b> to claim your prize! (you must meet all the offer requirements and provide proof that you completed it or else no claim)</p>
-     <p style="color:white;">* After sending the claim DM, <b>please wait patiently for your reward</b>. We manually give the reward, as this is <b>to prevent errors! Also, no estimated claim time.</b></p>
-     <p style="color:white;">* Please report not working offer links to our email (<i>sleepysurveys01@gmail.com</i>)! Your help will be truly appreciated :)</p>
-    
-
-<header>
-  <h2>All Offers</h2>
-</header>
-
-<section>
   <nav>
     <ul>
-      <li><a href="#" onclick="showPage('featured offers'); return false;">Featured Offers</a></li>
-      <li><a href="#" onclick="showPage('all offers'); return false;">All Offers</a></li>
-      <li><a href="#" onclick="showPage('new offers'); return false;">New Offers</a></li>
+      <li><a href="#" onclick="showPage('featured-offers'); return false;">Featured Offers</a></li>
+      <li><a href="#" onclick="showPage('all-offers'); return false;">All Offers</a></li>
+      <li><a href="#" onclick="showPage('new-offers'); return false;">New Offers</a></li>
     </ul>
   </nav>
-  
-  <article id="featured offers" style="display:block;">
-    <h1 style="color: red;">Featured Offers</h1>
-	<hr style="width:100%;text-align:left;margin-left:0">
-    
-	<button id="myButton" class="button">Example Offer!</button>
-    <p>Example Offer Info</p>
-  </article>
-  
-  <article id="all offers" style="display: none;">
-    <h1 style="color: red;">All Offers</h1>
-	<hr style="width:100%;text-align:left;margin-left:0">
-    
-  </article>
-  
-  <article id="new offers" style="display: none;">
-    <h1 style="color: red;">New Offers</h1>
-	<hr style="width:100%;text-align:left;margin-left:0">
-    
-  </article>
-</section>
 
-<script>
-function showPage(pageName) {
-  // Hide all articles
-  var articles = document.querySelectorAll('article');
-  articles.forEach(function(article) {
-    article.style.display = 'none';
-  });
-  
-  // Show the selected page
-  var selectedArticle = document.getElementById(pageName);
-  if (selectedArticle) {
-    selectedArticle.style.display = 'block';
-  }
-}
-</script>
+  <section>
+    <article id="featured-offers" style="display:block;">
+      <h1>Featured Offers</h1>
+      <hr>
+      <button id="myButton" class="button">Example Offer!</button>
+      <p>Example Offer Info</p>
+    </article>
 
+    <article id="all-offers">
+      <h1>All Offers</h1>
+      <hr>
+    </article>
 
-</body>
-</html>
+    <article id="new-offers">
+      <h1>New Offers</h1>
+      <hr>
+    </article>
+  </section>
+
+  <footer>
+    <p>Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
+  </footer>
 
   <script>
+    function showPage(pageId) {
+      var articles = document.querySelectorAll('article');
+      articles.forEach(function(article) {
+        article.style.display = 'none';
+      });
+
+      var selectedArticle = document.getElementById(pageId);
+      if (selectedArticle) {
+        selectedArticle.style.display = 'block';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var navLinks = document.querySelectorAll('.navbar a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.forEach(function(innerLink) {
+            innerLink.classList.remove('active');
+          });
+          link.classList.add('active');
+        });
+      });
+    });
+
     let clickCount = 0;
     const myButton = document.getElementById('myButton');
 
     myButton.addEventListener('click', () => {
       clickCount++;
-
       if (clickCount === 1 || clickCount === 2) {
         window.open("http://example.com", "_blank");
       } else if (clickCount === 3) {
@@ -220,33 +204,5 @@ function showPage(pageName) {
       }
     });
   </script>
-
-  </div>
-
-<footer>
-  <p>Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.<br>
-</footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Get all the navbar links
-      var navLinks = document.querySelectorAll('.navbar a');
-
-      // Add a click event listener to each link
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          // Remove 'active' class from all links
-          navLinks.forEach(function(innerLink) {
-            innerLink.classList.remove('active');
-          });
-
-          // Add 'active' class to the clicked link
-          link.classList.add('active');
-        });
-      });
-    });
-  </script>
-
 </body>
-
 </html>
