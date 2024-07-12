@@ -17,37 +17,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* Style the header */
-    .header {
-      padding: 15px;
-      text-align: left;
-      color: white;
-    }
-    
-    .header h1 {
-    	font-size: 40px;
-        margin-top: 10px;
-  	margin-bottom: 10px;
-  	}
-
-    .header h1:nth-of-type(2) {
-      font-size: 30px; /* adjust font size if needed */
-      color: white; /* change text color to white */
-      text-decoration: underline; /* underline the text */
-    }
-    
-
-    .header p {
-       margin-top: 15px;
-       margin-left: 10px;
-       margin-bottom: 10px
-    }
-
 
     /* Style the top navigation bar */
     .navbar {
@@ -100,6 +69,69 @@
     border-width: 1px;
     color: white
 	} 
+##
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #7B68EE;
+  padding: 1px;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 5px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: 1;
+  padding: 1;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  background-color: #48D1CC;
+  height: 300px; /* only for demonstration, should be removed */
+  display: none; /* Initially hide all articles */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+text-align: center;
+padding: 3px;
+background-color: #2b2b2b;
+color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
     
   </style>
 </head>
@@ -116,11 +148,6 @@
   <div class="header">
      <h1><img src="logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
      
-     <h1>All Offers</h1>
-    
-     
-     <button id="myButton" class="button">Click me for Offers!</button>
-
      <hr>
      
      <p style="color:red;"><b>MUST READ BEFORE YOU COMPLETE ANY OFFERS!!!</b></p>
@@ -129,6 +156,57 @@
      <p style="color:white;">* After sending the claim DM, <b>please wait patiently for your reward</b>. We manually give the reward, as this is <b>to prevent errors! Also, no estimated claim time.</b></p>
      <p style="color:white;">* Please report not working offer links to our email (<i>sleepysurveys01@gmail.com</i>)! Your help will be truly appreciated :)</p>
     
+<header>
+  <h2>All Offers</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showCity('london'); return false;">London</a></li>
+      <li><a href="#" onclick="showCity('paris'); return false;">Paris</a></li>
+      <li><a href="#" onclick="showCity('tokyo'); return false;">Tokyo</a></li>
+    </ul>
+  </nav>
+  
+  <article id="london" style="display:block;">
+	<button id="myButton" class="button">Click me for Offers!</button>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+  
+  <article id="paris" style="display: none;">
+    <h1>Paris</h1>
+    <p>Paris is the capital city of France. It is known for its fashion, art, and culture. The city is also famous for its landmarks such as the Eiffel Tower and the Louvre Museum.</p>
+    <p>Paris has a rich history that dates back more than two thousand years. It has been a center of government, learning, and commerce since the Middle Ages.</p>
+  </article>
+  
+  <article id="tokyo" style="display: none;">
+    <h1>Tokyo</h1>
+    <p>Tokyo is the capital city of Japan. It is one of the largest cities in the world, known for its modern skyscrapers, pop culture, and technological advancements.</p>
+    <p>Tokyo has a vibrant history and has been the political, economic, and cultural center of Japan for centuries.</p>
+  </article>
+</section>
+
+<script>
+function showCity(cityName) {
+  // Hide all articles
+  var articles = document.querySelectorAll('article');
+  articles.forEach(function(article) {
+    article.style.display = 'none';
+  });
+  
+  // Show the selected city article
+  var selectedArticle = document.getElementById(cityName);
+  if (selectedArticle) {
+    selectedArticle.style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>
 
   <script>
     let clickCount = 0;
