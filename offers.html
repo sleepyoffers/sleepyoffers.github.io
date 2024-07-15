@@ -157,6 +157,29 @@ section::after {
   clear: both;
 }
 
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .vertical-menu {
+    width: auto; /* Full width on smaller screens */
+    float: none; /* Reset float */
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 27vh;
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+  }
+
+  article {
+    width: auto; /* Full width on smaller screens */
+    float: none; /* Reset float */
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50vh; /* Adjust height as needed */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+  }
+}
+
+
+
 footer {
 text-align: center;
 padding: 3px;
