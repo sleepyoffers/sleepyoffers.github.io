@@ -72,6 +72,32 @@ body {
     color: white
 	} 
     
+/* Add space before and after paragraphs */
+p {
+  margin-left: 10px;    /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+/* Add space before and after horizontal lines */
+hr {
+  margin-left: 10px;    /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+header {
+  margin-left: 10px;    /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.vertical-menu {
+  margin-left: 10px;    /* Adjust as needed */
+}
+
+article {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+
 	/* Reset default margin and padding */
 * {
   margin: 0;
@@ -88,13 +114,12 @@ header {
   color: white;
 }
 
-/* Style the vertical menu */
 .vertical-menu {
-  width: 20%;
+  width: calc(20% - 10px);
   float: left;
-  background-color: #f2f2f2; /* Light gray background for menu */
-  height: 50vh; /* Full height of the viewport */
-  overflow-y: auto; /* Enable scrolling if menu items exceed height */
+  background-color: #f2f2f2;
+  height: 50vh;
+  overflow-y: auto;
 }
 
 .vertical-menu a {
@@ -113,15 +138,15 @@ header {
   color: white;
 }
 
-/* Style the articles */
+
 article {
   padding: 20px;
-  background-color: #48D1CC; /* Light blue background for articles */
-  display: none; /* Hide all articles initially */
-  width: 80%; /* Take 80% of the remaining width after the menu */
-  float: left; /* Float left to align with menu */
-  height: 50vh; /* Full height of the viewport */
-  overflow-y: auto; /* Enable scrolling if content exceeds height */
+  background-color: #48D1CC;
+  display: none;
+  width:  calc(80% - 10px); /* Adjusted width to accommodate margins */
+  float: right;
+  height: 50vh;
+  overflow-y: auto;
 }
 
 
