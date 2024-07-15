@@ -72,38 +72,58 @@ body {
     color: white
 	} 
     
+	/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Style the header */
 header {
   background-color: #7B68EE;
-  padding: 1px;
+  padding: 10px;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
   color: white;
 }
 
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
+/* Style the vertical menu */
+.vertical-menu {
   width: 20%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #FFB6C1;
-  padding: 5px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: 1;
-  padding: 1;
-}
-
-article {
   float: left;
-  padding: 20px;
-  width: 80%;
-  background-color: #48D1CC;
-  height: 300px; /* only for demonstration, should be removed */
-  display: none; /* Initially hide all articles */
+  background-color: #f2f2f2; /* Light gray background for menu */
+  height: 50vh; /* Full height of the viewport */
+  overflow-y: auto; /* Enable scrolling if menu items exceed height */
 }
+
+.vertical-menu a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Light gray background on hover */
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Green background for active link */
+  color: white;
+}
+
+/* Style the articles */
+article {
+  padding: 20px;
+  background-color: #48D1CC; /* Light blue background for articles */
+  display: none; /* Hide all articles initially */
+  width: 80%; /* Take 80% of the remaining width after the menu */
+  float: left; /* Float left to align with menu */
+  height: 50vh; /* Full height of the viewport */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+}
+
 
 /* Clear floats after the columns */
 section::after {
@@ -119,13 +139,7 @@ background-color: #2b2b2b;
 color: white;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
+
 </style>
 </head>
 
@@ -145,25 +159,26 @@ color: white;
     <p>* You will need to send an <b>DM on Discord to @sleepypika1</b> to claim your prize! (you must meet all the offer requirements and provide proof that you completed it or else no claim)</p>
     <p>* After sending the claim DM, <b>please wait patiently for your reward</b>. We manually give the reward, as this is <b>to prevent errors! Also, no estimated claim time.</b></p>
     <p>* Please report not working offer links to our email (<i>sleepysurveys01@gmail.com</i>)! Your help will be truly appreciated :)</p>
+  <br></br>
   </header>
 
 <header>
   <h2>All Offers</h2>
 </header>
-	  
-  <nav>
-    <ul>
-      <li><a href="#" onclick="showPage('featured-offers'); return false;">Featured Offers</a></li>
-      <li><a href="#" onclick="showPage('all-offers'); return false;">All Offers</a></li>
-      <li><a href="#" onclick="showPage('new-offers'); return false;">New Offers</a></li>
-    </ul>
-  </nav>
+
+<div class="vertical-menu">
+      <a href="#" onclick="showPage('featured-offers'); return false;">Featured Offers</a></li>
+      <a href="#" onclick="showPage('all-offers'); return false;">All Offers</a></li>
+      <a href="#" onclick="showPage('new-offers'); return false;">New Offers</a></li>
+</div>
+
 
   <section>
     <article id="featured-offers" style="display:block;">
       <h1>Featured Offers</h1>
       <hr>
       <button id="myButton" class="button">Example Offer!</button>
+      <br></br>
       <p>Example Offer Info</p>
     </article>
 
