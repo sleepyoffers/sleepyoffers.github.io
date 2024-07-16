@@ -201,6 +201,44 @@ background-color: #2b2b2b;
 color: white;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: black;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 
 </style>
@@ -217,7 +255,7 @@ color: white;
      <h1><img src="logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
 </div>
 	  
-    <p style="color:red;"><b>MUST READ BEFORE YOU COMPLETE ANY OFFERS!!!</b></p>
+    <p style="color:red;"><b>MUST READ!!!</b></p>
     <p>* To claim your prize you will need to send an email to (<i>sleepysurveys01@gmail.com</i>)!
     <p>* All offers should only be <b>completed once</b>! No reward for <b>repeat completions.</b></p>
     <p>* <b>Please wait patiently for your reward</b>. We manually give the reward, as this is <b>to prevent errors! Also, no estimated claim time.</b></p>
@@ -246,7 +284,19 @@ color: white;
   <button id="myButton" class="button">Example Offer!</button>
   <br></br>
   <p1>Example Offer Info</p1>
-</article>
+  
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+    <p style="color:red;"><b>Offer Related Info (MUST READ)</b></p>
+    <p>Example Info/Instructions</p>
+    
+    </div>
+
+    </article>
 
 
     <article id="all-offers">
@@ -292,6 +342,14 @@ color: white;
 
     let clickCount = 0;
     const myButton = document.getElementById('myButton');
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
     myButton.addEventListener('click', () => {
       clickCount++;
@@ -299,9 +357,23 @@ color: white;
         window.open("http://example.com", "_blank");
       } else if (clickCount === 3) {
         window.open("http://anotherexample.com", "_blank");
+  		modal.style.display = "block";
+
         clickCount = 0;
       }
     });
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
   </script>
 </body>
 </html>
