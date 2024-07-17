@@ -9,9 +9,12 @@
   <link rel="icon" href="logo.webp" type="image/webp">
 
 <style>
-    body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
-    h1 {color: red;}
-    .button {color: blue; font-size: 20px; background-color: white; padding: 10px; text-decoration: none; display: inline-block;}
+
+body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
+
+.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
+
+
 * {
   box-sizing: border-box;
 }
@@ -45,9 +48,9 @@ body {
   font-size: 20px;
 }
     
-.navbar a[href="offers.html"],
-.navbar a[href="offers.html"]:hover,
-.navbar a[href="offers.html"]:focus,
+.navbar a[href="books.html"],
+.navbar a[href="books.html"]:hover,
+.navbar a[href="books.html"]:focus,
 .navbar a[href="index.html"]:hover,
 .navbar a[href="index.html"]:focus {
   text-decoration: underline;
@@ -247,7 +250,7 @@ color: white;
   <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Check out our amazing offers!</marquee>
 
   <div class="navbar">
-    <a href="offers.html">Offers</a>
+    <a href="offers.html">Books</a>
     <a href="index.html" class="active">Home</a>
   </div>
 
@@ -255,57 +258,50 @@ color: white;
      <h1><img src="logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
 </div>
 	  
-    <p style="color:red;"><b>MUST READ!!!</b></p>
-    <p>* To claim your prize you will need to send an email to (<i>sleepysurveys01@gmail.com</i>)!
-    <p>* All offers should only be <b>completed once</b>! No reward for <b>repeat completions.</b></p>
-    <p>* <b>Please wait patiently for your reward</b>. We manually give the reward, as this is <b>to prevent errors! Also, no estimated claim time.</b></p>
-    <p>* Please report not working offer links to our email (<i>sleepysurveys01@gmail.com</i>)! Your help will be truly appreciated :)</p>
-    <br>
-    <p><u><b>Email Format</u></b></p>
-    <p>Subject: {Your_Discord_User_ID}</p>
-    <p>Body: {Name Of Offer that you completed} and {Attach Proof of Completion}</p>
+    <p>Example text here</p>
     <br>
   </header>
 
 <header>
-  <h2>All Offers</h2>
+  <h2>Online Books</h2>
 </header>
 
 <div class="vertical-menu">
-      <a href="#" onclick="showPage('featured-offers'); return false;">Featured Offers</a></li>
-      <a href="#" onclick="showPage('all-offers'); return false;">All Offers</a></li>
-      <a href="#" onclick="showPage('new-offers'); return false;">New Offers</a></li>
+      <a href="#" onclick="showPage('featured-books'); return false;">Featured Books</a></li>
+      <a href="#" onclick="showPage('all-books'); return false;">All Books</a></li>
+      <a href="#" onclick="showPage('new-books'); return false;">New Books</a></li>
 </div>
 
 
-<article id="featured-offers" style="display:block;">
-  <h1>Featured Offers</h1>
+<article id="featured-books" style="display:block;">
+  <h1>Featured Books</h1>
   <hr>
-  <button id="myButton" class="button">Example Offer!</button>
-  <br></br>
-  <p1>Example Offer Info</p1>
-  
+  <p1>Example Book 1</p1>
+  <br>
+  <p1>Part 1: </p1><button id="myButton" class="button">Part 1</button>
+  <br>
+	
   <!-- The Modal -->
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-    <p style="color:red;"><b>Offer Related Info (MUST READ)</b></p>
-    <p>Example Info/Instructions</p>
+    <p style="color:red;"><b>Example Part 1</b></p>
+    <p>EXAMPLE TEXT HERE</p>
     
     </div>
 
     </article>
 
 
-    <article id="all-offers">
-      <h1>All Offers</h1>
+    <article id="all-books">
+      <h1>All Books</h1>
       <hr>
     </article>
 
-    <article id="new-offers">
-      <h1>New Offers</h1>
+    <article id="new-books">
+      <h1>New Books</h1>
       <hr>
     </article>
   </section>
@@ -345,23 +341,22 @@ color: white;
     // Get the modal
     var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
     myButton.addEventListener('click', () => {
       clickCount++;
-      if (clickCount === 1 || clickCount === 2) {
+      if (clickCount === 1) {
         window.open("http://example.com", "_blank");
+      } else if (clickCount === 2) {
+        window.open("http://example123.com", "_blank");
       } else if (clickCount === 3) {
         window.open("http://anotherexample.com", "_blank");
-  		modal.style.display = "block";
-
+        modal.style.display = "block";
         clickCount = 0;
       }
     });
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
