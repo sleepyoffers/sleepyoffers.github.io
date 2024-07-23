@@ -8,7 +8,6 @@
   <link rel="icon" href="logo.webp" type="image/webp">
   <style>
     body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
-    h1 {color: red;}
     .button {color: blue; font-size: 20px; background-color: white; padding: 10px 20px; text-decoration: none; display: inline-block; margin: 10px;}
   </style>
   <title>Sleepy Offers</title>
@@ -20,7 +19,6 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
     }
-    
     /* Style the header */
     .header {
       padding: 15px;
@@ -28,85 +26,55 @@
       color: white;
     }
 
-    .header h1 {
-    	font-size: 40px;
-        margin-top: 10px;
-  	margin-bottom: 10px;
-  	}
 
+.topnav {
+  overflow: shown;
+  background-color: #2b2b2b;
+}
 
-     .header p {
-    	margin-top: 15px;
-	margin-left: 10px;
-	margin-bottom: 10px;
-    }
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 18px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px
 
-     .header p:nth-of-type(2) {
-	font-size: 20px; /* adjust font size if needed */
-	color: white; /* change text color to white */
-	text-decoration: underline; /* underline the text */
-    }
+}
 
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-    /* Style the top navigation bar */
-    .navbar {
-      overflow: shown;
-      background-color: #333;
-      
-    }
-
-    /* Style the navigation bar links */
-    .navbar a {
-      float: right;
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 25px 40px;
-      margin: 15px 15px;
-      text-decoration: none;
-      font-size: 20px;
-	}
-    
-    .navbar a[href="index.html"].active {
-      text-decoration: underline;
-    }
-
-    .navbar a[href="index.html"]:hover,
-    .navbar a[href="index.html"]:focus,
-    .navbar a[href="books.html"]:hover,
-    .navbar a[href="books.html"]:focus {
-      text-decoration: underline;
-    }
-
-
-    /* Change color on hover */
-    .navbar a:hover {
-      background-color: #ddd;
-      color: black;
-    }
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 
     footer {
 	text-align: center;
 	padding: 3px;
-	background-color: #2b2b2b;
 	color: white;
 	
     }
-    
-  </style>
+</style>
 </head>
-
 <body>
 
   <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Welcome to Sleepy Offers!</marquee>
 
-  <div class="navbar">
-    <a href="books.html">Books</a>
-    <a href="index.html" class="active">Home</a>
-  </div>
+<div class="topnav">
+  <img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 56px; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+  <a href="books.html">Books</a>
+  <a class="active" href="home.html">Home</a>
   
+
   <div class="header">
-    <h1><img src="logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
     <p>Welcome to Sleepy Offers!</p>
     <br>
     <p><u>ABOUT US</u></p>
@@ -141,5 +109,4 @@
   </script>
 
 </body>
-
 </html>
