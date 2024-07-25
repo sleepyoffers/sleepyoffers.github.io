@@ -1,78 +1,80 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="logo.webp" type="image/webp">
-  <style>
-    /* Reset default margin and padding */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      background-color: #2b2b2b;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0; /* Ensure no default margin */
-    }
+<style>
 
-    /* Style the header */
-    .header {
-      padding: 15px;
-      text-align: left;
-      color: white;
-    }
+body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
 
-    /* Add space before and after paragraphs */
-    p {
-      margin-left: 15px;
-      margin-right: 15px;
-    }
+.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
 
-.topnav {
-  overflow: shown;
-  background-color: #2b2b2b;
+
+* {
+  box-sizing: border-box;
 }
 
-.topnav a {
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+    padding: 15px;
+    text-align: left;
+}
+
+/* Logo */
+.header h1 {
+    font-size: 40px;
+    margin-top: 10px;
+}
+    
+
+/* Style the navigation bar links */
+.navbar a {
   float: right;
   display: block;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
-  padding: 20px 30px;
+  padding: 25px 40px;
+  margin: 15px 15px;
   text-decoration: none;
-  font-size: 17px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  font-size: 20px;
+}
+	
+.navbar a[href="books.html"].active {
+text-decoration: underline;
+}
+	
+.navbar a[href="books.html"],
+.navbar a[href="books.html"]:hover,
+.navbar a[href="books.html"]:focus,
+.navbar a[href="index.html"]:hover,
+.navbar a[href="index.html"]:focus {
+  text-decoration: underline;
 }
 
-.topnav a:hover {
+
+/* Change color on hover */
+.navbar a:hover {
   background-color: #ddd;
   color: black;
 }
 
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-
-    footer {
-      text-align: center;
-      padding: 3px;
-      background-color: #2b2b2b;
-      color: white;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
+footer {
+text-align: center;
+padding: 3px;
+background-color: #2b2b2b;
+color: white;
+  }
     
-    hr { 
+hr { 
   display: block;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -244,21 +246,25 @@ color: white;
   cursor: pointer;
 }
 
+
+
 </style>
 <head>
 
-
   <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Check out our amazing offers!</marquee>
 
-<div class="topnav">
-  <img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 60px; margin-left: 30px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
-  <a class="active" href="books.html">Books</a>
-  <a href="index.html">Home</a>
+  <div class="navbar">
+    <a href="books.html">Books</a>
+    <a href="index.html" class="active">Home</a>
   </div>
 
-<div class="header">	  
+<div class="header">
+     <h1><img src="logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
+</div>
+	  
     <p>Example text here</p>
     <br>
+  </header>
 
 <header>
   <h2>Online Books</h2>
