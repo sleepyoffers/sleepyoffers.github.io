@@ -6,141 +6,365 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <link rel="icon" href="logo.webp" type="image/webp">
-  <style>
-    body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
-    h1 {color: red;}
-    .button {color: blue; font-size: 20px; background-color: white; padding: 10px 20px; text-decoration: none; display: inline-block; margin: 10px;}
-  </style>
-  <title>Sleepy Offers</title>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+  body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
+.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
+
+  .header {
+    padding: 10px;
+    text-align: left;
+    color: white;
+  }
+
+  .header h1 {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .header p {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .header p:nth-of-type(2) {
+    font-size: 20px;
+    color: white;
+    text-decoration: underline;
+  }
+
+  .navbar {
+    overflow: shown;
+    background-color: #333;
+  }
+
+  .navbar a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 25px 40px;
+    margin: 15px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 20px;
+  }
+
+  .navbar a[href="index.html"].active,
+  .navbar a[href="books.html"].active {
+    text-decoration: underline;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #2b2b2b;
+    color: white;
+  }
+
     
-    /* Style the header */
-    .header {
-      padding: 10px;
-      text-align: left;
-      color: white;
-    }
-
-    .header h1 {
-    	font-size: 40px;
-        margin-top: 10px;
-  	margin-bottom: 10px;
-  	}
-
-
-     .header p {
-    	margin-top: 15px;
-	margin-left: 10px;
-	margin-bottom: 10px;
-    }
-
-     .header p:nth-of-type(2) {
-	font-size: 20px; /* adjust font size if needed */
-	color: white; /* change text color to white */
-	text-decoration: underline; /* underline the text */
-    }
-
-
-    /* Style the top navigation bar */
-    .navbar {
-      overflow: shown;
-      background-color: #333;
-      
-    }
-
-    /* Style the navigation bar links */
-    .navbar a {
-      float: right;
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 25px 40px;
-      margin: 15px 15px;
-      text-decoration: none;
-      font-size: 20px;
-      margin-right: 20px;
-	}
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  color: white
+} 
     
-    .navbar a[href="index.html"].active {
-      text-decoration: underline;
-    }
+/* Add space before and after paragraphs */
+p {
+  margin-left: 10px;    /* Adjust as needed */
+}
 
-    .navbar a[href="index.html"]:hover,
-    .navbar a[href="index.html"]:focus,
-    .navbar a[href="books.html"]:hover,
-    .navbar a[href="books.html"]:focus {
-      text-decoration: underline;
-    }
+/* Add space before and after horizontal lines */
+hr {
+  margin-left: 0;    /* Adjust as needed */
+  margin-right: 0; /* Adjust as needed */
+}
+
+header {
+  margin-left: 10px;    /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.vertical-menu {
+  margin-left: 10px;    /* Adjust as needed */
+  margin-bottom: 10px;
+}
+
+article {
+  margin-right: 10px; /* Adjust as needed */
+  margin-bottom: 10px;
+
+}
+
+footer {
+  margin-bottom: 15px;
+}
+
+	/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the header */
+header {
+  background-color: #7B68EE;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+
+.vertical-menu {
+  width: calc(20% - 10px);
+  float: left;
+  background-color: #f2f2f2;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.vertical-menu a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Light gray background on hover */
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Green background for active link */
+  color: white;
+}
 
 
-    /* Change color on hover */
-    .navbar a:hover {
-      background-color: #ddd;
-      color: black;
-    }
+article {
+  padding: 20px;
+  background-color: #48D1CC;
+  display: none;
+  width:  calc(80% - 10px); /* Adjusted width to accommodate margins */
+  float: right;
+  height: 50vh;
+  overflow-y: auto;
+}
 
-    footer {
-	text-align: center;
-	padding: 3px;
-	background-color: #2b2b2b;
-	color: white;
-	
-    }
-    
-  </style>
-</head>
 
-<body>
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Welcome to Sleepy Offers!</marquee>
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .vertical-menu {
+    width: auto; /* Full width on smaller screens */
+    float: none; /* Reset float */
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: auto;
+	margin-top: auto;
+    height: auto;
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+  }
+
+  article {
+    width: auto; /* Full width on smaller screens */
+    float: none; /* Reset float */
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+	margin-top: auto;
+    height: 50vh; /* Adjust height as needed */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+  }
+}
+
+footer {
+text-align: center;
+padding: 3px;
+background-color: #2b2b2b;
+color: white;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: black;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+</style>
+<head>
+
+  <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Check out our amazing offers!</marquee>
 
   <div class="navbar">
     <a href="books.html">Books</a>
     <a href="index.html" class="active">Home</a>
   </div>
-  
-  <div class="header">
+
+<div class="header">
     <h1><img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 80px; margin-left: 10px; margin-bottom: 10px"></h1>
-    <p>Welcome to Sleepy Offers!</p>
-    <br>
-    <p><u>ABOUT US</u></p>
-    <p>Enjoy reading online books? Sleepy Offers is the perfect site for you!</p>
-    <p>At Sleepy Offers, you can read tons of online books for free. Read all for free, no hidden fees*.</p>
-    <p>So what are you waiting for? Click on the "Books" page now and start your reading journey at Sleepy Offers now!</p>
+<p>Example text here</p>
+	      <br>
 
-  </div>
 
-<footer>
-  <p>Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.<br>
-</footer>
+<header>
+  <h2>Online Books</h2>
+</header>
+
+<div class="vertical-menu">
+      <a href="#" onclick="showPage('featured-books'); return false;">Featured Books</a></li>
+      <a href="#" onclick="showPage('all-books'); return false;">All Books</a></li>
+      <a href="#" onclick="showPage('new-books'); return false;">New Books</a></li>
+</div>
+
+
+<article id="featured-books" style="display:block;">
+  <h2>Featured Books</h2>
+  <hr>
+  <p1>Example Book 1</p1>
+  <br>
+  <p1>Part 1: </p1><button id="myButton" class="button">Part 1</button>
+  <br>
+	
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+    <p style="color:red;"><b>Example Part 1</b></p>
+    <p>EXAMPLE TEXT HERE</p>
+    
+    </div>
+
+    </article>
+
+
+    <article id="all-books">
+      <h2>All Books</h2>
+      <hr>
+    </article>
+
+    <article id="new-books">
+      <h2>New Books</h2>
+      <hr>
+    </article>
+  </section>
+
+  <footer>
+    <p>Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
+  </footer>
+</head>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Get all the navbar links
-      var navLinks = document.querySelectorAll('.navbar a');
+    function showPage(pageId) {
+      var articles = document.querySelectorAll('article');
+      articles.forEach(function(article) {
+        article.style.display = 'none';
+      });
 
-      // Add a click event listener to each link
+      var selectedArticle = document.getElementById(pageId);
+      if (selectedArticle) {
+        selectedArticle.style.display = 'block';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var navLinks = document.querySelectorAll('.navbar a');
       navLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-          // Remove 'active' class from all links
           navLinks.forEach(function(innerLink) {
             innerLink.classList.remove('active');
           });
-
-          // Add 'active' class to the clicked link
           link.classList.add('active');
         });
       });
     });
+
+    let clickCount = 0;
+    const myButton = document.getElementById('myButton');
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    myButton.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 1) {
+        window.open("http://example.com", "_blank");
+      } else if (clickCount === 2) {
+        window.open("http://example123.com", "_blank");
+      } else if (clickCount === 3) {
+        window.open("http://anotherexample.com", "_blank");
+        modal.style.display = "block";
+        clickCount = 0;
+      }
+    });
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
   </script>
-
 </body>
-
 </html>
