@@ -6,69 +6,102 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <link rel="icon" href="logo.webp" type="image/webp">
-<style>
-  body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
+  <style>
+    body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
 .button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
+  <title>Sleepy Offers</title>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    /* Style the header */
+    .header {
+      padding: 10px;
+      text-align: left;
+      color: white;
+    }
 
-  .header {
-    padding: 10px;
-    text-align: left;
-    color: white;
-  }
+    .header h1 {
+    	font-size: 40px;
+        margin-top: 10px;
+  	margin-bottom: 10px;
+  	}
 
-  .header h1 {
-    font-size: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
 
-  .header p {
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
+     .header p {
+    	margin-top: 15px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+    }
 
-  .header p:nth-of-type(2) {
-    font-size: 20px;
-    color: white;
-    text-decoration: underline;
-  }
+     .header p:nth-of-type(2) {
+	font-size: 20px; /* adjust font size if needed */
+	color: white; /* change text color to white */
+	text-decoration: underline; /* underline the text */
+    }
 
-  .navbar {
-    overflow: shown;
-    background-color: #333;
-  }
 
-  .navbar a {
-    float: right;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 25px 40px;
-    margin: 15px 15px;
-    text-decoration: none;
-    font-size: 20px;
-    margin-right: 20px;
-  }
+/* Style the top navigation bar */
+.navbar {
+  overflow: shown;
+  background-color: #333;
+}
 
-  .navbar a[href="index.html"].active,
-  .navbar a[href="books.html"].active {
-    text-decoration: underline;
-  }
+/* Style the navigation bar links */
+.navbar a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 25px 40px;
+  margin: 15px 0; 
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 20px;
+}
 
-  .navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+/* Active link styling */
+.navbar a.active {
+  text-decoration: underline;
+}
 
-  footer {
-    text-align: center;
-    padding: 3px;
-    background-color: #2b2b2b;
-    color: white;
-  }
+/* Hover effects */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+    .navbar a[href="books.html"]:hover,
+    .navbar a[href="books.html"]:focus,
+    .navbar a[href="index.html"]:hover,
+    .navbar a[href="index.html"]:focus {
+      text-decoration: underline;
+    }
+
+
+    footer {
+	text-align: center;
+	padding: 3px;
+	background-color: #2b2b2b;
+	color: white;
+	
+    }
+    
 
     
+	/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 hr { 
   display: block;
   margin-top: 0.5em;
@@ -79,17 +112,6 @@ hr {
   border-width: 1px;
   color: white
 } 
-    
-/* Add space before and after paragraphs */
-p {
-  margin-left: 10px;    /* Adjust as needed */
-}
-
-/* Add space before and after horizontal lines */
-hr {
-  margin-left: 0;    /* Adjust as needed */
-  margin-right: 0; /* Adjust as needed */
-}
 
 header {
   margin-left: 10px;    /* Adjust as needed */
@@ -104,20 +126,9 @@ header {
 article {
   margin-right: 10px; /* Adjust as needed */
   margin-bottom: 10px;
-
 }
 
-footer {
-  margin-bottom: 15px;
-}
-
-	/* Reset default margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+    
 /* Style the header */
 header {
   background-color: #7B68EE;
@@ -150,7 +161,6 @@ header {
   background-color: #04AA6D; /* Green background for active link */
   color: white;
 }
-
 
 article {
   padding: 20px;
@@ -194,14 +204,7 @@ section::after {
     overflow-y: auto; /* Enable vertical scrolling if necessary */
   }
 }
-
-footer {
-text-align: center;
-padding: 3px;
-background-color: #2b2b2b;
-color: white;
-}
-
+    
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -240,16 +243,14 @@ color: white;
   cursor: pointer;
 }
 
-
-
-</style>
+  </style>
 <head>
 
   <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Check out our amazing offers!</marquee>
 
   <div class="navbar">
-    <a href="books.html">Books</a>
-    <a href="index.html" class="active">Home</a>
+    <a href="books.html" class="active">Books</a>
+    <a href="index.html">Home</a>
   </div>
 
 <div class="header">
@@ -284,7 +285,7 @@ color: white;
     <div class="modal-content">
       <span class="close">&times;</span>
     <p style="color:red;"><b>Example Part 1</b></p>
-    <p>EXAMPLE TEXT HERE</p>
+    <p3 style="margin-left: 10px;">EXAMPLE TEXT HERE</p3>
     
     </div>
 
