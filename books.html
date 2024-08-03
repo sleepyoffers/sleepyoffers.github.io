@@ -325,7 +325,7 @@ function move() {
       }
       
       if (width == 80) {
-        window.open("http://example.com", "_blank");
+        window.open("", "_blank");
       }
     }
   }
@@ -386,11 +386,11 @@ function move() {
     myButton.addEventListener('click', () => {
       clickCount++;
       if (clickCount === 1) {
-        window.open("http://example.com", "_blank");
+        window.open("", "_blank");
       } else if (clickCount === 2) {
-        window.open("http://example123.com", "_blank");
+        window.open("", "_blank");
       } else if (clickCount === 3) {
-        window.open("http://anotherexample.com", "_blank");
+        window.open("", "_blank");
         modal.style.display = "block";
         clickCount = 0;
       }
