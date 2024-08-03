@@ -316,16 +316,21 @@ function move() {
 
         clearInterval(id);
         i = 0;
-      } else {
+      }
+      
+	  else {
         width++;
         elem.style.width = width + "%";
         elem.innerHTML = width  + "%";
+      }
+      
+      if (width == 50) {
+        window.open("http://example.com", "_blank");
       }
     }
   }
 }
 </script>
-
     </article>
 
 
