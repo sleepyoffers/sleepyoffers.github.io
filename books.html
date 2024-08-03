@@ -223,6 +223,13 @@ article {
   cursor: pointer;
 }
 
+/* Clear floats after the columns */
+section::after, .topnav::after, .vertical-menu::after, article::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
   </style>
 <head>
 
