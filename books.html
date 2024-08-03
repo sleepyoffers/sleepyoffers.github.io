@@ -287,23 +287,38 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
+      
 <div id="myContainer">
   <div id="myProgress">
     <div id="myBar">0%</div>
   </div>
   <br>
+</div>
+
+<div id="MoveButton">
   <button onclick="move()" style="color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;">Click Me For Free Access</button> 
+</div>
+
+<div id="myContainerClicked">
+  <p3 style="color: red"><b>Loading, please wait...</b></p3>
 </div>
 
 <div id="PartContainer">
     <p style="color:#FF4500; margin-left: 10px;"><b>Example Part 1</b></p>
     <p3 style="margin-left: 10px;">EXAMPLE TEXT HERE</p3>
-<div>
+</div>
 
 <script>
 PartContainer.style.display = "none";
+myContainerClicked.style.display = "none";
+myContainer.style.display = "block";
+MoveButton.style.display = "block";
 var i = 0;
 function move() {
+  MoveButton.style.display = "none";
+  myContainer.style.display = "block";
+  myContainerClicked.style.display = "block";
+  
   if (i == 0) {
     i = 0;
     var elem = document.getElementById("myBar");
@@ -312,6 +327,7 @@ function move() {
     function frame() {
       if (width >= 100) {
         myContainer.style.display = "none";
+  		myContainerClicked.style.display = "none";
 		PartContainer.style.display = "block";
 
         clearInterval(id);
