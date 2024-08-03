@@ -236,7 +236,7 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
 }
 
 #myBar {
-  width: 1%;
+  width: 0%;
   height: 30px;
   background-color: #04AA6D;
   text-align: center;
@@ -289,7 +289,7 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
       <span class="close">&times;</span>
 <div id="myContainer">
   <div id="myProgress">
-    <div id="myBar">1%</div>
+    <div id="myBar">0%</div>
   </div>
   <br>
   <button onclick="move()" style="color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;">Click Me For Free Access</button> 
@@ -305,7 +305,7 @@ PartContainer.style.display = "none";
 var i = 0;
 function move() {
   if (i == 0) {
-    i = 1;
+    i = 0;
     var elem = document.getElementById("myBar");
     var width = 1;
     var id = setInterval(frame, 100);
