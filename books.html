@@ -8,15 +8,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="logo.webp" type="image/webp">
-  <style>
-    body {background-color: #2b2b2b; color: white; font-family: Arial, sans-serif;}
-.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
   <title>Sleepy Offers</title>
+
+<style>
+.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
+	
+body {
+  background-color: #2b2b2b;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
  
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
 
 	/* Reset default margin and padding */
 * {
@@ -26,23 +28,23 @@
 }    
 
 
-     .header p {
-	margin-left: 15px;
-	margin-bottom: 10px;
-    }
+.header p {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
 
-     .header p:nth-of-type(2) {
-	font-size: 20px; /* adjust font size if needed */
-	color: white; /* change text color to white */
-	text-decoration: underline; /* underline the text */
-    }
+/* Style the About Us Heading */
+.header p:nth-of-type(2) {
+  font-size: 20px; /* adjust font size if needed */
+  text-decoration: underline; /* underline the text */
+}
 
 
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
-  background-color: red;
-  height: 79px
+  height: 79px;
+  background-color: none;
 }
 
 /* Style the navigation bar links */
@@ -74,13 +76,19 @@
 }
 
 
-    footer {
-	text-align: center;
-	padding: 3px;
-	background-color: #2b2b2b;
-	color: white;
-	
-    }
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    padding: 25px 30px;
+  }
+}
+    
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #2b2b2b;
+  color: white;
+}
  
 hr { 
   display: block;
@@ -94,17 +102,17 @@ hr {
 } 
 
 header {
-  margin-left: 10px;    /* Adjust as needed */
-  margin-right: 10px; /* Adjust as needed */
+  margin-left: 20px;    /* Adjust as needed */
+  margin-right: 20px; /* Adjust as needed */
 }
 
 .vertical-menu {
-  margin-left: 10px;    /* Adjust as needed */
+  margin-left: 20px;    /* Adjust as needed */
   margin-bottom: 10px;
 }
 
 article {
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 20px; /* Adjust as needed */
   margin-bottom: 10px;
 }
 
@@ -119,7 +127,7 @@ header {
 }
 
 .vertical-menu {
-  width: calc(20% - 10px);
+  width: calc(20% - 20px);
   float: left;
   background-color: #f2f2f2;
   height: 50vh;
@@ -146,7 +154,7 @@ article {
   padding: 20px;
   background-color: #48D1CC;
   display: none;
-  width:  calc(80% - 10px); /* Adjusted width to accommodate margins */
+  width:  calc(80% - 20px); /* Adjusted width to accommodate margins */
   float: right;
   height: 50vh;
   overflow-y: auto;
@@ -165,8 +173,8 @@ section::after {
   .vertical-menu {
     width: auto; /* Full width on smaller screens */
     float: none; /* Reset float */
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: auto;
 	margin-top: auto;
     height: auto;
@@ -176,9 +184,8 @@ section::after {
   article {
     width: auto; /* Full width on smaller screens */
     float: none; /* Reset float */
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 	margin-top: auto;
     height: 50vh; /* Adjust height as needed */
     overflow-y: auto; /* Enable vertical scrolling if necessary */
@@ -230,9 +237,9 @@ section::after {
 
 
   <div class="topnav">
-    <img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 73px; margin-left: 15px; margin-top: 3px; margin-bottom: 3px;">
-    <a href="books.html" class="active">Books</a>
-    <a href="index.html" style="margin-right: 20px;">Home</a>
+    <img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 73px; margin-left: 20px; margin-top: 3px; margin-bottom: 3px;">
+    <a href="books.html" class="active" style="margin-right: 20px;">Books</a>
+    <a href="index.html">Home</a>
   </div>
   
 
