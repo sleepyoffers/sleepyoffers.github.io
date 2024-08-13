@@ -69,19 +69,80 @@ body {
   color: black;
 }
 
+/* Default (desktop) styles */
+.footer {
+  background-color: #1f1f1f;
+  padding: 20px 0;
+  font-size: 16px;
+}
 
+.footer-text {
+  color: #bbb;
+  text-align: left; /* Aligns the text to the left */
+  margin-bottom: 20px;
+  padding: 0 20px; /* Add padding for better spacing */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-heading {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+/* Mobile (600px and below) styles */
+@media screen and (max-width: 600px) {
+  .footer {
+    background-color: #2a2a2a;
+    padding: 10px 0;
+   }
+
+  .footer-text {
+    text-align: left; /* Align text to the left on mobile */
+    margin-bottom: 10px;
+    padding: 0 10px; /* Adjust padding for mobile */
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start; /* Align all content to the left */
+    padding: 0 10px;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    text-align: left; /* Ensure text in sections is aligned to the left */
+  }
+
+  .footer-heading {
+    margin-bottom: 5px;
+  }
+}
+    
 /* Mobile */
 @media screen and (max-width: 600px) {
   .topnav a {
     padding: 25px 30px;
   }
-}
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
 }
 
   </style>
@@ -110,29 +171,30 @@ body {
 
 <br>
 
-<footer style="background-color: #1f1f1f; padding: 20px 0; font-size: 16px;">
-  <p style="color: #bbb; text-align: center; margin-bottom: 20px;">Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
+<footer class="footer">
+  <p class="footer-text">Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
 
-  <div style="display: flex; justify-content: space-between; padding: 0 20px;">
-    <div style="text-align: left;">
-      <p style="color: red; font-weight: bold; margin-bottom: 10px;">Legal</p>
-      <p><a href="https://sleepyoffers.github.io/terms.html" style="color: #bbb; text-decoration: none;" onmouseover="this.style.color='#0000EE'; this.style.textDecoration='underline'" onmouseout="this.style.color='#bbb'; this.style.textDecoration='none'">Terms of Services</a></p>
-      <p><a href="https://sleepyoffers.github.io/privacy.html" style="color: #bbb; text-decoration: none;" onmouseover="this.style.color='#0000EE'; this.style.textDecoration='underline'" onmouseout="this.style.color='#bbb'; this.style.textDecoration='none'">Privacy Policy</a></p>
+  <div class="footer-content">
+    <div class="footer-section">
+      <p class="footer-heading">Legal</p>
+      <p><a href="https://sleepyoffers.github.io/terms.html" class="footer-link">Terms of Services</a></p>
+      <p><a href="https://sleepyoffers.github.io/privacy.html" class="footer-link">Privacy Policy</a></p>
     </div>
 
-    <div style="text-align: left;">
-      <p style="color: red; font-weight: bold; margin-bottom: 10px;">Business</p>
-      <p><a href="https://sleepyoffers.github.io/advinfo.html" style="color: #bbb; text-decoration: none;" onmouseover="this.style.color='#0000EE'; this.style.textDecoration='underline'" onmouseout="this.style.color='#bbb'; this.style.textDecoration='none'">Advertise at Sleepy Offers</a></p>
-      <p><a href="https://sleepyoffers.github.io/publish.html" style="color: #bbb; text-decoration: none;" onmouseover="this.style.color='#0000EE'; this.style.textDecoration='underline'" onmouseout="this.style.color='#bbb'; this.style.textDecoration='none'">Publish at Sleepy Offers</a></p>
+    <div class="footer-section">
+      <p class="footer-heading">Business</p>
+      <p><a href="https://sleepyoffers.github.io/advinfo.html" class="footer-link">Advertise at Sleepy Offers</a></p>
+      <p><a href="https://sleepyoffers.github.io/publish.html" class="footer-link">Publish at Sleepy Offers</a></p>
     </div>
 
-    <div style="text-align: left;">
-      <p style="color: red; font-weight: bold; margin-bottom: 10px;">Support</p>
-      <p><a href="mailto:sleepysurveys01@gmail.com" style="color: #bbb; text-decoration: none;" onmouseover="this.style.color='#0000EE'; this.style.textDecoration='underline'" onmouseout="this.style.color='#bbb'; this.style.textDecoration='none'">Contact Us</a></p>
-      <p><a href="https://sleepyoffers.github.io/faq.html" style="color: #bbb; text-decoration: none;" onmouseover="this.style.color='#0000EE'; this.style.textDecoration='underline'" onmouseout="this.style.color='#bbb'; this.style.textDecoration='none'">FAQ</a></p>
+    <div class="footer-section">
+      <p class="footer-heading">Support</p>
+      <p><a href="mailto:sleepysurveys01@gmail.com" class="footer-link">Contact Us</a></p>
+      <p><a href="https://sleepyoffers.github.io/faq.html" class="footer-link">FAQ</a></p>
     </div>
   </div>
 </footer>
+
 
 
   <script>
