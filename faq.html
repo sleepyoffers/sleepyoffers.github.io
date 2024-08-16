@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="logo.webp" type="image/webp">
+  <title>Sleepy Offers</title>
+
+<style>
+.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
+	
+body {
+  background-color: #2b2b2b;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ 
+
+	/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}    
+
+
+.header p {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  height: 79px;
+  background-color: none;
+}
+
+/* Style the navigation bar links */
+.topnav a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 25px 40px;
+  margin: 10px 0; 
+  height: 73px;
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* Active link styling */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+  text-decoration: underline;
+}
+
+/* Hover effects */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .topnav a {
+    padding: 25px 30px;
+  }
+}
+    
+/* Default (desktop) styles */
+.footer {
+  background-color: #1f1f1f;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 16px;
+}
+
+.footer-text {
+  color: #bbb;
+  text-align: left; /* Aligns the text to the left */
+  margin-bottom: 20px;
+  padding: 0 20px; /* Add padding for better spacing */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-heading {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+/* Mobile (600px and below) styles */
+@media screen and (max-width: 600px) {
+  .footer {
+    background-color: #2a2a2a;
+    padding: 10px 0;
+   }
+
+  .footer-text {
+    text-align: left; /* Align text to the left on mobile */
+    margin-bottom: 10px;
+    padding: 0 20px; /* Adjust padding for mobile */
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start; /* Align all content to the left */
+    padding: 0 20px;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    text-align: left; /* Ensure text in sections is aligned to the left */
+  }
+
+  .footer-heading {
+    margin-bottom: 5px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <marquee style="font-size: 25px; color: white; margin: 0; padding: 0; border: none; display: block; overflow: hidden;">Welcome to Sleepy Offers!</marquee>
+
+  <div class="topnav">
+    <img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 73px; margin-left: 20px; margin-top: 3px; margin-bottom: 3px;">
+    <a href="books.html" style="margin-right: 20px;">Books</a>
+    <a href="index.html" class="active">Home</a>
+  </div>
+  
+  <div class="header">
+  	<br>
+    <p style="font-size: 20px;"><u>Sleepy Offers - Frequently Asked Questions (FAQ)</u></p>
+    <p>EXAMPLE TEXT HERE</p>
+  </div>
+
+<footer class="footer">
+  <p class="footer-text">Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
+
+  <div class="footer-content">
+    <div class="footer-section">
+      <p class="footer-heading">Legal</p>
+      <p><a href="https://sleepyoffers.github.io/terms.html" class="footer-link">Terms of Services</a></p>
+      <p><a href="https://sleepyoffers.github.io/privacy.html" class="footer-link">Privacy Policy</a></p>
+    </div>
+
+    <div class="footer-section">
+      <p class="footer-heading">Business</p>
+      <p><a href="https://sleepyoffers.github.io/advinfo.html" class="footer-link">Advertise at Sleepy Offers</a></p>
+      <p><a href="https://sleepyoffers.github.io/publish.html" class="footer-link">Publish at Sleepy Offers</a></p>
+    </div>
+
+    <div class="footer-section">
+      <p class="footer-heading">Support</p>
+      <p><a href="mailto:sleepysurveys01@gmail.com" class="footer-link">Contact Us</a></p>
+      <p><a href="https://sleepyoffers.github.io/faq.html" class="footer-link">FAQ</a></p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get all the navbar links
+      var navLinks = document.querySelectorAll('.navbar a');
+
+      // Add a click event listener to each link
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          // Remove 'active' class from all links
+          navLinks.forEach(function(innerLink) {
+            innerLink.classList.remove('active');
+          });
+
+          // Add 'active' class to the clicked link
+          link.classList.add('active');
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
