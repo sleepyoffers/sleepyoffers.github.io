@@ -232,6 +232,20 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
   color: white;
 }
 
+
+  .ad-banner {
+    width: 728px;
+    height: 90px;
+  }
+
+@media screen and (max-width: 600px;) {
+    .ad-banner {
+      width: 320px; /* Adjust width for mobile screens */
+      height: 100px; /* Adjust height for mobile screens */
+    }
+  }
+  
+  
 /* Default (desktop) styles */
 .footer {
   background-color: #1f1f1f;
@@ -355,7 +369,8 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
 
 <div id="myContainerClicked">
   <p3 style="color: red"><b>Loading, please wait...</b></p3>
-  <img src="Lexamplead.jpg" alt="Example Ad Slot" width="320" height="100">
+  <br>
+  <img src="examplead1.jpg" alt="Example Ad Slot" class="ad-banner">
 </div>
 
 <div id="PartContainer">
