@@ -193,7 +193,7 @@ article {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 100%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -364,13 +364,14 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
 </div>
 
 <div id="MoveButton">
-  <button onclick="move()" style="color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;">Click Me For Free Access</button> 
+  <button onclick="move()" style="color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;">Click Me For Free Access</button>
 </div>
 
 <div id="myContainerClicked">
   <img src="examplead1.png" alt="Example Ad Slot" class="ad-banner">
-  <br>
-  <p3 style="color: red"><b>Loading, please wait...</b></p3>
+  <br><br>
+  <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
+
 </div>
 
 <div id="PartContainer">
@@ -393,7 +394,7 @@ function move() {
     i = 0;
     var elem = document.getElementById("myBar");
     var width = 1;
-    var id = setInterval(frame, 100);
+    var id = setInterval(frame, 300);
     function frame() {
       if (width >= 100) {
         myContainer.style.display = "none";
@@ -413,8 +414,7 @@ function move() {
   }
 }
 </script>
-    </article>
-
+</article>
 
     <article id="all-books">
       <h2 style="color:#FF4500">All Books</h2>
@@ -493,17 +493,9 @@ function move() {
     var span = document.getElementsByClassName("close")[0];
 
     myButton.addEventListener('click', () => {
-      clickCount++;
-      if (clickCount === 1) {
-        window.open("", "_blank");
-      } else if (clickCount === 2) {
-        window.open("", "_blank");
-      } else if (clickCount === 3) {
-        window.open("", "_blank");
-        modal.style.display = "block";
-        clickCount = 0;
-      }
+      modal.style.display = "block";
     });
+    
 
 
 // When the user clicks on <span> (x), close the modal
