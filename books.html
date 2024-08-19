@@ -234,16 +234,12 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
 
 /*Leaderboard Ad*/
 .ad-banner {
-  width: 728px;
-  height: 90px;
-}
-
-/* Mobile */
-@media screen and (max-width: 600px) {
-  .ad-banner {
-    width: 100%; /* Makes the ad responsive */
-    height: auto;
-  }
+  max-width: 100%;
+  height: auto;
+  display: block;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack items vertically */
 }
 
   
@@ -369,7 +365,7 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
 </div>
 
 <div id="myContainerClicked">
-  <img src="examplead1.png" alt="Example Ad Slot" class="ad-banner">
+  <img src="https://sleepyoffers.github.io/examplead1.png" alt="Example Ad Slot" class="ad-banner">
   <br><br>
   <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
 </div>
