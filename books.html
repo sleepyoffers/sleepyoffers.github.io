@@ -232,11 +232,16 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
   color: white;
 }
 
+/* Improved Ad Banner Styles */
+.ad-banner-container {
+  max-width: 80%; /* Adjust width as necessary */
+  margin: 20px auto; /* Center the ad and add margin for spacing */
+  text-align: center; /* Center the ad content */
+}
+
 .ad-banner {
   max-width: 100%;
   height: auto;
-  margin: 20px auto; /* Center the ad and add margin for spacing */
-  text-align: center; /* Center the ad content */
 }
 
 /* Mobile responsive */
@@ -367,7 +372,7 @@ section::after, .topnav::after, .vertical-menu::after, article::after {
   <button onclick="move()" style="color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;">Click Me For Free Access</button>
 </div>
 
-<div id="myContainerClicked">
+<div id="myContainerClicked" class="ad-banner-container">
   <img src="https://sleepyoffers.github.io/examplead1.png" alt="Example Ad Slot" class="ad-banner">
   <br><br>
   <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
