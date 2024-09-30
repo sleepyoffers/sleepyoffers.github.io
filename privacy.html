@@ -75,6 +75,26 @@ body {
     padding: 25px 30px;
   }
 }
+
+a.header-link:link {
+  text-decoration: none;
+  color: white; /* White for default links */
+}
+
+a.header-link:visited {
+  text-decoration: none;
+  color: #cccccc; /* Light gray for visited links */
+}
+
+a.header-link:hover {
+  text-decoration: underline;
+  color: #ffd700; /* Gold for hover */
+}
+
+a.header-link:active {
+  text-decoration: underline;
+  color: #ff6347; /* Tomato red for active */
+}
     
 /* Default (desktop) styles */
 .footer {
@@ -158,10 +178,29 @@ body {
   <div class="header">
   	<br>
 	<p style="font-size: 20px; color: red;"><u><b>Privacy Policy</b></u></p>
-    <p><b>1. Introduction</b></p>
+    
+    <hr style="margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
+    
+    <p><b id="terms1"># Navigation Menu</b></p>
+    
+    <div style="margin-left: 20px;">
+      <a href="#privacy1" class="header-link" style="display: block; margin-bottom: 1px;">1. Introduction</a><br>
+      <a href="#privacy2" class="header-link" style="display: block; margin-bottom: 1px;">2. Information We Collect</a><br>
+      <a href="#privacy3" class="header-link" style="display: block; margin-bottom: 1px;">3. How We Use Your Information</a><br>
+      <a href="#privacy4" class="header-link" style="display: block; margin-bottom: 1px;">4. Sharing your information</a><br>
+      <a href="#privacy5" class="header-link" style="display: block; margin-bottom: 1px;">5. Your Rights</a><br>
+      <a href="#privacy6" class="header-link" style="display: block; margin-bottom: 1px;">6. Changes to This Privacy Policy</a><br>
+      <a href="#privacy7" class="header-link" style="display: block; margin-bottom: 1px;">7. Contact Information</a><br>
+
+	</div>
+
+    <hr style="margin-left: 20px; margin-right: 20px; margin-top: 0px; margin-bottom: 20px;">
+
+    
+    <p><b id="privacy1">1. Introduction</b></p>
     <p>Welcome to ("SleepyOffers by SleepySurveys"). We are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines the types of information we collect from you, how we use it, and the measures we take to safeguard it.</p>
     
-    <p><b>2. Information We Collect</b></p>
+    <p><b id="privacy2">2. Information We Collect</b></p>
     <p>We may collect the following types of information from you:</p>
 	<ul style="margin-left: 35px; margin-bottom: 10px;">
     	<li>Personal Information: Nickname, email address, and any other information you provide to us.</li>
@@ -169,7 +208,7 @@ body {
         <li>Cookies and Tracking Technologies: Information collected through cookies and similar tracking technologies to enhance your experience on our website.</li>
 	</ul>
     
-    <p><b>3. How We Use Your Information</b></p>
+    <p><b id="privacy3">3. How We Use Your Information</b></p>
 	<p>We use your information for the following purposes:</p>
 	<ul style="margin-left: 35px; margin-bottom: 10px;">
     	<li>To provide, maintain, and improve our website and services.</li>
@@ -180,10 +219,10 @@ body {
         <li>To comply with legal obligations and protect our rights.</li>
 	</ul>
     
-    <p><b>4. Sharing your information</b></p>
+    <p><b id="privacy4">4. Sharing your information</b></p>
     <p>By accessing and using this website ("SleepyOffers by SleepySurveys"), you must accept and agree to us sharing your personal information to our business/advertising partners. If you do not agree to us sharing your data, then you should not use this Website.</p>
     
-    <p><b>5. Your Rights</b></p>
+    <p><b id="privacy5">5. Your Rights</b></p>
     <p>You have the right to submit an "Informal Resolution" to our email address (in "Contact Information" Section"), for these following:</p>
 	<ul style="margin-left: 35px; margin-bottom: 10px;">
 		<li>Request a deletion of your personal information, without any valid reason.</li>
@@ -191,10 +230,10 @@ body {
         <li>Opt-out of our mailing list.</li>
 	</ul>
     
-    <p><b>6. Changes to This Privacy Policy</b></p>
+    <p><b id="privacy6">6. Changes to This Privacy Policy</b></p>
     <p>We reserve the right to modify, add, or delete any part of this Privacy Policy at any time, with or without notice to our users. Any changes will be posted on this page, and it is your responsibility to review the Privacy Policy regularly. Your continued use of the site after changes are posted constitutes your acceptance of the updated Privacy Policy</p>
     
-    <p><b>7. Contact Information</b></p>
+    <p><b id="privacy7">7. Contact Information</b></p>
     <p>If you have any questions regarding this Privacy Policy, please contact us at: <a href="mailto:sleepysurveys01@gmail.com">sleepysurveys01@gmail.com
 </a></p>
 </div>
