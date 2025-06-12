@@ -181,7 +181,7 @@
     text-align: center;
     line-height: 30px;
     color: white;
-    transition: width 0.3s ease; /* Smooth transition */
+    transition: width 0.3s ease;
     }
 
     /* Ad Banner */
@@ -194,6 +194,8 @@
     .ad-banner {
     max-width: 100%;
     height: auto;
+    display: block; /* Make image a block element for spacing */
+    margin: 0 auto; /* Center the image without vertical margin */
     }
 
     /* Footer */
@@ -437,16 +439,14 @@
             <div id="progressBar">0%</div>
         </div>
         <br>
-        <!-- Added margin-left: 10px to the button -->
         <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: inline-block; margin-left: 10px;">Click Me For Free Access</button>
         </div>
         
         <div id="adContainer" class="ad-banner-container">
-        <!-- Change this to your actual ad link -->
+        <!-- Link opens a blank page (change to your actual ad link if needed) -->
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br><br>
         <p3 style="color: red"><b>Note: You will be able to read the chapter when the progress bar reaches 100%.</b></p3>
         </div>
         
@@ -464,11 +464,9 @@
             In addition, the room smells like cherry blossoms. From looking out the bedroom window, it’s a beautiful sunny day today.
         </p3>
 
-        <br>
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
 
         <p3>
             There was a girl sitting on her bed reading a storybook, she was very focused on it.
@@ -476,11 +474,9 @@
             She’s 14 years old and her name is Lily.
         </p3>
 
-        <br>
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
 
         <p3>
             One hour later… She finished the entire storybook and after she put down the storybook, she sighed.
@@ -495,27 +491,21 @@
             Then, there’s a moment of silence… The only sounds that you can hear are birds chirping and the gentle winds.
         </p3>
         
-        <br>
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
         
         <p3>
             After a while… Lily says, “I’ve been reading and reading and reading… But why didn't I start writing my very own storybook? Augh!”
         </p3>
         
-        <br>
-        
         <p3>
             He then says, “Oh, of course, that is possible! You can do it!”
         </p3>
 
-        <br>
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
 
         <p3>
             She then replies, “Leo, thanks for the encouragement!
@@ -533,11 +523,9 @@
             Until this moment, she had never realised the power of a document.
         </p3>
         
-        <br>
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
         
         <p3>
             “WOW!” she screams, and meanwhile the ideas and thoughts are coming fast!
@@ -545,11 +533,9 @@
 
         </p3>
         
-        <br>
         <a href="about:blank" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
         
         <p3>
             Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on…
@@ -628,16 +614,13 @@
     startReadingBtn.style.display = "block";
     progressBar.style.width = "0%";
     progressBar.style.marginLeft = "10px";
-    progressBar.style.transition = "none"; // Disable transition for reset
+    progressBar.style.transition = "none";
     progressBar.innerHTML = "0%";
     
-    // Force reflow to apply styles
     void progressBar.offsetWidth;
     
-    // Re-enable transition for smooth animation
     progressBar.style.transition = "width 0.3s ease";
     
-    // Maintain button styles including margin
     startReadingBtn.style.color = "blue";
     startReadingBtn.style.backgroundColor = "white";
     startReadingBtn.style.marginLeft = "10px";
@@ -650,10 +633,8 @@
         const chapterId = this.getAttribute('data-chapter-id');
         const chapter = document.getElementById(chapterId).innerHTML;
         
-        // Store the chapter content to show later
         chapterContent.innerHTML = chapter;
         
-        // Show the modal with reset styles
         modal.style.display = "block";
         resetModal();
     });
@@ -668,9 +649,8 @@
     let width = 0;
     const progressBar = document.getElementById("progressBar");
     
-    // Calculate interval for 30-second completion with smooth animation
-    const totalSteps = 300; // More steps for smoother animation
-    const intervalTime = 30000 / totalSteps; // 100ms per step for smoother animation
+    const totalSteps = 300;
+    const intervalTime = 30000 / totalSteps;
     
     const interval = setInterval(function() {
         if (width >= 100) {
@@ -679,17 +659,14 @@
         adContainer.style.display = "none";
         chapterContent.style.display = "block";
         } else {
-        width += 100 / totalSteps; // Smaller increments for smoother animation
+        width += 100 / totalSteps;
         
-        // Remove margin after initial 0% state
         if (width > 0.5 && progressBar.style.marginLeft === "10px") {
             progressBar.style.marginLeft = "0px";
         }
         
-        // Ensure width never exceeds 100%
         const displayWidth = Math.min(Math.round(width), 100);
         
-        // Update progress bar width
         progressBar.style.width = displayWidth + "%";
         progressBar.innerHTML = displayWidth + "%";
         }
