@@ -233,7 +233,7 @@
                 <i class="fa fa-star text-yellow-400 mr-1"></i>
                 <span class="text-sm text-neutral-200">4.8</span>
               </div>
-              <span class="text-sm text-neutral-400">24 Chapters</span>
+              <span class="text-sm text-neutral-400">3 Chapters, 9 Parts</span>
             </div>
             <div class="flex flex-wrap gap-2">
               <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fantasy</span>
@@ -264,7 +264,7 @@
                 <i class="fa fa-star text-yellow-400 mr-1"></i>
                 <span class="text-sm text-neutral-200">4.5</span>
               </div>
-              <span class="text-sm text-neutral-400">18 Chapters</span>
+              <span class="text-sm text-neutral-400">2 Chapters, 5 Parts</span>
             </div>
             <div class="flex flex-wrap gap-2">
               <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Mystery</span>
@@ -298,7 +298,7 @@
                 <i class="fa fa-star text-yellow-400 mr-1"></i>
                 <span class="text-sm text-neutral-200">4.7</span>
               </div>
-              <span class="text-sm text-neutral-400">22 Chapters</span>
+              <span class="text-sm text-neutral-400">4 Chapters, 12 Parts</span>
             </div>
             <div class="flex flex-wrap gap-2">
               <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Historical</span>
@@ -339,7 +339,7 @@
                 <span class="text-sm text-neutral-200">4.8</span>
                 <span class="text-sm text-neutral-400 ml-2">(245 ratings)</span>
               </div>
-              <span class="text-sm text-neutral-400 ml-4">24 Chapters</span>
+              <span class="text-sm text-neutral-400 ml-4">3 Chapters, 9 Parts</span>
             </div>
             <div class="flex flex-wrap gap-2 mb-6">
               <span class="bg-neutral-700 text-xs px-3 py-1 rounded-full">Fantasy</span>
@@ -367,69 +367,94 @@
           </div>
         </div>
         
-        <!-- Chapters Section -->
+        <!-- Chapters Section - Display all parts of each chapter -->
         <div class="mt-12">
-          <h3 class="text-xl font-bold text-white mb-6">Chapters</h3>
-          <div class="space-y-3">
-            <!-- Chapter 1 -->
-            <div class="chapter-item bg-neutral-900 rounded-lg p-4 hover:bg-neutral-800 transition-colors duration-300 flex justify-between items-center">
-              <div class="flex items-center">
-                <span class="text-primary font-medium mr-3">Chapter 1</span>
-                <div>
-                  <h4 class="text-white font-medium">The Beginning</h4>
-                  <p class="text-neutral-400 text-sm">3 parts • 12 min read</p>
+          <h3 class="text-xl font-bold text-white mb-6">Chapters & Parts</h3>
+          <div class="space-y-4">
+            <!-- Chapter 1 with all parts -->
+            <div class="bg-neutral-900 rounded-lg overflow-hidden">
+              <div class="p-4 border-b border-neutral-800">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="text-primary font-medium mr-3">Chapter 1</span>
+                    <div>
+                      <h4 class="text-white font-medium">The Beginning</h4>
+                      <p class="text-neutral-400 text-sm">3 parts • 12 min read</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300" data-chapter-id="chapter1-part1">
-                Read Now
-              </button>
+              <div class="p-4">
+                <div class="space-y-3">
+                  <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter1-part1">
+                    <span class="font-medium">Part 1</span> - 4 min read
+                  </button>
+                  <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter1-part2">
+                    <span class="font-medium">Part 2</span> - 4 min read
+                  </button>
+                  <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter1-part3">
+                    <span class="font-medium">Part 3</span> - 4 min read
+                  </button>
+                </div>
+              </div>
             </div>
             
-            <!-- Chapter 2 -->
-            <div class="chapter-item bg-neutral-900 rounded-lg p-4 hover:bg-neutral-800 transition-colors duration-300 flex justify-between items-center">
-              <div class="flex items-center">
-                <span class="text-neutral-400 font-medium mr-3">Chapter 2</span>
-                <div>
-                  <h4 class="text-neutral-300 font-medium">The Mysterious Umbrella</h4>
-                  <p class="text-neutral-500 text-sm">2 parts • 10 min read</p>
+            <!-- Chapter 2 with all parts -->
+            <div class="bg-neutral-900 rounded-lg overflow-hidden">
+              <div class="p-4 border-b border-neutral-800">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="text-neutral-400 font-medium mr-3">Chapter 2</span>
+                    <div>
+                      <h4 class="text-neutral-300 font-medium">The Mysterious Umbrella</h4>
+                      <p class="text-neutral-500 text-sm">2 parts • 10 min read</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300" data-chapter-id="chapter2-part1" disabled>
-                Coming Soon
-              </button>
+              <div class="p-4">
+                <div class="space-y-3">
+                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter2-part1" disabled>
+                    <span class="font-medium">Part 1</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
+                  </button>
+                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter2-part2" disabled>
+                    <span class="font-medium">Part 2</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
+                  </button>
+                </div>
+              </div>
             </div>
             
-            <!-- Chapter 3 -->
-            <div class="chapter-item bg-neutral-900 rounded-lg p-4 hover:bg-neutral-800 transition-colors duration-300 flex justify-between items-center">
-              <div class="flex items-center">
-                <span class="text-neutral-400 font-medium mr-3">Chapter 3</span>
-                <div>
-                  <h4 class="text-neutral-300 font-medium">First Journey</h4>
-                  <p class="text-neutral-500 text-sm">3 parts • 15 min read</p>
+            <!-- Chapter 3 with all parts -->
+            <div class="bg-neutral-900 rounded-lg overflow-hidden">
+              <div class="p-4 border-b border-neutral-800">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="text-neutral-400 font-medium mr-3">Chapter 3</span>
+                    <div>
+                      <h4 class="text-neutral-300 font-medium">First Journey</h4>
+                      <p class="text-neutral-500 text-sm">3 parts • 15 min read</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300" data-chapter-id="chapter3-part1" disabled>
-                Coming Soon
-              </button>
-            </div>
-            
-            <!-- Chapter 4 -->
-            <div class="chapter-item bg-neutral-900 rounded-lg p-4 hover:bg-neutral-800 transition-colors duration-300 flex justify-between items-center">
-              <div class="flex items-center">
-                <span class="text-neutral-400 font-medium mr-3">Chapter 4</span>
-                <div>
-                  <h4 class="text-neutral-300 font-medium">The Enchanted Forest</h4>
-                  <p class="text-neutral-500 text-sm">2 parts • 11 min read</p>
+              <div class="p-4">
+                <div class="space-y-3">
+                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter3-part1" disabled>
+                    <span class="font-medium">Part 1</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
+                  </button>
+                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter3-part2" disabled>
+                    <span class="font-medium">Part 2</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
+                  </button>
+                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter3-part3" disabled>
+                    <span class="font-medium">Part 3</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
+                  </button>
                 </div>
               </div>
-              <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300" data-chapter-id="chapter4-part1" disabled>
-                Coming Soon
-              </button>
             </div>
           </div>
           <div class="mt-8 text-center">
             <button class="bg-transparent border border-neutral-700 hover:border-primary text-white font-medium px-6 py-3 rounded-lg transition-all duration-300">
-              View All Chapters
+              View All Chapters & Parts
             </button>
           </div>
         </div>
@@ -445,9 +470,9 @@
         <i class="fa fa-times"></i>
       </button>
       
-      <div class="text-center mb-8">
-        <h2 id="modalTitle" class="text-2xl md:text-3xl font-bold text-white mb-2">Chapter 1 - The Beginning (Part 1)</h2>
-        <div class="flex items-center justify-center text-neutral-400 text-sm">
+      <div class="flex justify-between items-center mb-6">
+        <h2 id="modalTitle" class="text-2xl md:text-3xl font-bold text-white">Chapter 1 - The Beginning (Part 1)</h2>
+        <div class="flex items-center text-neutral-400 text-sm">
           <span id="chapterInfo">3 parts • 12 min read</span>
         </div>
       </div>
@@ -470,11 +495,28 @@
         <!-- Chapter content will be loaded here -->
       </div>
       
+      <!-- Reading Navigation -->
+      <div id="readingNavigation" class="flex justify-between items-center mb-8 hidden">
+        <div class="flex items-center">
+          <button id="prevPart" class="text-neutral-400 hover:text-white transition-colors duration-300 mr-4">
+            <i class="fa fa-arrow-left text-xl"></i> Previous Part
+          </button>
+          <button id="prevChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
+            <i class="fa fa-arrow-up text-xl"></i> Previous Chapter
+          </button>
+        </div>
+        <div class="flex items-center">
+          <button id="nextChapter" class="text-neutral-400 hover:text-white transition-colors duration-300 mr-4">
+            Next Chapter <i class="fa fa-arrow-down text-xl"></i>
+          </button>
+          <button id="nextPart" class="text-neutral-400 hover:text-white transition-colors duration-300">
+            Next Part <i class="fa fa-arrow-right text-xl"></i>
+          </button>
+        </div>
+      </div>
+      
       <!-- Reading Controls -->
       <div id="readingControls" class="flex justify-between items-center hidden">
-        <button id="prevChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
-          <i class="fa fa-arrow-left text-xl"></i> Previous
-        </button>
         <div class="flex items-center space-x-4">
           <button id="themeToggle" class="text-neutral-400 hover:text-white transition-colors duration-300">
             <i class="fa fa-moon-o text-xl"></i>
@@ -486,14 +528,19 @@
             <i class="fa fa-font text-xl"></i> A-
           </button>
         </div>
-        <button id="nextChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
-          Next <i class="fa fa-arrow-right text-xl"></i>
-        </button>
+        <div class="flex items-center space-x-4">
+          <button id="bookmarkBtn" class="text-neutral-400 hover:text-white transition-colors duration-300">
+            <i class="fa fa-bookmark-o text-xl"></i>
+          </button>
+          <button id="shareBtn" class="text-neutral-400 hover:text-white transition-colors duration-300">
+            <i class="fa fa-share-alt text-xl"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Footer (Maintaining original structure) -->
+  <!-- Footer -->
   <footer class="footer bg-neutral-900 border-t border-neutral-800">
     <p class="footer-text text-neutral-500 text-sm py-4">
       Copyright &copy; 2024 - SleepyOffers by SleepySurveys. All rights reserved.
@@ -527,7 +574,7 @@
   </footer>
 
   <script>
-    // Mobile Menu Toggle - Maintaining original functionality
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     
@@ -545,22 +592,18 @@
     
     categoryBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Remove active class from all buttons
         categoryBtns.forEach(b => {
           b.classList.remove('bg-primary');
           b.classList.add('bg-neutral-800', 'hover:bg-neutral-700');
         });
-        
-        // Add active class to clicked button
         btn.classList.remove('bg-neutral-800', 'hover:bg-neutral-700');
         btn.classList.add('bg-primary');
-        
         const category = btn.getAttribute('data-category');
         console.log('Showing category:', category);
       });
     });
     
-    // Chapter Modal - Maintaining original logic with design adjustments
+    // Chapter Modal
     const modal = document.getElementById('chapterModal');
     const modalOverlay = document.getElementById('modalOverlay');
     const closeModal = document.getElementById('closeModal');
@@ -568,14 +611,19 @@
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
     const adContainer = document.getElementById('adContainer');
+    const readingNavigation = document.getElementById('readingNavigation');
     const readingControls = document.getElementById('readingControls');
     const chapterBtns = document.querySelectorAll('.chapter-btn');
     const modalTitle = document.getElementById('modalTitle');
     const chapterInfo = document.getElementById('chapterInfo');
+    const prevPartBtn = document.getElementById('prevPart');
+    const nextPartBtn = document.getElementById('nextPart');
     const prevChapterBtn = document.getElementById('prevChapter');
     const nextChapterBtn = document.getElementById('nextChapter');
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    const shareBtn = document.getElementById('shareBtn');
     
-    // Chapter data mapping - Maintaining original content
+    // Chapter data with all parts
     const chapterData = {
       'chapter1-part1': {
         title: 'Chapter 1 - The Beginning (Part 1)',
@@ -594,8 +642,12 @@
           Just before she sighed, her brother Leo walked in. Leo is tall and has brown eyes. Leo is also 14 years old, but 11 months older than Lily.
           Then, he saw the storybook that she was reading and heard her sigh. So he then asks, with a worried face, “Why do you sigh? I thought you were reading your favourite storybook, no?”</p>
         `,
-        prev: null,
-        next: 'chapter1-part2'
+        chapter: 'chapter1',
+        part: 1,
+        prev: 'chapter1-part3', // Circular navigation for demo
+        next: 'chapter1-part2',
+        prevChapter: null,
+        nextChapter: 'chapter2-part1'
       },
       'chapter1-part2': {
         title: 'Chapter 1 - The Beginning (Part 2)',
@@ -611,8 +663,12 @@
           <p>She then replies, “Leo, thanks for the encouragement!
           Now I’m gonna go open up an Untitled Document on my PC, and start writing my very own storybook! See ya!”</p>
         `,
+        chapter: 'chapter1',
+        part: 2,
         prev: 'chapter1-part1',
-        next: 'chapter1-part3'
+        next: 'chapter1-part3',
+        prevChapter: null,
+        nextChapter: 'chapter2-part1'
       },
       'chapter1-part3': {
         title: 'Chapter 1 - The Beginning (Part 3)',
@@ -630,16 +686,52 @@
           
           <p>Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on…</p>
         `,
+        chapter: 'chapter1',
+        part: 3,
         prev: 'chapter1-part2',
-        next: null
+        next: 'chapter1-part1', // Circular navigation for demo
+        prevChapter: null,
+        nextChapter: 'chapter2-part1'
+      },
+      'chapter2-part1': {
+        title: 'Chapter 2 - The Mysterious Umbrella (Part 1)',
+        info: '2 parts • 10 min read',
+        content: "Chapter 2 Part 1 content goes here (coming soon)",
+        chapter: 'chapter2',
+        part: 1,
+        prev: 'chapter1-part3',
+        next: 'chapter2-part2',
+        prevChapter: 'chapter1-part3',
+        nextChapter: 'chapter3-part1'
+      },
+      'chapter2-part2': {
+        title: 'Chapter 2 - The Mysterious Umbrella (Part 2)',
+        info: '2 parts • 10 min read',
+        content: "Chapter 2 Part 2 content goes here (coming soon)",
+        chapter: 'chapter2',
+        part: 2,
+        prev: 'chapter2-part1',
+        next: null,
+        prevChapter: 'chapter1-part3',
+        nextChapter: 'chapter3-part1'
+      },
+      'chapter3-part1': {
+        title: 'Chapter 3 - First Journey (Part 1)',
+        info: '3 parts • 15 min read',
+        content: "Chapter 3 Part 1 content goes here (coming soon)",
+        chapter: 'chapter3',
+        part: 1,
+        prev: 'chapter2-part2',
+        next: 'chapter3-part2',
+        prevChapter: 'chapter2-part2',
+        nextChapter: null
       }
     };
     
-    // Current chapter ID
     let currentChapterId = null;
-    let adInterval = null; // Track the ad timer
+    let adInterval = null;
     
-    // Open modal function - Maintaining original ad logic
+    // Open modal function
     function openModal(chapterId) {
       const chapter = chapterData[chapterId];
       if (!chapter) return;
@@ -651,53 +743,52 @@
       progressBar.style.width = '0%';
       adContainer.style.display = 'block';
       chapterContent.style.display = 'none';
+      readingNavigation.style.display = 'none';
       readingControls.style.display = 'none';
       progressText.textContent = 'Loading ad... Please wait to continue reading.';
       
-      // Enable/disable previous/next buttons based on chapter availability
-      prevChapterBtn.disabled = !chapter.prev;
-      nextChapterBtn.disabled = !chapter.next;
+      // Enable/disable navigation buttons
+      prevPartBtn.disabled = !chapter.prev;
+      nextPartBtn.disabled = !chapter.next;
+      prevChapterBtn.disabled = !chapter.prevChapter;
+      nextChapterBtn.disabled = !chapter.nextChapter;
       
       // Show modal with animation
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modal.querySelector('.modal-content').classList.remove('scale-95');
       modal.querySelector('.modal-content').classList.add('scale-100');
       
-      // Start ad progress bar - Maintaining original 30-second timer
+      // Start ad progress bar
       let progress = 0;
       const totalTime = 30; // 30 seconds
-      const interval = setInterval(() => {
+      adInterval = setInterval(() => {
         progress += 100 / (totalTime * 10); // Update every 100ms
         progressBar.style.width = `${progress}%`;
         
         if (progress >= 100) {
-          clearInterval(interval);
+          clearInterval(adInterval);
           adInterval = null;
           adContainer.style.display = 'none';
           chapterContent.style.display = 'block';
+          readingNavigation.style.display = 'flex';
           readingControls.style.display = 'flex';
           progressText.textContent = 'Ready to read!';
         }
       }, 100);
-      
-      adInterval = interval;
     }
     
     // Close modal function
     function closeModalFunc() {
-      // Clear the ad timer
       if (adInterval) {
         clearInterval(adInterval);
         adInterval = null;
       }
-      
-      // Hide modal with animation
       modal.classList.add('opacity-0', 'pointer-events-none');
       modal.querySelector('.modal-content').classList.remove('scale-100');
       modal.querySelector('.modal-content').classList.add('scale-95');
     }
     
-    // Chapter button click event - Maintaining original behavior
+    // Chapter button click event
     chapterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const chapterId = btn.getAttribute('data-chapter-id');
@@ -705,39 +796,57 @@
       });
     });
     
-    // Close modal when clicking X or overlay - Maintaining original behavior
-    closeModal.addEventListener('click', closeModalFunc);
-    modalOverlay.addEventListener('click', closeModalFunc);
+    // Navigation between parts and chapters
+    prevPartBtn.addEventListener('click', () => {
+      if (!currentChapterId) return;
+      const prevId = chapterData[currentChapterId].prev;
+      if (prevId) {
+        closeModalFunc();
+        setTimeout(() => {
+          openModal(prevId);
+        }, 300);
+      }
+    });
     
-    // Navigation between chapters
+    nextPartBtn.addEventListener('click', () => {
+      if (!currentChapterId) return;
+      const nextId = chapterData[currentChapterId].next;
+      if (nextId) {
+        closeModalFunc();
+        setTimeout(() => {
+          openModal(nextId);
+        }, 300);
+      }
+    });
+    
     prevChapterBtn.addEventListener('click', () => {
       if (!currentChapterId) return;
-      
-      const prevChapterId = chapterData[currentChapterId].prev;
-      if (prevChapterId) {
+      const prevId = chapterData[currentChapterId].prevChapter;
+      if (prevId) {
         closeModalFunc();
-        // Wait for modal to close before opening new chapter
         setTimeout(() => {
-          openModal(prevChapterId);
+          openModal(prevId);
         }, 300);
       }
     });
     
     nextChapterBtn.addEventListener('click', () => {
       if (!currentChapterId) return;
-      
-      const nextChapterId = chapterData[currentChapterId].next;
-      if (nextChapterId) {
+      const nextId = chapterData[currentChapterId].nextChapter;
+      if (nextId) {
         closeModalFunc();
-        // Wait for modal to close before opening new chapter
         setTimeout(() => {
-          openModal(nextChapterId);
+          openModal(nextId);
         }, 300);
       }
     });
     
-    // Reading controls - Maintaining original functionality
-    let currentFontSize = 16; // Base font size in pixels
+    // Close modal when clicking X or overlay
+    closeModal.addEventListener('click', closeModalFunc);
+    modalOverlay.addEventListener('click', closeModalFunc);
+    
+    // Reading controls
+    let currentFontSize = 16;
     const fontSizeIncrease = document.getElementById('fontSizeIncrease');
     const fontSizeDecrease = document.getElementById('fontSizeDecrease');
     const themeToggle = document.getElementById('themeToggle');
@@ -755,28 +864,33 @@
     
     themeToggle.addEventListener('click', () => {
       isDarkTheme = !isDarkTheme;
-      
       if (isDarkTheme) {
-        // Switch to dark theme
         document.body.classList.add('bg-neutral-900', 'text-light');
         document.body.classList.remove('bg-white', 'text-neutral-800');
         themeToggle.innerHTML = '<i class="fa fa-moon-o text-xl"></i>';
       } else {
-        // Switch to light theme
         document.body.classList.remove('bg-neutral-900', 'text-light');
         document.body.classList.add('bg-white', 'text-neutral-800');
         themeToggle.innerHTML = '<i class="fa fa-sun-o text-xl"></i>';
       }
     });
     
-    // Smooth scrolling for anchor links - Added for modern experience
+    // Bookmark and share functionality
+    bookmarkBtn.addEventListener('click', () => {
+      bookmarkBtn.classList.toggle('text-yellow-400');
+      bookmarkBtn.classList.toggle('fa-bookmark-o');
+      bookmarkBtn.classList.toggle('fa-bookmark');
+    });
+    
+    shareBtn.addEventListener('click', () => {
+      alert('Sharing functionality would go here');
+    });
+    
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
