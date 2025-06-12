@@ -614,7 +614,7 @@
     });
     });
 
-    // Start reading button
+    // Start reading button (updated for EXACT 30-second ad display)
     startReadingBtn.onclick = function() {
     progressContainer.style.display = "block";
     adContainer.style.display = "block";
@@ -622,6 +622,12 @@
     
     let width = 0;
     const progressBar = document.getElementById("progressBar");
+    
+    // Calculate interval for EXACT 30-second completion
+    // 30 seconds = 30,000 milliseconds
+    // 100 steps (0% to 100%)
+    const intervalTime = 30000 / 100; // 300ms per step
+    
     const interval = setInterval(function() {
         if (width >= 100) {
         clearInterval(interval);
@@ -633,7 +639,7 @@
         progressBar.style.width = width + "%";
         progressBar.innerHTML = width + "%";
         }
-    }, 30);
+    }, intervalTime); // 300ms per step for EXACT 30 seconds
     }
     </script>
 
