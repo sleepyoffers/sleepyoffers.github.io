@@ -184,6 +184,12 @@
     margin-left: 10px;
     }
 
+    /* New class for green margin */
+    .progress-with-margin {
+        margin-left: 10px;
+        border-left: 10px solid #4CAF50; /* Green border as margin */
+    }
+
     /* Ad Banner */
     .ad-banner-container {
     max-width: 80%;
@@ -615,32 +621,31 @@
     });
     });
 
-    // Start reading button (updated for EXACT 30-second ad display)
     startReadingBtn.onclick = function() {
-    progressContainer.style.display = "block";
-    adContainer.style.display = "block";
-    startReadingBtn.style.display = "none";
-    
-    let width = 0;
-    const progressBar = document.getElementById("progressBar");
-    
-    // Calculate interval for EXACT 30-second completion
-    // 30 seconds = 30,000 milliseconds
-    // 100 steps (0% to 100%)
-    const intervalTime = 30000 / 100; // 300ms per step
-    
-    const interval = setInterval(function() {
-        if (width >= 100) {
-        clearInterval(interval);
-        progressContainer.style.display = "none";
-        adContainer.style.display = "none";
-        chapterContent.style.display = "block";
-        } else {
-        width++;
-        progressBar.style.width = width + "%";
-        progressBar.innerHTML = width + "%";
-        }
-    }, intervalTime); // 300ms per step for EXACT 30 seconds
+        progressContainer.style.display = "block";
+        adContainer.style.display = "block";
+        startReadingBtn.style.display = "none";
+        
+        let width = 0;
+        const progressBar = document.getElementById("progressBar");
+        
+        // Add green left margin
+        progressBar.classList.add("progress-with-margin");
+        
+        const intervalTime = 30000 / 100; // 300ms per step
+        
+        const interval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(interval);
+                progressContainer.style.display = "none";
+                adContainer.style.display = "none";
+                chapterContent.style.display = "block";
+            } else {
+                width++;
+                progressBar.style.width = width + "%";
+                progressBar.innerHTML = width + "%";
+            }
+        }, intervalTime);
     }
     </script>
 
