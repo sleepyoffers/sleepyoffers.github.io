@@ -10,360 +10,366 @@
   <link rel="icon" href="logo.webp" type="image/webp">
   <title>Sleepy Offers</title>
 
-<style>
+  <style>
     /* Reset */
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     /* General Body Styling */
     body {
-    background-color: #2b2b2b;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
+      background-color: #2b2b2b;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Button Style */
     .button {
-    color: blue;
-    font-size: 20px;
-    background-color: white;
-    padding: 0;
-    text-decoration: none;
-    display: inline-block;
+      color: blue;
+      font-size: 20px;
+      background-color: white;
+      padding: 0;
+      text-decoration: none;
+      display: inline-block;
     }
 
     /* Header */
     header {
-    background-color: #7B68EE;
-    padding: 10px;
-    text-align: center;
-    font-size: 20px;
-    color: #FFFFF0;
-    margin: 0 20px;
+      background-color: #7B68EE;
+      padding: 10px;
+      text-align: center;
+      font-size: 20px;
+      color: #FFFFF0;
+      margin: 0 20px;
     }
 
     /* Top Navigation Bar */
     .topnav {
-    overflow: hidden;
-    height: 73px;
-    background-color: none;
-    margin: 10px 0;
+      overflow: hidden;
+      height: 73px;
+      background-color: none;
+      margin: 10px 0;
     }
 
     .topnav a {
-    float: right;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 25px 40px;
-    height: 73px;
-    text-decoration: none;
-    font-size: 20px;
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 25px 40px;
+      height: 73px;
+      text-decoration: none;
+      font-size: 20px;
     }
 
     .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-    text-decoration: underline;
+      background-color: #04AA6D;
+      color: white;
+      text-decoration: underline;
     }
 
     .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+      background-color: #ddd;
+      color: black;
     }
 
     /* Horizontal Rule */
     hr {
-    display: block;
-    margin: 0.5em auto;
-    border-style: inset;
-    border-width: 1px;
-    color: white;
+      display: block;
+      margin: 0.5em auto;
+      border-style: inset;
+      border-width: 1px;
+      color: white;
     }
 
     /* Vertical Menu */
     .vertical-menu {
-    width: calc(20% - 20px);
-    float: left;
-    background-color: #f2f2f2;
-    height: 50vh;
-    overflow-y: auto;
-    margin: 0 0 10px 20px;
+      width: calc(20% - 20px);
+      float: left;
+      background-color: #f2f2f2;
+      height: 50vh;
+      overflow-y: auto;
+      margin: 0 0 10px 20px;
     }
 
     .vertical-menu a {
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-    color: black;
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+      color: black;
     }
 
     .vertical-menu a:hover {
-    background-color: #ccc;
+      background-color: #ccc;
     }
 
     .vertical-menu a.active {
-    background-color: #04AA6D;
-    color: white;
+      background-color: #04AA6D;
+      color: white;
     }
 
     /* Article Styling */
     article {
-    padding: 20px;
-    background-color: #48D1CC;
-    display: none;
-    width: calc(80% - 20px);
-    float: right;
-    height: 50vh;
-    overflow-y: auto;
-    margin: 0 20px 10px 0;
+      padding: 20px;
+      background-color: #48D1CC;
+      display: none;
+      width: calc(80% - 20px);
+      float: right;
+      height: 50vh;
+      overflow-y: auto;
+      margin: 0 20px 10px 0;
     }
 
     /* Modal Styling */
     .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0; top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     .modal-content {
-    background-color: black;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+      background-color: black;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
     }
 
     .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
     }
 
-    .close:hover, .close:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
+    .close:hover,
+    .close:focus {
+      color: red;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     /* Clear Floats */
-    section::after, .topnav::after, .vertical-menu::after, article::after {
-    content: "";
-    display: table;
-    clear: both;
+    section::after,
+    .topnav::after,
+    .vertical-menu::after,
+    article::after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
     /* Progress Bar */
     #progressContainer {
-    width: 100%;
+      width: 100%;
     }
 
     #adProgress {
-    width: 100%;
-    background-color: #ddd;
+      width: 100%;
+      background-color: #ddd;
     }
 
     #progressBar {
-    width: 0%;
-    height: 30px;
-    background-color: #04AA6D;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    transition: width 0.3s ease;
+      width: 0%;
+      height: 30px;
+      background-color: #04AA6D;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      transition: width 0.3s ease;
     }
 
     /* Ad Banner */
     .ad-banner-container {
-    max-width: 80%;
-    margin: 20px auto;
-    text-align: center;
+      max-width: 80%;
+      margin: 20px auto;
+      text-align: center;
     }
 
     .ad-banner {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Make image a block element for spacing */
-    margin: 0 auto; /* Center the image without vertical margin */
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     /* Footer */
     .footer {
-    background-color: #1f1f1f;
-    width: 100%;
-    padding: 20px 0;
-    font-size: 16px;
+      background-color: #1f1f1f;
+      width: 100%;
+      padding: 20px 0;
+      font-size: 16px;
     }
 
     .footer-text {
-    color: #bbb;
-    text-align: left;
-    margin-bottom: 20px;
-    padding: 0 20px;
+      color: #bbb;
+      text-align: left;
+      margin-bottom: 20px;
+      padding: 0 20px;
     }
 
     .footer-content {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
     }
 
     .footer-section {
-    text-align: left;
+      text-align: left;
     }
 
     .footer-heading {
-    color: red;
-    font-weight: bold;
-    margin-bottom: 10px;
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .footer-link {
-    color: #bbb;
-    text-decoration: none;
+      color: #bbb;
+      text-decoration: none;
     }
 
     a.footer-link:link,
     a.footer-link:visited {
-    color: #87CEFA;
-    text-decoration: none;
+      color: #87CEFA;
+      text-decoration: none;
     }
 
     a.footer-link:hover {
-    text-decoration: underline;
-    color: #ffd700;
+      text-decoration: underline;
+      color: #ffd700;
     }
 
     a.footer-link:active {
-    text-decoration: underline;
-    color: #ff6347;
+      text-decoration: underline;
+      color: #ff6347;
     }
 
     /* Chapter Content Styling */
     #chapterContent p {
-    color: #FF4500;
-    font-weight: bold;
-    margin: 0;
+      color: #FF4500;
+      font-weight: bold;
+      margin: 0;
     }
 
     #chapterContent p3 {
-    margin-left: 10px;
-    display: block;
-    margin: 0;
+      margin-left: 10px;
+      display: block;
+      margin: 0;
     }
 
     .chapter-storage {
-    display: none;
+      display: none;
     }
 
     /* ===============================
     Chapter List Component (NEW)
     =============================== */
     .chapter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0 20px;
     }
 
     .chapter-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      transition: background-color 0.2s;
+      margin-left: 0; /* Removed left margin */
     }
 
     .chapter-item:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.3);
     }
 
     .chapter-title {
-    color: #FFFFF0;
-    font-size: 16px;
-    flex-grow: 1;
+      color: #FFFFF0;
+      font-size: 16px;
+      flex-grow: 1;
     }
 
     .chapter-button {
-    background-color: #7B68EE;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    min-width: 100px;
-    text-align: center;
+      background-color: #7B68EE;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 100px;
+      text-align: center;
     }
 
     .chapter-button:hover {
-    background-color: #5F4BDB;
-    transform: translateY(-1px);
+      background-color: #5F4BDB;
+      transform: translateY(-1px);
     }
 
     /* ===========================
     Responsive Design
     =========================== */
     @media screen and (max-width: 768px) {
-    .topnav a {
+      .topnav a {
         padding: 25px 30px;
-    }
+      }
 
-    .vertical-menu,
-    article {
+      .vertical-menu,
+      article {
         width: auto;
         float: none;
         margin: 20px;
         height: auto;
-    }
+      }
 
-    .ad-banner-container {
+      .ad-banner-container {
         max-width: 90%;
-    }
+      }
     }
 
     @media screen and (max-width: 600px) {
-    .footer {
+      .footer {
         padding: 10px 0;
-    }
+      }
 
-    .footer-text,
-    .footer-section {
+      .footer-text,
+      .footer-section {
         text-align: left;
         padding: 0 20px;
-    }
+      }
 
-    .footer-content {
+      .footer-content {
         flex-direction: column;
         align-items: flex-start;
         padding: 0 20px;
-    }
+      }
 
-    .chapter-item {
+      .chapter-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
-    }
+      }
 
-    .chapter-button {
+      .chapter-button {
         width: 100%;
+      }
     }
-    }
-</style>
+  </style>
 
 </head>
 
@@ -374,191 +380,184 @@
     <a href="books.html" class="active" style="margin-right: 20px;">Books</a>
     <a href="index.html">Home</a>
   </div>
-  
 
-<div class="header">
-<br>
-<p style="margin-left: 20px;">Example text here</p>
-<br>
+  <div class="header">
+    <br>
+    <p style="margin-left: 20px;">Example text here</p>
+    <br>
 
-<header>
-  <h2>Online Books</h2>
-</header>
+    <header>
+      <h2>Online Books</h2>
+    </header>
 
-<div class="vertical-menu">
-      <a href="#" onclick="showPage('featured-books'); return false;">Featured Books</a></li>
-      <a href="#" onclick="showPage('all-books'); return false;">All Books</a></li>
-      <a href="#" onclick="showPage('new-books'); return false;">New Books</a></li>
-</div>
-
-
-<article id="featured-books" style="display:block;">
-<div style="background-color: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-  <h3 style="color: #7B68EE; margin-top: 0;">The Broken Umbrella (Untitled Document Series, #1)</h3>
-  
-  <div class="chapter-list">
-    <!-- Chapter 1 Part 1 -->
-    <div class="chapter-item">
-      <span class="chapter-title">Chapter 1 (Part 1):</span>
-      <button class="chapter-button" data-chapter-id="chapter1-part1">Read Now</button>
+    <div class="vertical-menu">
+      <a href="#" onclick="showPage('featured-books'); return false;">Featured Books</a>
+      <a href="#" onclick="showPage('all-books'); return false;">All Books</a>
+      <a href="#" onclick="showPage('new-books'); return false;">New Books</a>
     </div>
-    
-    <!-- Chapter 1 Part 2 -->
-    <div class="chapter-item">
-      <span class="chapter-title">Chapter 1 (Part 2):</span>
-      <button class="chapter-button" data-chapter-id="chapter1-part2">Read Now</button>
-    </div>
-    
-    <!-- Chapter 1 Part 3 -->
-    <div class="chapter-item">
-      <span class="chapter-title">Chapter 1 (Part 3):</span>
-      <button class="chapter-button" data-chapter-id="chapter1-part3">Read Now</button>
-    </div>
-  </div>
-</div>
-</article>
+
+    <article id="featured-books" style="display:block;">
+      <div style="background-color: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #7B68EE; margin-top: 0;">The Broken Umbrella (Untitled Document Series, #1)</h3>
+
+        <div class="chapter-list">
+          <!-- Chapter 1 Part 1 -->
+          <div class="chapter-item">
+            <span class="chapter-title">Chapter 1 (Part 1):</span>
+            <button class="chapter-button" data-chapter-id="chapter1-part1">Read Now</button>
+          </div>
+
+          <!-- Chapter 1 Part 2 -->
+          <div class="chapter-item">
+            <span class="chapter-title">Chapter 1 (Part 2):</span>
+            <button class="chapter-button" data-chapter-id="chapter1-part2">Read Now</button>
+          </div>
+
+          <!-- Chapter 1 Part 3 -->
+          <div class="chapter-item">
+            <span class="chapter-title">Chapter 1 (Part 3):</span>
+            <button class="chapter-button" data-chapter-id="chapter1-part3">Read Now</button>
+          </div>
+        </div>
+      </div>
+    </article>
 
     <article id="all-books">
-        <h2 style="color:#FF4500">All Books</h2>
-        <hr>
+      <h2 style="color:#FF4500">All Books</h2>
+      <hr>
     </article>
 
     <article id="new-books">
-        <h2 style="color:#FF4500">New Books</h2>
-        <hr>
+      <h2 style="color:#FF4500">New Books</h2>
+      <hr>
     </article>
-    </section>
-    </div>
+  </div>
 
-    <!-- SINGLE MODAL FOR ALL CHAPTERS -->
-    <div id="chapterModal" class="modal">
+  <!-- SINGLE MODAL FOR ALL CHAPTERS -->
+  <div id="chapterModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="progressContainer">
+      <span class="close">&times;</span>
+      <div id="progressContainer">
         <div id="adProgress">
-            <div id="progressBar">0%</div>
+          <div id="progressBar">0%</div>
         </div>
         <br>
         <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: block; margin: 0;">Click Me For Free Access</button>
-        </div>
-        
-        <div id="adContainer" class="ad-banner-container">
-        <!-- Link opens a blank page (change to your actual ad link if needed) -->
+      </div>
+
+      <div id="adContainer" class="ad-banner-container">
         <a href="about:blank" target="_blank">
-            <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
+          <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
-        <br>
         <p3 style="color: red"><b>Note: You will be able to read the chapter when the progress bar reaches 100%.</b></p3>
-        </div>
-        
-        <div id="chapterContent"></div>
-    </div>
-    </div>
+      </div>
 
-    <!-- CHAPTER CONTENT STORAGE - HIDDEN -->
-    <div class="chapter-storage">
+      <div id="chapterContent"></div>
+    </div>
+  </div>
+
+  <!-- CHAPTER CONTENT STORAGE - HIDDEN -->
+  <div class="chapter-storage">
     <div id="chapter1-part1">
-        <p><b>Chapter 1 - The Beginning (Part 1)</b></p><br>
-        <p3>
-            It all began in a colourful and well-decorated bedroom.
-            The bedroom walls' colours are baby blue, with stars and all sorts of decoration stickers pasted on the walls.
-            In addition, the room smells like cherry blossoms. From looking out the bedroom window, it’s a beautiful sunny day today.
-        </p3><br>
+      <p><b>Chapter 1 - The Beginning (Part 1)</b></p><br>
+      <p3>
+        It all began in a colourful and well-decorated bedroom.
+        The bedroom walls' colours are baby blue, with stars and all sorts of decoration stickers pasted on the walls.
+        In addition, the room smells like cherry blossoms. From looking out the bedroom window, it’s a beautiful sunny day today.
+      </p3><br>
 
-        <p3>
-            There was a girl sitting on her bed reading a storybook, she was very focused on it.
-            She is not too tall, not too short. She has long hair that pours down like a waterfall, blue eyes, and a radiant smile.
-            She’s 14 years old and her name is Lily.
-        </p3><br>
+      <p3>
+        There was a girl sitting on her bed reading a storybook, she was very focused on it.
+        She is not too tall, not too short. She has long hair that pours down like a waterfall, blue eyes, and a radiant smile.
+        She’s 14 years old and her name is Lily.
+      </p3><br>
 
-        <p3>
-            One hour later… She finished the entire storybook and after she put down the storybook, she sighed.
-            Just before she sighed, her brother Leo walked in. Leo is tall and has brown eyes. Leo is also 14 years old, but 11 months older than Lily.
-            Then, he saw the storybook that she was reading and heard her sigh. So he then asks, with a worried face, “Why do you sigh? I thought you were reading your favourite storybook, no?”
-        </p3>
+      <p3>
+        One hour later… She finished the entire storybook and after she put down the storybook, she sighed.
+        Just before she sighed, her brother Leo walked in. Leo is tall and has brown eyes. Leo is also 14 years old, but 11 months older than Lily.
+        Then, he saw the storybook that she was reading and heard her sigh. So he then asks, with a worried face, “Why do you sigh? I thought you were reading your favourite storybook, no?”
+      </p3>
     </div>
-    
+
     <div id="chapter1-part2">
-        <p><b>Chapter 1 - The Beginning (Part 2)</b></p><br>
-        <p3>
-            Then, there’s a moment of silence… The only sounds that you can hear are birds chirping and the gentle winds.
-        </p3><br>
+      <p><b>Chapter 1 - The Beginning (Part 2)</b></p><br>
+      <p3>
+        Then, there’s a moment of silence… The only sounds that you can hear are birds chirping and the gentle winds.
+      </p3><br>
 
-        <p3>
-            After a while… Lily says, “I’ve been reading and reading and reading… But why didn't I start writing my very own storybook? Augh!”
-        </p3><br>
+      <p3>
+        After a while… Lily says, “I’ve been reading and reading and reading… But why didn't I start writing my very own storybook? Augh!”
+      </p3><br>
 
-        <p3>
-            He then says, “Oh, of course, that is possible! You can do it!”
-        </p3><br>
+      <p3>
+        He then says, “Oh, of course, that is possible! You can do it!”
+      </p3><br>
 
-        <p3>
-            She then replies, “Leo, thanks for the encouragement!
-            Now I’m gonna go open up an Untitled Document on my PC, and start writing my very own storybook! See ya!”
-        </p3>
+      <p3>
+        She then replies, “Leo, thanks for the encouragement!
+        Now I’m gonna go open up an Untitled Document on my PC, and start writing my very own storybook! See ya!”
+      </p3>
     </div>
-    
+
     <div id="chapter1-part3">
-        <p><b>Chapter 1 - The Beginning (Part 3)</b></p><br>
-        <p3>
-            He then says, “That’s great to hear! Good luck and see ya!”
-            Then Leo leaves her room. Then, she started up her PC, and created an “Untitled Document”.
-            As soon as she creates and opens up this “Untitled Document”, instantly her creativity is unleashed and her imagination goes wild.
-            Before she even started writing anything, her creativity and imagination had already surprised her, in all forms of ways.
-            Until this moment, she had never realised the power of a document.
-        </p3><br>
-        
-        
-        <p3>
-            “WOW!” she screams, and meanwhile the ideas and thoughts are coming fast!
-            In a split of a second, an idea popped in her head. So, she starts writing, “Once upon a time, a broken umbrella was crying on the streets of nowhere…”
-        </p3><br>
-        
-        
-        <p3>
-            Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on…
-        </p3>
-    </div>
-    </div>
+      <p><b>Chapter 1 - The Beginning (Part 3)</b></p><br>
+      <p3>
+        He then says, “That’s great to hear! Good luck and see ya!”
+        Then Leo leaves her room. Then, she started up her PC, and created an “Untitled Document”.
+        As soon as she creates and opens up this “Untitled Document”, instantly her creativity is unleashed and her imagination goes wild.
+        Before she even started writing anything, her creativity and imagination had already surprised her, in all forms of ways.
+        Until this moment, she had never realised the power of a document.
+      </p3><br>
 
-    <footer class="footer">
+      <p3>
+        “WOW!” she screams, and meanwhile the ideas and thoughts are coming fast!
+        In a split of a second, an idea popped in her head. So, she starts writing, “Once upon a time, a broken umbrella was crying on the streets of nowhere…”
+      </p3><br>
+
+      <p3>
+        Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on…
+      </p3>
+    </div>
+  </div>
+
+  <footer class="footer">
     <p class="footer-text">Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
 
     <div class="footer-content">
-        <div class="footer-section">
+      <div class="footer-section">
         <p class="footer-heading">Legal</p>
         <p><a href="https://sleepyoffers.github.io/terms.html" class="footer-link">Terms of Services</a></p>
         <p><a href="https://sleepyoffers.github.io/privacy.html" class="footer-link">Privacy Policy</a></p>
-        </div>
+      </div>
 
-        <div class="footer-section">
+      <div class="footer-section">
         <p class="footer-heading">Business</p>
         <p><a href="https://sleepyoffers.github.io/advinfo.html" class="footer-link">Advertise at Sleepy Offers</a></p>
         <p><a href="https://sleepyoffers.github.io/publish.html" class="footer-link">Publish at Sleepy Offers</a></p>
-        </div>
+      </div>
 
-        <div class="footer-section">
+      <div class="footer-section">
         <p class="footer-heading">Support</p>
         <p><a href="mailto:sleepysurveys01@gmail.com" class="footer-link">Contact Us</a></p>
         <p><a href="https://sleepyoffers.github.io/faq.html" class="footer-link">FAQ</a></p>
-        </div>
-        
-        <div class="footer-section">
+      </div>
+
+      <div class="footer-section">
         <p class="footer-heading">Explore</p>
         <p><a href="https://sleepyoffers.github.io/index.html" class="footer-link">About Us</a></p>
         <p><a href="https://sleepyoffers.github.io/sitemap.html" class="footer-link">Site Map</a></p>
-        </div>
+      </div>
     </div>
-    </footer>
+  </footer>
 
-    <script>
+  <script>
     // Page navigation function
     function showPage(pageId) {
-    var articles = document.querySelectorAll('article');
-    articles.forEach(function(article) {
+      var articles = document.querySelectorAll('article');
+      articles.forEach(function(article) {
         article.style.display = 'none';
-    });
-    document.getElementById(pageId).style.display = 'block';
+      });
+      document.getElementById(pageId).style.display = 'block';
     }
 
     // Modal elements
@@ -572,42 +571,42 @@
 
     // Close modal when clicking X
     closeBtn.onclick = function() {
-    modal.style.display = "none";
-    resetModal();
+      modal.style.display = "none";
+      resetModal();
     }
 
     // Close modal when clicking outside
     window.onclick = function(event) {
-    if (event.target == modal) {
+      if (event.target == modal) {
         modal.style.display = "none";
         resetModal();
-    }
+      }
     }
 
     // Reset modal to initial state
     function resetModal() {
-    progressContainer.style.display = "block";
-    adContainer.style.display = "none";
-    chapterContent.style.display = "none";
-    startReadingBtn.style.display = "block";
-    progressBar.style.width = "0%";
-    progressBar.style.marginLeft = "10px";
-    progressBar.style.transition = "none";
-    progressBar.innerHTML = "0%";
-    
-    void progressBar.offsetWidth;
-    
-    progressBar.style.transition = "width 0.3s ease";
-    
-    startReadingBtn.style.color = "blue";
-    startReadingBtn.style.backgroundColor = "white";
-    startReadingBtn.style.marginLeft = "10px";
-    startReadingBtn.innerHTML = "Click Me For Free Access";
+      progressContainer.style.display = "block";
+      adContainer.style.display = "none";
+      chapterContent.style.display = "none";
+      startReadingBtn.style.display = "block";
+      progressBar.style.width = "0%";
+      progressBar.style.marginLeft = "10px";
+      progressBar.style.transition = "none";
+      progressBar.innerHTML = "0%";
+      
+      void progressBar.offsetWidth;
+      
+      progressBar.style.transition = "width 0.3s ease";
+      
+      startReadingBtn.style.color = "blue";
+      startReadingBtn.style.backgroundColor = "white";
+      // Removed: startReadingBtn.style.marginLeft = "10px";
+      startReadingBtn.innerHTML = "Click Me For Free Access";
     }
 
     // Handle chapter button clicks
     document.querySelectorAll('.chapter-button').forEach(button => {
-    button.addEventListener('click', function() {
+      button.addEventListener('click', function() {
         const chapterId = this.getAttribute('data-chapter-id');
         const chapter = document.getElementById(chapterId).innerHTML;
         
@@ -615,42 +614,42 @@
         
         modal.style.display = "block";
         resetModal();
-    });
+      });
     });
 
     // Start reading button
     startReadingBtn.onclick = function() {
-    progressContainer.style.display = "block";
-    adContainer.style.display = "block";
-    startReadingBtn.style.display = "none";
-    
-    let width = 0;
-    const progressBar = document.getElementById("progressBar");
-    
-    const totalSteps = 300;
-    const intervalTime = 30000 / totalSteps;
-    
-    const interval = setInterval(function() {
+      progressContainer.style.display = "block";
+      adContainer.style.display = "block";
+      startReadingBtn.style.display = "none";
+      
+      let width = 0;
+      const progressBar = document.getElementById("progressBar");
+      
+      const totalSteps = 300;
+      const intervalTime = 30000 / totalSteps;
+      
+      const interval = setInterval(function() {
         if (width >= 100) {
-        clearInterval(interval);
-        progressContainer.style.display = "none";
-        adContainer.style.display = "none";
-        chapterContent.style.display = "block";
+          clearInterval(interval);
+          progressContainer.style.display = "none";
+          adContainer.style.display = "none";
+          chapterContent.style.display = "block";
         } else {
-        width += 100 / totalSteps;
-        
-        if (width > 0.5 && progressBar.style.marginLeft === "10px") {
+          width += 100 / totalSteps;
+          
+          if (width > 0.5 && progressBar.style.marginLeft === "10px") {
             progressBar.style.marginLeft = "0px";
+          }
+          
+          const displayWidth = Math.min(Math.round(width), 100);
+          
+          progressBar.style.width = displayWidth + "%";
+          progressBar.innerHTML = displayWidth + "%";
         }
-        
-        const displayWidth = Math.min(Math.round(width), 100);
-        
-        progressBar.style.width = displayWidth + "%";
-        progressBar.innerHTML = displayWidth + "%";
-        }
-    }, intervalTime);
+      }, intervalTime);
     }
-    </script>
+  </script>
 
-    </body>
+</body>
 </html>
