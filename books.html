@@ -172,7 +172,6 @@
     #chapterProgress {
     width: 100%;
     background-color: #ddd;
-    /* Removed padding-left: 10px */
     }
 
     #progressBar {
@@ -182,7 +181,7 @@
     text-align: center;
     line-height: 30px;
     color: white;
-    /* Removed margin-left: 10px */
+    transition: width 0.3s ease; /* Smooth transition */
     }
 
     /* Ad Banner */
@@ -600,8 +599,16 @@
     chapterContent.style.display = "none";
     startReadingBtn.style.display = "block";
     progressBar.style.width = "0%";
-    progressBar.style.marginLeft = "10px"; // Add margin only at 0%
+    progressBar.style.marginLeft = "10px";
+    progressBar.style.transition = "none"; // Disable transition for reset
     progressBar.innerHTML = "0%";
+    
+    // Force reflow to apply styles
+    void progressBar.offsetWidth;
+    
+    // Re-enable transition for smooth animation
+    progressBar.style.transition = "width 0.3s ease";
+    
     // Maintain button styles including margin
     startReadingBtn.style.color = "blue";
     startReadingBtn.style.backgroundColor = "white";
@@ -631,9 +638,11 @@
     startReadingBtn.style.display = "none";
     
     let width = 0;
+    const progressBar = document.getElementById("progressBar");
     
-    // Calculate interval for EXACT 30-second completion
-    const intervalTime = 30000 / 100; // 300ms per step
+    // Calculate interval for 30-second completion with smooth animation
+    const totalSteps = 300; // More steps for smoother animation
+    const intervalTime = 30000 / totalSteps; // 100ms per step for smoother animation
     
     const interval = setInterval(function() {
         if (width >= 100) {
@@ -642,18 +651,19 @@
         adContainer.style.display = "none";
         chapterContent.style.display = "block";
         } else {
-        width++;
+        width += 100 / totalSteps; // Smaller increments for smoother animation
         
         // Remove margin after initial 0% state
-        if (width > 0 && progressBar.style.marginLeft === "10px") {
+        if (width > 0.5 && progressBar.style.marginLeft === "10px") {
             progressBar.style.marginLeft = "0px";
         }
         
-        // Calculate width with adjustment for 0% margin
-        const adjustedWidth = width > 0 ? width + 1 : width; // Add 1% to account for initial margin
+        // Ensure width never exceeds 100%
+        const displayWidth = Math.min(Math.round(width), 100);
         
-        progressBar.style.width = adjustedWidth + "%";
-        progressBar.innerHTML = width + "%";
+        // Update progress bar width
+        progressBar.style.width = displayWidth + "%";
+        progressBar.innerHTML = displayWidth + "%";
         }
     }, intervalTime);
     }
