@@ -169,7 +169,7 @@
     width: 100%;
     }
 
-    #chapterProgress {
+    #adProgress {
     width: 100%;
     background-color: #ddd;
     }
@@ -433,7 +433,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <div id="progressContainer">
-        <div id="chapterProgress">
+        <div id="adProgress">
             <div id="progressBar">0%</div>
         </div>
         <br>
@@ -650,6 +650,9 @@
         progressContainer.style.display = "none";
         adContainer.style.display = "none";
         chapterContent.style.display = "block";
+        
+        // Redirect to a blank page
+        window.open('', '_blank');
         } else {
         width += 100 / totalSteps; // Smaller increments for smoother animation
         
