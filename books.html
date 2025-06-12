@@ -379,9 +379,17 @@
                   <p class="text-neutral-400 text-sm">3 parts • 12 min read</p>
                 </div>
               </div>
-              <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300" data-chapter-id="chapter1-part1">
-                Read Now
-              </button>
+              <div class="flex gap-2">
+                <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-3 py-1 rounded-lg transition-colors duration-300 text-sm" data-chapter-id="chapter1-part1">
+                  Part 1
+                </button>
+                <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-3 py-1 rounded-lg transition-colors duration-300 text-sm" data-chapter-id="chapter1-part2">
+                  Part 2
+                </button>
+                <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-3 py-1 rounded-lg transition-colors duration-300 text-sm" data-chapter-id="chapter1-part3">
+                  Part 3
+                </button>
+              </div>
             </div>
             
             <!-- Chapter 2 -->
@@ -471,7 +479,7 @@
       
       <!-- Reading Controls -->
       <div id="readingControls" class="flex justify-between items-center hidden">
-        <button class="text-neutral-400 hover:text-white transition-colors duration-300">
+        <button id="prevChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
           <i class="fa fa-arrow-left text-xl"></i> Previous
         </button>
         <div class="flex items-center space-x-4">
@@ -485,7 +493,7 @@
             <i class="fa fa-font text-xl"></i> A-
           </button>
         </div>
-        <button class="text-neutral-400 hover:text-white transition-colors duration-300">
+        <button id="nextChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
           Next <i class="fa fa-arrow-right text-xl"></i>
         </button>
       </div>
@@ -572,8 +580,10 @@
     const chapterBtns = document.querySelectorAll('.chapter-btn');
     const modalTitle = document.getElementById('modalTitle');
     const chapterInfo = document.getElementById('chapterInfo');
+    const prevChapterBtn = document.getElementById('prevChapter');
+    const nextChapterBtn = document.getElementById('nextChapter');
     
-    // Chapter data mapping (could be expanded for more chapters)
+    // Chapter data mapping (all three parts of Chapter 1)
     const chapterData = {
       'chapter1-part1': {
         title: 'Chapter 1 - The Beginning (Part 1)',
@@ -591,7 +601,9 @@
           <p>One hour later… She finished the entire storybook and after she put down the storybook, she sighed.
           Just before she sighed, her brother Leo walked in. Leo is tall and has brown eyes. Leo is also 14 years old, but 11 months older than Lily.
           Then, he saw the storybook that she was reading and heard her sigh. So he then asks, with a worried face, “Why do you sigh? I thought you were reading your favourite storybook, no?”</p>
-        `
+        `,
+        prev: null,
+        next: 'chapter1-part2'
       },
       'chapter1-part2': {
         title: 'Chapter 1 - The Beginning (Part 2)',
@@ -606,7 +618,9 @@
           
           <p>She then replies, “Leo, thanks for the encouragement!
           Now I’m gonna go open up an Untitled Document on my PC, and start writing my very own storybook! See ya!”</p>
-        `
+        `,
+        prev: 'chapter1-part1',
+        next: 'chapter1-part3'
       },
       'chapter1-part3': {
         title: 'Chapter 1 - The Beginning (Part 3)',
@@ -623,15 +637,21 @@
           In a split of a second, an idea popped in her head. So, she starts writing, “Once upon a time, a broken umbrella was crying on the streets of nowhere…”</p><br>
           
           <p>Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on…</p>
-        `
+        `,
+        prev: 'chapter1-part2',
+        next: null
       }
     };
+    
+    // Current chapter ID
+    let currentChapterId = null;
     
     // Open modal function
     function openModal(chapterId) {
       const chapter = chapterData[chapterId];
       if (!chapter) return;
       
+      currentChapterId = chapterId;
       modalTitle.textContent = chapter.title;
       chapterInfo.textContent = chapter.info;
       chapterContent.innerHTML = chapter.content;
@@ -641,10 +661,32 @@
       readingControls.style.display = 'none';
       progressText.textContent = 'Loading ad... Please wait to continue reading.';
       
+      // Enable/disable previous/next buttons based on chapter availability
+      prevChapterBtn.disabled = !chapter.prev;
+      nextChapterBtn.disabled = !chapter.next;
+      
       // Show modal with animation
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modal.querySelector('.modal-content').classList.remove('scale-95');
       modal.querySelector('.modal-content').classList.add('scale-100');
+      
+      // Start ad progress bar (30 seconds)
+      let progress = 0;
+      const totalSteps = 300; // 300 steps for 30 seconds (30000ms / 100ms per step)
+      const intervalTime = 100; // 100ms per step
+      
+      const interval = setInterval(() => {
+        progress += 1;
+        progressBar.style.width = `${progress}%`;
+        
+        if (progress >= 100) {
+          clearInterval(interval);
+          adContainer.style.display = 'none';
+          chapterContent.style.display = 'block';
+          readingControls.style.display = 'flex';
+          progressText.textContent = 'Ready to read!';
+        }
+      }, intervalTime);
     }
     
     // Close modal function
@@ -659,28 +701,42 @@
     chapterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const chapterId = btn.getAttribute('data-chapter-id');
-        openModal(chapterId);
-        
-        // Start ad progress bar
-        let progress = 0;
-        const interval = setInterval(() => {
-          progress += 1;
-          progressBar.style.width = `${progress}%`;
-          
-          if (progress >= 100) {
-            clearInterval(interval);
-            adContainer.style.display = 'none';
-            chapterContent.style.display = 'block';
-            readingControls.style.display = 'flex';
-            progressText.textContent = 'Ready to read!';
-          }
-        }, 30); // 30ms per update, ~3 seconds total
+        if (chapterId.startsWith('chapter1-part')) {
+          openModal(chapterId);
+        }
       });
     });
     
     // Close modal when clicking X or overlay
     closeModal.addEventListener('click', closeModalFunc);
     modalOverlay.addEventListener('click', closeModalFunc);
+    
+    // Navigation between chapters
+    prevChapterBtn.addEventListener('click', () => {
+      if (!currentChapterId) return;
+      
+      const prevChapterId = chapterData[currentChapterId].prev;
+      if (prevChapterId) {
+        closeModalFunc();
+        // Wait for modal to close before opening new chapter
+        setTimeout(() => {
+          openModal(prevChapterId);
+        }, 300);
+      }
+    });
+    
+    nextChapterBtn.addEventListener('click', () => {
+      if (!currentChapterId) return;
+      
+      const nextChapterId = chapterData[currentChapterId].next;
+      if (nextChapterId) {
+        closeModalFunc();
+        // Wait for modal to close before opening new chapter
+        setTimeout(() => {
+          openModal(nextChapterId);
+        }, 300);
+      }
+    });
     
     // Reading controls
     let currentFontSize = 16; // Base font size in pixels
