@@ -579,6 +579,9 @@ Responsive Design
     const chapterContent = document.getElementById("chapterContent");
     const startReadingBtn = document.getElementById("startReadingBtn");
     const progressBar = document.getElementById("progressBar");
+    
+    // Add variable to track the ad interval
+    let adInterval = null;
 
     // Close modal when clicking X
     closeBtn.onclick = function() {
@@ -596,6 +599,12 @@ Responsive Design
 
     // Reset modal to initial state
     function resetModal() {
+      // Clear any existing ad interval
+      if (adInterval) {
+        clearInterval(adInterval);
+        adInterval = null;
+      }
+      
       progressContainer.style.display = "block";
       adContainer.style.display = "none";
       chapterContent.style.display = "none";
@@ -611,38 +620,43 @@ Responsive Design
       
       startReadingBtn.style.color = "blue";
       startReadingBtn.style.backgroundColor = "white";
-      // Removed: startReadingBtn.style.marginLeft = "10px";
       startReadingBtn.innerHTML = "Click Me For Free Access";
     }
 
     // Handle chapter button clicks
     document.querySelectorAll('.chapter-button').forEach(button => {
       button.addEventListener('click', function() {
+        // Reset modal state before showing a new chapter
+        resetModal();
+        
         const chapterId = this.getAttribute('data-chapter-id');
         const chapter = document.getElementById(chapterId).innerHTML;
         
         chapterContent.innerHTML = chapter;
         
         modal.style.display = "block";
-        resetModal();
       });
     });
 
     // Start reading button
     startReadingBtn.onclick = function() {
+      // Clear any existing interval when starting a new ad
+      if (adInterval) {
+        clearInterval(adInterval);
+      }
+      
       progressContainer.style.display = "block";
       adContainer.style.display = "block";
       startReadingBtn.style.display = "none";
       
       let width = 0;
-      const progressBar = document.getElementById("progressBar");
+      const totalSteps = 300; // 300 steps for 30 seconds (30000ms / 100ms per step)
+      const intervalTime = 100; // 100ms per step, total 30 seconds
       
-      const totalSteps = 300;
-      const intervalTime = 30000 / totalSteps;
-      
-      const interval = setInterval(function() {
+      adInterval = setInterval(function() {
         if (width >= 100) {
-          clearInterval(interval);
+          clearInterval(adInterval);
+          adInterval = null;
           progressContainer.style.display = "none";
           adContainer.style.display = "none";
           chapterContent.style.display = "block";
