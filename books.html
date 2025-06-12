@@ -562,62 +562,105 @@ Responsive Design
   </footer>
 
   <script>
-    // Tab switching for book categories
+    // Page navigation function
     function showPage(pageId) {
-      document.querySelectorAll("article").forEach(el => el.style.display = "none");
-      document.getElementById(pageId).style.display = "block";
+      var articles = document.querySelectorAll('article');
+      articles.forEach(function(article) {
+        article.style.display = 'none';
+      });
+      document.getElementById(pageId).style.display = 'block';
     }
 
-    // Modal and progress bar logic
-    const modal = document.getElementById("chapterModal")
-    const closeModal = document.querySelector(".close")
-    const startReadingBtn = document.getElementById("startReadingBtn")
-    const progressBar = document.getElementById("progressBar")
-    const chapterContent = document.getElementById("chapterContent")
+    // Modal elements
+    const modal = document.getElementById("chapterModal");
+    const closeBtn = document.querySelector(".close");
+    const progressContainer = document.getElementById("progressContainer");
+    const adContainer = document.getElementById("adContainer");
+    const chapterContent = document.getElementById("chapterContent");
+    const startReadingBtn = document.getElementById("startReadingBtn");
+    const progressBar = document.getElementById("progressBar");
 
-    let currentChapterId = null
-
-    document.querySelectorAll(".chapter-button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        currentChapterId = btn.dataset.chapterId
-        openModal()
-      })
-    })
-
-    function openModal() {
-      progressBar.style.width = "0%"
-      progressBar.textContent = "0%"
-      startReadingBtn.style.display = "block"
-      chapterContent.innerHTML = ""
-      modal.style.display = "block"
+    // Close modal when clicking X
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+      resetModal();
     }
 
-    closeModal.onclick = function () {
-      modal.style.display = "none"
-    }
-
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none"
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        resetModal();
       }
     }
 
-    startReadingBtn.addEventListener("click", () => {
-      let progress = 0
-      const interval = setInterval(() => {
-        if (progress >= 100) {
-          clearInterval(interval)
-          const chapterHTML = document.getElementById(currentChapterId).innerHTML
-          chapterContent.innerHTML = chapterHTML
-          startReadingBtn.style.display = "none"
-        } else {
-          progress += 2
-          progressBar.style.width = progress + "%"
-          progressBar.textContent = progress + "%"
-        }
-      }, 100)
-    })
-  </script>
-</body>
+    // Reset modal to initial state
+    function resetModal() {
+      progressContainer.style.display = "block";
+      adContainer.style.display = "none";
+      chapterContent.style.display = "none";
+      startReadingBtn.style.display = "block";
+      progressBar.style.width = "0%";
+      progressBar.style.marginLeft = "10px";
+      progressBar.style.transition = "none";
+      progressBar.innerHTML = "0%";
+      
+      void progressBar.offsetWidth;
+      
+      progressBar.style.transition = "width 0.3s ease";
+      
+      startReadingBtn.style.color = "blue";
+      startReadingBtn.style.backgroundColor = "white";
+      // Removed: startReadingBtn.style.marginLeft = "10px";
+      startReadingBtn.innerHTML = "Click Me For Free Access";
+    }
 
+    // Handle chapter button clicks
+    document.querySelectorAll('.chapter-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const chapterId = this.getAttribute('data-chapter-id');
+        const chapter = document.getElementById(chapterId).innerHTML;
+        
+        chapterContent.innerHTML = chapter;
+        
+        modal.style.display = "block";
+        resetModal();
+      });
+    });
+
+    // Start reading button
+    startReadingBtn.onclick = function() {
+      progressContainer.style.display = "block";
+      adContainer.style.display = "block";
+      startReadingBtn.style.display = "none";
+      
+      let width = 0;
+      const progressBar = document.getElementById("progressBar");
+      
+      const totalSteps = 300;
+      const intervalTime = 30000 / totalSteps;
+      
+      const interval = setInterval(function() {
+        if (width >= 100) {
+          clearInterval(interval);
+          progressContainer.style.display = "none";
+          adContainer.style.display = "none";
+          chapterContent.style.display = "block";
+        } else {
+          width += 100 / totalSteps;
+          
+          if (width > 0.5 && progressBar.style.marginLeft === "10px") {
+            progressBar.style.marginLeft = "0px";
+          }
+          
+          const displayWidth = Math.min(Math.round(width), 100);
+          
+          progressBar.style.width = displayWidth + "%";
+          progressBar.innerHTML = displayWidth + "%";
+        }
+      }, intervalTime);
+    }
+  </script>
+
+</body>
 </html>
