@@ -169,7 +169,7 @@
     width: 100%;
     }
 
-    #chapterProgress {
+    #adProgress {
     width: 100%;
     background-color: #ddd;
     }
@@ -181,7 +181,7 @@
     text-align: center;
     line-height: 30px;
     color: white;
-    margin-left: 10px;
+    transition: width 0.3s ease; /* Smooth transition */
     }
 
     /* Ad Banner */
@@ -433,7 +433,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <div id="progressContainer">
-        <div id="chapterProgress">
+        <div id="adProgress">
             <div id="progressBar">0%</div>
         </div>
         <br>
@@ -442,11 +442,12 @@
         </div>
         
         <div id="adContainer" class="ad-banner-container">
+        <!-- Change this to your actual ad link -->
         <a href="#" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
         <br><br>
-        <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
+        <p3 style="color: red"><b>Note: You will be able to read the chapter when the progress bar reaches 100%.</b></p3>
         </div>
         
         <div id="chapterContent"></div>
@@ -603,6 +604,7 @@
     const adContainer = document.getElementById("adContainer");
     const chapterContent = document.getElementById("chapterContent");
     const startReadingBtn = document.getElementById("startReadingBtn");
+    const progressBar = document.getElementById("progressBar");
 
     // Close modal when clicking X
     closeBtn.onclick = function() {
@@ -618,14 +620,23 @@
     }
     }
 
-    // Reset modal to initial state (ensures margin is applied at 0%)
+    // Reset modal to initial state
     function resetModal() {
     progressContainer.style.display = "block";
     adContainer.style.display = "none";
     chapterContent.style.display = "none";
     startReadingBtn.style.display = "block";
-    document.getElementById("progressBar").style.width = "0%";
-    document.getElementById("progressBar").innerHTML = "0%";
+    progressBar.style.width = "0%";
+    progressBar.style.marginLeft = "10px";
+    progressBar.style.transition = "none"; // Disable transition for reset
+    progressBar.innerHTML = "0%";
+    
+    // Force reflow to apply styles
+    void progressBar.offsetWidth;
+    
+    // Re-enable transition for smooth animation
+    progressBar.style.transition = "width 0.3s ease";
+    
     // Maintain button styles including margin
     startReadingBtn.style.color = "blue";
     startReadingBtn.style.backgroundColor = "white";
@@ -648,7 +659,7 @@
     });
     });
 
-    // Start reading button (maintains original functionality)
+    // Start reading button
     startReadingBtn.onclick = function() {
     progressContainer.style.display = "block";
     adContainer.style.display = "block";
@@ -657,8 +668,9 @@
     let width = 0;
     const progressBar = document.getElementById("progressBar");
     
-    // Calculate interval for EXACT 30-second completion
-    const intervalTime = 30000 / 100; // 300ms per step
+    // Calculate interval for 30-second completion with smooth animation
+    const totalSteps = 300; // More steps for smoother animation
+    const intervalTime = 30000 / totalSteps; // 100ms per step for smoother animation
     
     const interval = setInterval(function() {
         if (width >= 100) {
@@ -667,12 +679,28 @@
         adContainer.style.display = "none";
         chapterContent.style.display = "block";
         } else {
-        width++;
-        progressBar.style.width = width + "%";
-        progressBar.innerHTML = width + "%";
+        width += 100 / totalSteps; // Smaller increments for smoother animation
+        
+        // Remove margin after initial 0% state
+        if (width > 0.5 && progressBar.style.marginLeft === "10px") {
+            progressBar.style.marginLeft = "0px";
+        }
+        
+        // Ensure width never exceeds 100%
+        const displayWidth = Math.min(Math.round(width), 100);
+        
+        // Update progress bar width
+        progressBar.style.width = displayWidth + "%";
+        progressBar.innerHTML = displayWidth + "%";
         }
     }, intervalTime);
     }
+    
+    // Handle ad banner click
+    document.querySelector('#adContainer a').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        window.open('', '_blank'); // Open blank page
+    });
     </script>
 
     </body>
