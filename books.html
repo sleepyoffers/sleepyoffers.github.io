@@ -20,6 +20,7 @@
             primary: '#6C5CE7',
             secondary: '#FD79A8',
             accent: '#00CEFF',
+            success: '#04AA6D', // 新增绿色用于进度条
             dark: '#1A1A2E',
             light: '#F8F9FA',
             'neutral-100': '#F1F5F9',
@@ -52,9 +53,6 @@
       }
       .modal-transition {
         transition: transform 0.3s ease, opacity 0.3s ease;
-      }
-      .progress-animation {
-        transition: width 0.5s ease-in-out;
       }
     }
   </style>
@@ -115,6 +113,26 @@
     
     .btn-pulse:hover {
       animation: pulse 0.5s ease infinite;
+    }
+    
+    /* Reading content styling */
+    .reading-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .reading-content strong {
+      font-weight: 600;
+    }
+    
+    /* Ad progress bar styling (恢复旧版样式) */
+    #progressBar {
+      height: 30px;
+      background-color: #04AA6D;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      transition: width 0.3s ease;
     }
   </style>
 </head>
@@ -459,28 +477,38 @@
         </div>
       </div>
       
-      <!-- Ad Progress Bar -->
-      <div id="adContainer" class="mb-8">
-        <div class="bg-neutral-800 rounded-lg overflow-hidden mb-4">
-          <div id="progressBar" class="progress-animation bg-primary h-2 w-0"></div>
+      <!-- Ad Progress Bar (恢复旧版设计) -->
+      <div id="progressContainer" class="mb-8">
+        <div id="adProgress" class="w-full bg-gray-300 rounded-lg overflow-hidden">
+          <div id="progressBar" class="w-0 h-30 bg-success text-white flex items-center justify-center">
+            0%
+          </div>
         </div>
-        <p class="text-sm text-red-400 text-center mb-4" id="progressText">Loading ad... Please wait to continue reading.</p>
-        <div class="bg-neutral-800 rounded-xl overflow-hidden">
-          <a href="about:blank" target="_blank" class="block">
-            <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="w-full h-auto">
-          </a>
-        </div>
+        <br>
+        <button id="startReadingBtn" class="w-full bg-white text-blue-600 font-medium text-lg py-2 rounded-lg">
+          Click Me For Free Access
+        </button>
+      </div>
+
+      <div id="adContainer" class="ad-banner-container max-w-3xl mx-auto mb-8">
+        <a href="about:blank" target="_blank" class="block">
+          <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="w-full h-auto rounded-lg">
+        </a>
+        <br>
+        <p class="text-red-500 text-center font-bold">
+          Note: You will be able to read the chapter when the progress bar reaches 100%.
+        </p>
       </div>
       
       <!-- Chapter Content -->
-      <div id="chapterContent" class="prose prose-invert max-w-none mb-8 hidden">
+      <div id="chapterContent" class="reading-content max-w-none mb-8 hidden">
         <!-- Chapter content will be loaded here -->
       </div>
       
       <!-- Reading Controls -->
       <div id="readingControls" class="flex justify-between items-center hidden">
-        <button id="prevChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
-          <i class="fa fa-arrow-left text-xl"></i> Previous
+        <button id="prevChapter" class="text-neutral-400 hover:text-white transition-colors duration-300 flex items-center">
+          <i class="fa fa-arrow-left mr-1"></i> Previous
         </button>
         <div class="flex items-center space-x-4">
           <button class="text-neutral-400 hover:text-white transition-colors duration-300" id="themeToggle">
@@ -493,8 +521,8 @@
             <i class="fa fa-font text-xl"></i> A-
           </button>
         </div>
-        <button id="nextChapter" class="text-neutral-400 hover:text-white transition-colors duration-300">
-          Next <i class="fa fa-arrow-right text-xl"></i>
+        <button id="nextChapter" class="text-neutral-400 hover:text-white transition-colors duration-300 flex items-center">
+          Next <i class="fa fa-arrow-right mr-1"></i>
         </button>
       </div>
     </div>
@@ -563,7 +591,6 @@
         btn.classList.add('bg-primary');
         
         const category = btn.getAttribute('data-category');
-        // Here you would normally show the corresponding category content
         console.log('Showing category:', category);
       });
     });
@@ -574,7 +601,7 @@
     const closeModal = document.getElementById('closeModal');
     const chapterContent = document.getElementById('chapterContent');
     const progressBar = document.getElementById('progressBar');
-    const progressText = document.getElementById('progressText');
+    const progressText = document.querySelector('#adContainer p');
     const adContainer = document.getElementById('adContainer');
     const readingControls = document.getElementById('readingControls');
     const chapterBtns = document.querySelectorAll('.chapter-btn');
@@ -582,6 +609,7 @@
     const chapterInfo = document.getElementById('chapterInfo');
     const prevChapterBtn = document.getElementById('prevChapter');
     const nextChapterBtn = document.getElementById('nextChapter');
+    const startReadingBtn = document.getElementById('startReadingBtn');
     
     // Chapter data mapping (all three parts of Chapter 1)
     const chapterData = {
@@ -645,6 +673,7 @@
     
     // Current chapter ID
     let currentChapterId = null;
+    let adInterval = null; // 用于跟踪广告计时器
     
     // Open modal function
     function openModal(chapterId) {
@@ -656,10 +685,11 @@
       chapterInfo.textContent = chapter.info;
       chapterContent.innerHTML = chapter.content;
       progressBar.style.width = '0%';
+      progressBar.textContent = '0%';
       adContainer.style.display = 'block';
       chapterContent.style.display = 'none';
       readingControls.style.display = 'none';
-      progressText.textContent = 'Loading ad... Please wait to continue reading.';
+      startReadingBtn.style.display = 'block';
       
       // Enable/disable previous/next buttons based on chapter availability
       prevChapterBtn.disabled = !chapter.prev;
@@ -669,28 +699,16 @@
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modal.querySelector('.modal-content').classList.remove('scale-95');
       modal.querySelector('.modal-content').classList.add('scale-100');
-      
-      // Start ad progress bar (30 seconds)
-      let progress = 0;
-      const totalSteps = 300; // 300 steps for 30 seconds (30000ms / 100ms per step)
-      const intervalTime = 100; // 100ms per step
-      
-      const interval = setInterval(() => {
-        progress += 1;
-        progressBar.style.width = `${progress}%`;
-        
-        if (progress >= 100) {
-          clearInterval(interval);
-          adContainer.style.display = 'none';
-          chapterContent.style.display = 'block';
-          readingControls.style.display = 'flex';
-          progressText.textContent = 'Ready to read!';
-        }
-      }, intervalTime);
     }
     
     // Close modal function
     function closeModalFunc() {
+      // 清除广告计时器
+      if (adInterval) {
+        clearInterval(adInterval);
+        adInterval = null;
+      }
+      
       // Hide modal with animation
       modal.classList.add('opacity-0', 'pointer-events-none');
       modal.querySelector('.modal-content').classList.remove('scale-100');
@@ -707,6 +725,36 @@
       });
     });
     
+    // 开始播放广告
+    startReadingBtn.addEventListener('click', () => {
+      startReadingBtn.style.display = 'none';
+      
+      let width = 0;
+      const totalSteps = 300; // 300步 = 30秒 (300 x 100ms)
+      const intervalTime = 100; // 每100ms更新一次
+      
+      adInterval = setInterval(() => {
+        if (width >= 100) {
+          clearInterval(adInterval);
+          adInterval = null;
+          adContainer.style.display = 'none';
+          chapterContent.style.display = 'block';
+          readingControls.style.display = 'flex';
+        } else {
+          width += 100 / totalSteps;
+          
+          // 当进度超过0.5%时移除左侧边距（恢复旧版逻辑）
+          if (width > 0.5 && progressBar.style.marginLeft === '10px') {
+            progressBar.style.marginLeft = '0px';
+          }
+          
+          const displayWidth = Math.min(Math.round(width), 100);
+          progressBar.style.width = `${displayWidth}%`;
+          progressBar.textContent = `${displayWidth}%`;
+        }
+      }, intervalTime);
+    });
+    
     // Close modal when clicking X or overlay
     closeModal.addEventListener('click', closeModalFunc);
     modalOverlay.addEventListener('click', closeModalFunc);
@@ -718,7 +766,7 @@
       const prevChapterId = chapterData[currentChapterId].prev;
       if (prevChapterId) {
         closeModalFunc();
-        // Wait for modal to close before opening new chapter
+        // 等待模态框关闭后打开新章节
         setTimeout(() => {
           openModal(prevChapterId);
         }, 300);
@@ -731,7 +779,7 @@
       const nextChapterId = chapterData[currentChapterId].next;
       if (nextChapterId) {
         closeModalFunc();
-        // Wait for modal to close before opening new chapter
+        // 等待模态框关闭后打开新章节
         setTimeout(() => {
           openModal(nextChapterId);
         }, 300);
@@ -739,7 +787,7 @@
     });
     
     // Reading controls
-    let currentFontSize = 16; // Base font size in pixels
+    let currentFontSize = 16; // 基础字体大小（像素）
     const fontSizeIncrease = document.getElementById('fontSizeIncrease');
     const fontSizeDecrease = document.getElementById('fontSizeDecrease');
     const themeToggle = document.getElementById('themeToggle');
@@ -759,12 +807,12 @@
       isDarkTheme = !isDarkTheme;
       
       if (isDarkTheme) {
-        // Switch to dark theme
+        // 切换到深色主题
         document.body.classList.add('bg-neutral-900', 'text-light');
         document.body.classList.remove('bg-white', 'text-neutral-800');
         themeToggle.innerHTML = '<i class="fa fa-moon-o text-xl"></i>';
       } else {
-        // Switch to light theme
+        // 切换到浅色主题
         document.body.classList.remove('bg-neutral-900', 'text-light');
         document.body.classList.add('bg-white', 'text-neutral-800');
         themeToggle.innerHTML = '<i class="fa fa-sun-o text-xl"></i>';
