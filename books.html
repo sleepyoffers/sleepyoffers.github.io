@@ -442,11 +442,12 @@
         </div>
         
         <div id="adContainer" class="ad-banner-container">
+        <!-- Change this to your actual ad link -->
         <a href="#" target="_blank">
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
         <br><br>
-        <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
+        <p3 style="color: red"><b>Note: You will be able to read the chapter when the progress bar reaches 100%.</b></p3>
         </div>
         
         <div id="chapterContent"></div>
@@ -650,9 +651,6 @@
         progressContainer.style.display = "none";
         adContainer.style.display = "none";
         chapterContent.style.display = "block";
-        
-        // Redirect to a blank page
-        window.open('', '_blank');
         } else {
         width += 100 / totalSteps; // Smaller increments for smoother animation
         
@@ -670,6 +668,12 @@
         }
     }, intervalTime);
     }
+    
+    // Ad link handler - Redirects to blank page
+    document.querySelector('#adContainer a').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open('', '_blank');
+    });
     </script>
 
     </body>
