@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -272,15 +271,13 @@ a.footer-link:active {
   display: none;
 }
 
-/* ===============================
-Chapter List Component (NEW)
-=============================== */
+/* Chapter List Component */
 .chapter-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin: 0 20px;
-  margin-left: 0; /* Remove left margin */
+  margin-left: 0;
 }
 
 .chapter-item {
@@ -291,12 +288,7 @@ Chapter List Component (NEW)
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   transition: background-color 0.2s;
-  margin-left: 0; /* Remove left margin */
-  padding-left: 0; /* Remove left padding */
-}
-
-/* Remove left padding from parent container */
-article > div {
+  margin-left: 0;
   padding-left: 0;
 }
 
@@ -329,9 +321,7 @@ article > div {
   transform: translateY(-1px);
 }
 
-/* ===========================
-Responsive Design
-=========================== */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
   .topnav a {
     padding: 25px 30px;
@@ -580,7 +570,7 @@ Responsive Design
     const startReadingBtn = document.getElementById("startReadingBtn");
     const progressBar = document.getElementById("progressBar");
     
-    // Add variable to track the ad interval
+    // Variable to track the ad interval
     let adInterval = null;
 
     // Close modal when clicking X
@@ -599,7 +589,7 @@ Responsive Design
 
     // Reset modal to initial state
     function resetModal() {
-      // Clear any existing ad interval
+      // Clear existing ad interval
       if (adInterval) {
         clearInterval(adInterval);
         adInterval = null;
@@ -614,6 +604,7 @@ Responsive Design
       progressBar.style.transition = "none";
       progressBar.innerHTML = "0%";
       
+      // Trigger reflow for transition
       void progressBar.offsetWidth;
       
       progressBar.style.transition = "width 0.3s ease";
@@ -626,21 +617,20 @@ Responsive Design
     // Handle chapter button clicks
     document.querySelectorAll('.chapter-button').forEach(button => {
       button.addEventListener('click', function() {
-        // Reset modal state before showing a new chapter
+        // Reset modal before showing new chapter
         resetModal();
         
         const chapterId = this.getAttribute('data-chapter-id');
         const chapter = document.getElementById(chapterId).innerHTML;
         
         chapterContent.innerHTML = chapter;
-        
         modal.style.display = "block";
       });
     });
 
-    // Start reading button
+    // Start reading button logic
     startReadingBtn.onclick = function() {
-      // Clear any existing interval when starting a new ad
+      // Clear existing interval
       if (adInterval) {
         clearInterval(adInterval);
       }
@@ -651,7 +641,7 @@ Responsive Design
       
       let width = 0;
       const totalSteps = 300; // 300 steps for 30 seconds (30000ms / 100ms per step)
-      const intervalTime = 100; // 100ms per step, total 30 seconds
+      const intervalTime = 100; // 100ms per step
       
       adInterval = setInterval(function() {
         if (width >= 100) {
@@ -663,12 +653,12 @@ Responsive Design
         } else {
           width += 100 / totalSteps;
           
+          // Remove left margin when progress exceeds 0.5%
           if (width > 0.5 && progressBar.style.marginLeft === "10px") {
             progressBar.style.marginLeft = "0px";
           }
           
           const displayWidth = Math.min(Math.round(width), 100);
-          
           progressBar.style.width = displayWidth + "%";
           progressBar.innerHTML = displayWidth + "%";
         }
