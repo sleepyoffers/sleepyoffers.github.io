@@ -436,7 +436,8 @@
             <div id="progressBar">0%</div>
         </div>
         <br>
-        <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: inline-block;">Click Me For Free Access</button>
+        <!-- Modified button with margin-left: 10px -->
+        <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: inline-block; margin-left: 10px;">Click Me For Free Access</button>
         </div>
         
         <div id="adContainer" class="ad-banner-container">
@@ -594,7 +595,9 @@
     progressContainer.style.display = "block";
     adContainer.style.display = "none";
     chapterContent.style.display = "none";
-    startReadingBtn.style.display = "block";
+    startReadingBtn.style.color = "blue"; // Reset button color
+    startReadingBtn.style.backgroundColor = "white"; // Reset button background
+    startReadingBtn.innerHTML = "Click Me For Free Access"; // Reset button text
     document.getElementById("progressBar").style.width = "0%";
     document.getElementById("progressBar").innerHTML = "0%";
     }
@@ -614,11 +617,15 @@
     });
     });
 
-    // Start reading button (updated for EXACT 30-second ad display)
+    // Start reading button (updated to change color to green when clicked)
     startReadingBtn.onclick = function() {
     progressContainer.style.display = "block";
     adContainer.style.display = "block";
-    startReadingBtn.style.display = "none";
+    
+    // Change button color to green when clicked
+    this.style.color = "green";
+    this.style.backgroundColor = "#4CAF50"; // Green background
+    this.innerHTML = "Reading Now..."; // Optional text update
     
     let width = 0;
     const progressBar = document.getElementById("progressBar");
