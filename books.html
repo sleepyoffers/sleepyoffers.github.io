@@ -11,338 +11,360 @@
   <title>Sleepy Offers</title>
 
 <style>
-.button {color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;}
-	
-body {
-  background-color: #2b2b2b;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-}
- 
+    /* Reset */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
 
-	/* Reset default margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}    
-
-
-.header p {
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  height: 73px;
-  background-color: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* Style the navigation bar links */
-.topnav a {
-  float: right;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 25px 40px;
-  height: 73px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-/* Active link styling */
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-  text-decoration: underline;
-}
-
-/* Hover effects */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-	
-/* Mobile */
-@media screen and (max-width: 768px) {
-  .topnav a {
-    padding: 25px 30px;
-  }
-}
-    
-
-hr { 
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-  color: white
-} 
-
-header {
-  margin-left: 20px;    /* Adjust as needed */
-  margin-right: 20px; /* Adjust as needed */
-}
-
-.vertical-menu {
-  margin-left: 20px;    /* Adjust as needed */
-  margin-bottom: 10px;
-}
-
-article {
-  margin-right: 20px; /* Adjust as needed */
-  margin-bottom: 10px;
-}
-
-    
-/* Style the header */
-header {
-  background-color: #7B68EE;
-  padding: 10px;
-  text-align: center;
-  font-size: 20px;
-  color: #FFFFF0;
-}
-
-.vertical-menu {
-  width: calc(20% - 20px);
-  float: left;
-  background-color: #f2f2f2;
-  height: 50vh;
-  overflow-y: auto;
-}
-
-.vertical-menu a {
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-}
-
-.vertical-menu a:hover {
-  background-color: #ccc; /* Light gray background on hover */
-}
-
-.vertical-menu a.active {
-  background-color: #04AA6D; /* Green background for active link */
-  color: white;
-}
-
-article {
-  padding: 20px;
-  background-color: #48D1CC;
-  display: none;
-  width:  calc(80% - 20px); /* Adjusted width to accommodate margins */
-  float: right;
-  height: 50vh;
-  overflow-y: auto;
-}
-
-
-/* Media query for responsiveness */
-@media screen and (max-width: 768px) {
-  .vertical-menu {
-    width: auto; /* Full width on smaller screens */
-    float: none; /* Reset float */
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: auto;
-	margin-top: auto;
-    height: auto;
-    overflow-y: auto; /* Enable vertical scrolling if necessary */
-  }
-
-  article {
-    width: auto; /* Full width on smaller screens */
-    float: none; /* Reset float */
-    margin-left: 20px;
-    margin-right: 20px;
-	margin-top: auto;
-    height: 50vh; /* Adjust height as needed */
-    overflow-y: auto; /* Enable vertical scrolling if necessary */
-  }
-}
-    
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: black;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* 80% width */
-}
-
-#PartContainer p {
-  color: #FF4500;
-  font-weight: bold;
-  margin: 0; /* Removes default margins */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: red;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Clear floats after the columns */
-section::after, .topnav::after, .vertical-menu::after, article::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
-
-#myBar {
-  width: 0%;
-  height: 30px;
-  background-color: #04AA6D;
-  text-align: center;
-  line-height: 30px;
-  color: white;
-}
-
-/* Improved Ad Banner Styles */
-.ad-banner-container {
-  max-width: 80%; /* Adjust width as necessary */
-  margin: 20px auto; /* Center the ad and add margin for spacing */
-  text-align: center; /* Center the ad content */
-}
-
-.ad-banner {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Mobile responsive */
-@media screen and (max-width: 768px) {
-  .ad-banner-container {
-    max-width: 90%; /* Slightly wider on smaller screens */
-  }
-}
-  
-/* Default (desktop) styles */
-.footer {
-  background-color: #1f1f1f;
-  width: 100%;
-  padding: 20px 0;
-  font-size: 16px;
-}
-
-.footer-text {
-  color: #bbb;
-  text-align: left; /* Aligns the text to the left */
-  margin-bottom: 20px;
-  padding: 0 20px; /* Add padding for better spacing */
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.footer-section {
-  text-align: left;
-}
-
-.footer-heading {
-  color: red;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer-link {
-  color: #bbb;
-  text-decoration: none;
-}
-
-a.footer-link:link {
-  text-decoration: none;
-  color: #87CEFA; /* Light sky blue for default links */
-}
-
-a.footer-link:visited {
-  text-decoration: none;
-  color: #87CEFA; /* Light sky blue for visited links */
-}
-
-a.footer-link:hover {
-  text-decoration: underline;
-  color: #ffd700; /* Gold for hover */
-}
-
-a.footer-link:active {
-  text-decoration: underline;
-  color: #ff6347; /* Tomato red for active */
-}
-
-/* Mobile (600px and below) styles */
-@media screen and (max-width: 600px) {
-  .footer {
-    padding: 10px 0;
-   }
-
-  .footer-text {
-    text-align: left; /* Align text to the left on mobile */
-    margin-bottom: 10px;
-    padding: 0 20px; /* Adjust padding for mobile */
-  }
-
-  .footer-content {
+    /* General Body Styling */
+    body {
+    background-color: #2b2b2b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align all content to the left */
-    padding: 0 20px;
-  }
+    }
 
-  .footer-section {
+    /* Button Style */
+    .button {
+    color: blue;
+    font-size: 20px;
+    background-color: white;
+    padding: 0;
+    text-decoration: none;
+    display: inline-block;
+    }
+
+    /* Header */
+    header {
+    background-color: #7B68EE;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #FFFFF0;
+    margin: 0 20px;
+    }
+
+    /* Top Navigation Bar */
+    .topnav {
+    overflow: hidden;
+    height: 73px;
+    background-color: none;
+    margin: 10px 0;
+    }
+
+    .topnav a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 25px 40px;
+    height: 73px;
+    text-decoration: none;
+    font-size: 20px;
+    }
+
+    .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+    text-decoration: underline;
+    }
+
+    .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    }
+
+    /* Horizontal Rule */
+    hr {
+    display: block;
+    margin: 0.5em auto;
+    border-style: inset;
+    border-width: 1px;
+    color: white;
+    }
+
+    /* Vertical Menu */
+    .vertical-menu {
+    width: calc(20% - 20px);
+    float: left;
+    background-color: #f2f2f2;
+    height: 50vh;
+    overflow-y: auto;
+    margin: 0 0 10px 20px;
+    }
+
+    .vertical-menu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    }
+
+    .vertical-menu a:hover {
+    background-color: #ccc;
+    }
+
+    .vertical-menu a.active {
+    background-color: #04AA6D;
+    color: white;
+    }
+
+    /* Article Styling */
+    article {
+    padding: 20px;
+    background-color: #48D1CC;
+    display: none;
+    width: calc(80% - 20px);
+    float: right;
+    height: 50vh;
+    overflow-y: auto;
+    margin: 0 20px 10px 0;
+    }
+
+    /* Modal Styling */
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+    background-color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    }
+
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+
+    .close:hover, .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    /* Clear Floats */
+    section::after, .topnav::after, .vertical-menu::after, article::after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    /* Progress Bar */
+    #progressContainer {
+    width: 100%;
+    }
+
+    #chapterProgress {
+    width: 100%;
+    background-color: #ddd;
+    }
+
+    #progressBar {
+    width: 0%;
+    height: 30px;
+    background-color: #04AA6D;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    }
+
+    /* Ad Banner */
+    .ad-banner-container {
+    max-width: 80%;
+    margin: 20px auto;
+    text-align: center;
+    }
+
+    .ad-banner {
+    max-width: 100%;
+    height: auto;
+    }
+
+    /* Footer */
+    .footer {
+    background-color: #1f1f1f;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 16px;
+    }
+
+    .footer-text {
+    color: #bbb;
+    text-align: left;
     margin-bottom: 20px;
-    text-align: left; /* Ensure text in sections is aligned to the left */
-  }
+    padding: 0 20px;
+    }
 
-  .footer-heading {
-    margin-bottom: 5px;
-  }
-}
-    
-  </style>
-<head>
+    .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    }
+
+    .footer-section {
+    text-align: left;
+    }
+
+    .footer-heading {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+
+    .footer-link {
+    color: #bbb;
+    text-decoration: none;
+    }
+
+    a.footer-link:link,
+    a.footer-link:visited {
+    color: #87CEFA;
+    text-decoration: none;
+    }
+
+    a.footer-link:hover {
+    text-decoration: underline;
+    color: #ffd700;
+    }
+
+    a.footer-link:active {
+    text-decoration: underline;
+    color: #ff6347;
+    }
+
+    /* Chapter Content Styling */
+    #chapterContent p {
+    color: #FF4500;
+    font-weight: bold;
+    margin: 0;
+    }
+
+    #chapterContent p3 {
+    margin-left: 10px;
+    display: block;
+    margin: 10px 0;
+    }
+
+    .chapter-storage {
+    display: none;
+    }
+
+    /* ===============================
+    Chapter List Component (NEW)
+    =============================== */
+    .chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 20px;
+    }
+
+    .chapter-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    }
+
+    .chapter-item:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .chapter-title {
+    color: #FFFFF0;
+    font-size: 16px;
+    flex-grow: 1;
+    }
+
+    .chapter-button {
+    background-color: #7B68EE;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 100px;
+    text-align: center;
+    }
+
+    .chapter-button:hover {
+    background-color: #5F4BDB;
+    transform: translateY(-1px);
+    }
+
+    /* ===========================
+    Responsive Design
+    =========================== */
+    @media screen and (max-width: 768px) {
+    .topnav a {
+        padding: 25px 30px;
+    }
+
+    .vertical-menu,
+    article {
+        width: auto;
+        float: none;
+        margin: 20px;
+        height: auto;
+    }
+
+    .ad-banner-container {
+        max-width: 90%;
+    }
+    }
+
+    @media screen and (max-width: 600px) {
+    .footer {
+        padding: 10px 0;
+    }
+
+    .footer-text,
+    .footer-section {
+        text-align: left;
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px;
+    }
+
+    .chapter-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .chapter-button {
+        width: 100%;
+    }
+    }
+</style>
+
+</head>
+
+<body>
 
   <div class="topnav">
     <img src="https://sleepyoffers.github.io/logo.webp" alt="Logo" style="height: 73px; margin-left: 20px;">
@@ -368,183 +390,252 @@ a.footer-link:active {
 
 
 <article id="featured-books" style="display:block;">
-  <h2 style="color:#FF4500">Featured Books</h2>
-  <hr>
-  <p1>The Broken Umbrella (Untitled Document Series, #1)</p1>
-  <br>
-  <p1>Part 1: </p1><button id="myButton" class="button">&nbsp;Click Me&nbsp;</button>
-  <br>
-	
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      
-<div id="myContainer">
-  <div id="myProgress">
-    <div id="myBar">0%</div>
-  </div>
-  <br>
-</div>
-
-<div id="MoveButton">
-  <button onclick="move()" style="color: blue; font-size: 20px; background-color: white; padding: 0; text-decoration: none; display: inline-block;">Click Me For Free Access</button>
-</div>
-
-<div id="myContainerClicked" class="ad-banner-container">
-  <a href="https://" target="_blank">
-    <img src="https://sleepyoffers.github.io/examplead1.png" alt="Example Ad Slot" class="ad-banner">
-  </a>
-  <br><br>
-  <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
-</div>
-
-<div id="PartContainer">
-    <p style="color:#FF4500;"><b>Chapter 1 - The Beginning</b></p>
-    <p3 style="margin-left: 10px;">
-        It all began in a colourful and well-decorated bedroom.
-        The bedroom walls' colours are baby blue, with stars and all sorts of decoration stickers pasted on the walls.
-        In addition, the room smells like cherry blossoms. From looking out the bedroom window, it's a beautiful sunny day today.</p3>
-    <br>
-    <p3 style="margin-left: 10px;">
-        There was a girl sitting on her bed reading a storybook, she was very focused on it.
-        She is not too tall, not too short. She has long hair that pours down like a waterfall, blue eyes, and a radiant smile.
-        She's 14 years old and her name is Lily.
-    </p3>
-</div>
-
-<script>
-PartContainer.style.display = "none";
-myContainerClicked.style.display = "none";
-myContainer.style.display = "block";
-MoveButton.style.display = "block";
-var i = 0;
-function move() {
-  MoveButton.style.display = "none";
-  myContainer.style.display = "block";
-  myContainerClicked.style.display = "block";
+<div style="background-color: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+  <h3 style="color: #7B68EE; margin-top: 0;">The Broken Umbrella (Untitled Document Series, #1)</h3>
   
-  if (i == 0) {
-    i = 0;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 300);
-    function frame() {
-      if (width >= 100) {
-        myContainer.style.display = "none";
-  		myContainerClicked.style.display = "none";
-		PartContainer.style.display = "block";
-
-        clearInterval(id);
-        i = 0;
-      }
-      
-	  else {
-        width++;
-        elem.style.width = width + "%";
-        elem.innerHTML = width  + "%";
-      }
-    }
-  }
-}
-</script>
-</article>
+  <div class="chapter-list">
+    <!-- Chapter 1 Part 1 -->
+    <div class="chapter-item">
+      <span class="chapter-title">Chapter 1 (Part 1):</span>
+      <button class="chapter-button" data-chapter-id="chapter1-part1">Read Now</button>
+    </div>
+    
+    <!-- Chapter 1 Part 2 -->
+    <div class="chapter-item">
+      <span class="chapter-title">Chapter 1 (Part 2):</span>
+      <button class="chapter-button" data-chapter-id="chapter1-part2">Read Now</button>
+    </div>
+    
+    <!-- Chapter 1 Part 3 -->
+    <div class="chapter-item">
+      <span class="chapter-title">Chapter 1 (Part 3):</span>
+      <button class="chapter-button" data-chapter-id="chapter1-part3">Read Now</button>
+    </div>
+  </div>
+</div>
 
     <article id="all-books">
-      <h2 style="color:#FF4500">All Books</h2>
-      <hr>
+        <h2 style="color:#FF4500">All Books</h2>
+        <hr>
     </article>
 
     <article id="new-books">
-      <h2 style="color:#FF4500">New Books</h2>
-      <hr>
+        <h2 style="color:#FF4500">New Books</h2>
+        <hr>
     </article>
-  </section>
-</div>
-
-<footer class="footer">
-  <p class="footer-text">Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
-
-  <div class="footer-content">
-    <div class="footer-section">
-      <p class="footer-heading">Legal</p>
-      <p><a href="https://sleepyoffers.github.io/terms.html" class="footer-link">Terms of Services</a></p>
-      <p><a href="https://sleepyoffers.github.io/privacy.html" class="footer-link">Privacy Policy</a></p>
+    </section>
     </div>
 
-    <div class="footer-section">
-      <p class="footer-heading">Business</p>
-      <p><a href="https://sleepyoffers.github.io/advinfo.html" class="footer-link">Advertise at Sleepy Offers</a></p>
-      <p><a href="https://sleepyoffers.github.io/publish.html" class="footer-link">Publish at Sleepy Offers</a></p>
+    <!-- SINGLE MODAL FOR ALL CHAPTERS -->
+    <div id="chapterModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="progressContainer">
+        <div id="chapterProgress">
+            <div id="progressBar">0%</div>
+        </div>
+        <br>
+        <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: inline-block;">Click Me For Free Access</button>
+        </div>
+        
+        <div id="adContainer" class="ad-banner-container">
+        <a href="#" target="_blank">
+            <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
+        </a>
+        <br><br>
+        <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
+        </div>
+        
+        <div id="chapterContent"></div>
+    </div>
     </div>
 
-    <div class="footer-section">
-      <p class="footer-heading">Support</p>
-      <p><a href="mailto:sleepysurveys01@gmail.com" class="footer-link">Contact Us</a></p>
-      <p><a href="https://sleepyoffers.github.io/faq.html" class="footer-link">FAQ</a></p>
+    <!-- CHAPTER CONTENT STORAGE - EASY TO EDIT -->
+    <div class="chapter-storage">
+    <div id="chapter1-part1">
+        <p><b>Chapter 1 - The Beginning (Part 1)</b></p>
+        <p3>
+            It all began in a colourful and well-decorated bedroom.
+            The bedroom walls' colours are baby blue, with stars and all sorts of decoration stickers pasted on the walls.
+            In addition, the room smells like cherry blossoms. From looking out the bedroom window, it's a beautiful sunny day today.
+        </p3>
+
+        <br><br>
+
+        <p3>
+            There was a girl sitting on her bed reading a storybook, she was very focused on it.
+            She is not too tall, not too short. She has long hair that pours down like a waterfall, blue eyes, and a radiant smile. She's 14 years old and her name is Lily.
+        </p3>
+
+        <br><br>
+
+        <p3>
+            One hour later... She finished the entire storybook and after she put down the storybook, she sighed.
+            Just before she sighed, her brother Leo walked in. Leo is tall and has brown eyes. Leo is also 14 years old, but 11 months older than Lily.
+            Then, he saw the storybook that she was reading and heard her sigh. So he then asks, with a worried face, "Why do you sigh? I thought you were reading your favourite storybook, no?"
+        </p3>
     </div>
     
-    <div class="footer-section">
-      <p class="footer-heading">Explore</p>
-      <p><a href="https://sleepyoffers.github.io/index.html" class="footer-link">About Us</a></p>
-      <p><a href="https://sleepyoffers.github.io/sitemap.html" class="footer-link">Site Map</a></p>
-  	</div>
-  </div>
-</footer>
+    <div id="chapter1-part2">
+        <p><b>Chapter 1 - The Beginning (Part 2)</b></p>
+        <p3>
+            Then, there's a moment of silence... The only sounds that you can hear are birds chirping and the gentle winds.
+        </p3>
+        
+        <br><br>
+        
+        <p3>
+            After a while... Lily says, "I've been reading and reading and reading... But why didn't I start writing my very own storybook? Augh!"
+        </p3>
+        
+        <br><br>
+        
+        <p3>
+            He then says, "Oh, of course, that is possible! You can do it!"
+        </p3>
 
-	  
-  <script>
+        <br><br>
+
+        <p3>
+            She then replies, "Leo, thanks for the encouragement! Now I'm gonna go open up an Untitled Document on my PC, and start writing my very own storybook! See ya!"
+        </p3>
+    </div>
+    </div>
+
+    <div id="chapter1-part3">
+        <p><b>Chapter 1 - The Beginning (Part 3)</b></p>
+        <p3>
+            He then says, "That's great to hear! Good luck and see ya!" Then Leo leaves her room.
+            Then, she started up her PC, and created an "Untitled Document".
+            As soon as she creates and opens up this "Untitled Document", instantly her creativity is unleashed and her imagination goes wild.
+            Before she even started writing anything, her creativity and imagination had already surprised her, in all forms of ways.
+            Until this moment, she had never realised the power of a document.
+        </p3>
+        
+        <br><br>
+        
+        <p3>
+            "WOW!" she screams, and meanwhile the ideas and thoughts are coming fast! In a split of a second, an idea popped in her head.
+            So, she starts writing, "Once upon a time, a broken umbrella was crying on the streets of nowhere..."
+        </p3>
+        
+        <br><br>
+        
+        <p3>
+            Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on...
+        </p3>
+    </div>
+    </div>
+
+    <footer class="footer">
+    <p class="footer-text">Copyright © 2024 - SleepyOffers by SleepySurveys. All rights reserved.</p>
+
+    <div class="footer-content">
+        <div class="footer-section">
+        <p class="footer-heading">Legal</p>
+        <p><a href="https://sleepyoffers.github.io/terms.html" class="footer-link">Terms of Services</a></p>
+        <p><a href="https://sleepyoffers.github.io/privacy.html" class="footer-link">Privacy Policy</a></p>
+        </div>
+
+        <div class="footer-section">
+        <p class="footer-heading">Business</p>
+        <p><a href="https://sleepyoffers.github.io/advinfo.html" class="footer-link">Advertise at Sleepy Offers</a></p>
+        <p><a href="https://sleepyoffers.github.io/publish.html" class="footer-link">Publish at Sleepy Offers</a></p>
+        </div>
+
+        <div class="footer-section">
+        <p class="footer-heading">Support</p>
+        <p><a href="mailto:sleepysurveys01@gmail.com" class="footer-link">Contact Us</a></p>
+        <p><a href="https://sleepyoffers.github.io/faq.html" class="footer-link">FAQ</a></p>
+        </div>
+        
+        <div class="footer-section">
+        <p class="footer-heading">Explore</p>
+        <p><a href="https://sleepyoffers.github.io/index.html" class="footer-link">About Us</a></p>
+        <p><a href="https://sleepyoffers.github.io/sitemap.html" class="footer-link">Site Map</a></p>
+        </div>
+    </div>
+    </footer>
+
+    <script>
+    // Page navigation function
     function showPage(pageId) {
-      var articles = document.querySelectorAll('article');
-      articles.forEach(function(article) {
+    var articles = document.querySelectorAll('article');
+    articles.forEach(function(article) {
         article.style.display = 'none';
-      });
-
-      var selectedArticle = document.getElementById(pageId);
-      if (selectedArticle) {
-        selectedArticle.style.display = 'block';
-      }
+    });
+    document.getElementById(pageId).style.display = 'block';
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-      var navLinks = document.querySelectorAll('.navbar a');
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-          navLinks.forEach(function(innerLink) {
-            innerLink.classList.remove('active');
-          });
-          link.classList.add('active');
-        });
-      });
-    });
+    // Modal elements
+    const modal = document.getElementById("chapterModal");
+    const closeBtn = document.querySelector(".close");
+    const progressContainer = document.getElementById("progressContainer");
+    const adContainer = document.getElementById("adContainer");
+    const chapterContent = document.getElementById("chapterContent");
+    const startReadingBtn = document.getElementById("startReadingBtn");
 
-    let clickCount = 0;
-    const myButton = document.getElementById('myButton');
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    myButton.addEventListener('click', () => {
-      modal.style.display = "block";
-    });
-    
-
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+    // Close modal when clicking X
+    closeBtn.onclick = function() {
     modal.style.display = "none";
-  }
-}
-  </script>
-</body>
+    resetModal();
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        resetModal();
+    }
+    }
+
+    // Reset modal to initial state
+    function resetModal() {
+    progressContainer.style.display = "block";
+    adContainer.style.display = "none";
+    chapterContent.style.display = "none";
+    startReadingBtn.style.display = "block";
+    document.getElementById("progressBar").style.width = "0%";
+    document.getElementById("progressBar").innerHTML = "0%";
+    }
+
+    // Handle chapter button clicks
+    document.querySelectorAll('.chapter-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const chapterId = this.getAttribute('data-chapter-id');
+        const chapter = document.getElementById(chapterId).innerHTML;
+        
+        // Store the chapter content to show later
+        chapterContent.innerHTML = chapter;
+        
+        // Show the modal
+        modal.style.display = "block";
+        resetModal();
+    });
+    });
+
+    // Start reading button
+    startReadingBtn.onclick = function() {
+    progressContainer.style.display = "block";
+    adContainer.style.display = "block";
+    startReadingBtn.style.display = "none";
+    
+    let width = 0;
+    const progressBar = document.getElementById("progressBar");
+    const interval = setInterval(function() {
+        if (width >= 100) {
+        clearInterval(interval);
+        progressContainer.style.display = "none";
+        adContainer.style.display = "none";
+        chapterContent.style.display = "block";
+        } else {
+        width++;
+        progressBar.style.width = width + "%";
+        progressBar.innerHTML = width + "%";
+        }
+    }, 30);
+    }
+    </script>
+
+    </body>
 </html>
