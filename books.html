@@ -436,7 +436,7 @@
             <div id="progressBar">0%</div>
         </div>
         <br>
-        <!-- Modified button with margin-left: 10px -->
+        <!-- Added margin-left: 10px to the button -->
         <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: inline-block; margin-left: 10px;">Click Me For Free Access</button>
         </div>
         
@@ -590,16 +590,19 @@
     }
     }
 
-    // Reset modal to initial state
+    // Reset modal to initial state (ensures margin is applied at 0%)
     function resetModal() {
     progressContainer.style.display = "block";
     adContainer.style.display = "none";
     chapterContent.style.display = "none";
-    startReadingBtn.style.color = "blue"; // Reset button color
-    startReadingBtn.style.backgroundColor = "white"; // Reset button background
-    startReadingBtn.innerHTML = "Click Me For Free Access"; // Reset button text
+    startReadingBtn.style.display = "block";
     document.getElementById("progressBar").style.width = "0%";
     document.getElementById("progressBar").innerHTML = "0%";
+    // Maintain button styles including margin
+    startReadingBtn.style.color = "blue";
+    startReadingBtn.style.backgroundColor = "white";
+    startReadingBtn.style.marginLeft = "10px";
+    startReadingBtn.innerHTML = "Click Me For Free Access";
     }
 
     // Handle chapter button clicks
@@ -611,28 +614,22 @@
         // Store the chapter content to show later
         chapterContent.innerHTML = chapter;
         
-        // Show the modal
+        // Show the modal with reset styles
         modal.style.display = "block";
         resetModal();
     });
     });
 
-    // Start reading button (updated to change color to green when clicked)
+    // Start reading button (maintains original functionality)
     startReadingBtn.onclick = function() {
     progressContainer.style.display = "block";
     adContainer.style.display = "block";
-    
-    // Change button color to green when clicked
-    this.style.color = "green";
-    this.style.backgroundColor = "#4CAF50"; // Green background
-    this.innerHTML = "Reading Now..."; // Optional text update
+    startReadingBtn.style.display = "none";
     
     let width = 0;
     const progressBar = document.getElementById("progressBar");
     
     // Calculate interval for EXACT 30-second completion
-    // 30 seconds = 30,000 milliseconds
-    // 100 steps (0% to 100%)
     const intervalTime = 30000 / 100; // 300ms per step
     
     const interval = setInterval(function() {
@@ -646,7 +643,7 @@
         progressBar.style.width = width + "%";
         progressBar.innerHTML = width + "%";
         }
-    }, intervalTime); // 300ms per step for EXACT 30 seconds
+    }, intervalTime);
     }
     </script>
 
