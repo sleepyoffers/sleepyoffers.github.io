@@ -175,12 +175,13 @@
     }
 
     #progressBar {
-    width: 0%;
+    width: 100%; /* Start at 100% for countdown visual */
     height: 30px;
     background-color: #04AA6D;
     text-align: center;
     line-height: 30px;
     color: white;
+    transition: width 30s linear; /* Smooth 30-second transition */
     }
 
     /* Ad Banner */
@@ -433,7 +434,7 @@
         <span class="close">&times;</span>
         <div id="progressContainer">
         <div id="chapterProgress">
-            <div id="progressBar">0%</div>
+            <div id="progressBar">30s</div> <!-- Displays "30s" instead of percentage -->
         </div>
         <br>
         <button id="startReadingBtn" style="color: blue; font-size: 20px; background-color: white; padding: 5px 10px; text-decoration: none; display: inline-block;">Click Me For Free Access</button>
@@ -444,7 +445,7 @@
             <img src="https://sleepyoffers.github.io/examplead1.png" alt="Ad" class="ad-banner">
         </a>
         <br><br>
-        <p3 style="color: red"><b>Note: You will be automatically redirected when the progress bar reaches 100%.</b></p3>
+        <p3 style="color: red"><b>Note: You will be redirected to the chapter when the timer ends.</b></p3>
         </div>
         
         <div id="chapterContent"></div>
@@ -461,14 +462,14 @@
             In addition, the room smells like cherry blossoms. From looking out the bedroom window, it's a beautiful sunny day today.
         </p3>
 
-        <br><br>
+        <br>
 
         <p3>
             There was a girl sitting on her bed reading a storybook, she was very focused on it.
             She is not too tall, not too short. She has long hair that pours down like a waterfall, blue eyes, and a radiant smile. She's 14 years old and her name is Lily.
         </p3>
 
-        <br><br>
+        <br>
 
         <p3>
             One hour later... She finished the entire storybook and after she put down the storybook, she sighed.
@@ -483,19 +484,19 @@
             Then, there's a moment of silence... The only sounds that you can hear are birds chirping and the gentle winds.
         </p3>
         
-        <br><br>
+        <br>
         
         <p3>
             After a while... Lily says, "I've been reading and reading and reading... But why didn't I start writing my very own storybook? Augh!"
         </p3>
         
-        <br><br>
+        <br>
         
         <p3>
             He then says, "Oh, of course, that is possible! You can do it!"
         </p3>
 
-        <br><br>
+        <br>
 
         <p3>
             She then replies, "Leo, thanks for the encouragement! Now I'm gonna go open up an Untitled Document on my PC, and start writing my very own storybook! See ya!"
@@ -512,14 +513,14 @@
             Until this moment, she had never realised the power of a document.
         </p3>
         
-        <br><br>
+        <br>
         
         <p3>
             "WOW!" she screams, and meanwhile the ideas and thoughts are coming fast! In a split of a second, an idea popped in her head.
             So, she starts writing, "Once upon a time, a broken umbrella was crying on the streets of nowhere..."
         </p3>
         
-        <br><br>
+        <br>
         
         <p3>
             Then suddenly, her eyes went blank and she could no longer feel the comfortable sofa chair that she was sitting on...
@@ -560,11 +561,11 @@
     <script>
     // Page navigation function
     function showPage(pageId) {
-    var articles = document.querySelectorAll('article');
-    articles.forEach(function(article) {
-        article.style.display = 'none';
-    });
-    document.getElementById(pageId).style.display = 'block';
+        var articles = document.querySelectorAll('article');
+        articles.forEach(function(article) {
+            article.style.display = 'none';
+        });
+        document.getElementById(pageId).style.display = 'block';
     }
 
     // Modal elements
@@ -574,66 +575,73 @@
     const adContainer = document.getElementById("adContainer");
     const chapterContent = document.getElementById("chapterContent");
     const startReadingBtn = document.getElementById("startReadingBtn");
+    const progressBar = document.getElementById("progressBar");
 
     // Close modal when clicking X
     closeBtn.onclick = function() {
-    modal.style.display = "none";
-    resetModal();
+        modal.style.display = "none";
+        resetModal();
     }
 
     // Close modal when clicking outside
     window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        resetModal();
-    }
+        if (event.target == modal) {
+            modal.style.display = "none";
+            resetModal();
+        }
     }
 
     // Reset modal to initial state
     function resetModal() {
-    progressContainer.style.display = "block";
-    adContainer.style.display = "none";
-    chapterContent.style.display = "none";
-    startReadingBtn.style.display = "block";
-    document.getElementById("progressBar").style.width = "0%";
-    document.getElementById("progressBar").innerHTML = "0%";
+        progressContainer.style.display = "block";
+        adContainer.style.display = "none";
+        chapterContent.style.display = "none";
+        startReadingBtn.style.display = "block";
+        progressBar.style.width = "100%"; // Reset progress bar to 100%
+        progressBar.innerHTML = "30s"; // Display "30s" initially
     }
 
     // Handle chapter button clicks
     document.querySelectorAll('.chapter-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const chapterId = this.getAttribute('data-chapter-id');
-        const chapter = document.getElementById(chapterId).innerHTML;
-        
-        // Store the chapter content to show later
-        chapterContent.innerHTML = chapter;
-        
-        // Show the modal
-        modal.style.display = "block";
-        resetModal();
-    });
+        button.addEventListener('click', function() {
+            const chapterId = this.getAttribute('data-chapter-id');
+            const chapter = document.getElementById(chapterId).innerHTML;
+            
+            // Store the chapter content to show later
+            chapterContent.innerHTML = chapter;
+            
+            // Show the modal
+            modal.style.display = "block";
+            resetModal();
+        });
     });
 
-    // Start reading button
+    // Start reading button with 30-second ad timer (with progress bar countdown)
     startReadingBtn.onclick = function() {
-    progressContainer.style.display = "block";
-    adContainer.style.display = "block";
-    startReadingBtn.style.display = "none";
-    
-    let width = 0;
-    const progressBar = document.getElementById("progressBar");
-    const interval = setInterval(function() {
-        if (width >= 100) {
-        clearInterval(interval);
-        progressContainer.style.display = "none";
-        adContainer.style.display = "none";
-        chapterContent.style.display = "block";
-        } else {
-        width++;
-        progressBar.style.width = width + "%";
-        progressBar.innerHTML = width + "%";
-        }
-    }, 30);
+        progressContainer.style.display = "block";
+        adContainer.style.display = "block";
+        startReadingBtn.style.display = "none";
+        
+        let timeLeft = 30; // 30 seconds
+        progressBar.innerHTML = timeLeft + "s"; // Display initial time
+        
+        // Update progress bar and timer every 1 second (1000ms)
+        const interval = setInterval(function() {
+            timeLeft--;
+            progressBar.innerHTML = timeLeft + "s"; // Update time display
+            
+            // Calculate and update progress bar width (100% to 0% over 30s)
+            const percentage = (timeLeft / 30) * 100;
+            progressBar.style.width = percentage + "%";
+            
+            // When time's up
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                progressContainer.style.display = "none";
+                adContainer.style.display = "none";
+                chapterContent.style.display = "block";
+            }
+        }, 1000); // Update every 1000ms (1 second)
     }
     </script>
 
