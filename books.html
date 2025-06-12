@@ -125,7 +125,7 @@
   <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-md border-b border-neutral-800">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#" class="flex items-center space-x-2">
+      <a href="index.html" class="flex items-center space-x-2">
         <img src="https://sleepyoffers.github.io/logo.webp" alt="Sleepy Offers Logo" class="h-10 w-auto object-contain">
         <span class="text-2xl font-bold text-primary">Sleepy<span class="text-secondary">Offers</span></span>
       </a>
@@ -155,48 +155,29 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-neutral-900 to-neutral-800 py-12 md:py-20">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-8 md:mb-0 fade-in" style="animation-delay: 0.1s">
-          <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-balance">
-            Discover <span class="text-primary">Captivating</span> Stories
-          </h1>
-          <p class="text-[clamp(1rem,2vw,1.25rem)] text-neutral-200 mt-4 max-w-lg">
-            Immerse yourself in a world of imagination with our collection of online books and stories.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#featured-books" class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 btn-pulse">
-              Explore Books
-            </a>
-            <a href="#" class="bg-transparent border border-neutral-700 hover:border-primary text-white font-medium px-6 py-3 rounded-lg transition-all duration-300">
-              Learn More
-            </a>
-          </div>
-        </div>
-        <div class="md:w-1/2 fade-in" style="animation-delay: 0.3s">
-          <div class="relative">
-            <img src="https://picsum.photos/id/24/600/400" alt="Book Collection" class="w-full h-auto rounded-xl shadow-2xl">
-            <div class="absolute -bottom-4 -right-4 bg-secondary text-white font-bold px-4 py-2 rounded-lg shadow-lg">
-              New Arrivals
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
+  <!-- Main Content - Books Page -->
   <main class="flex-grow container mx-auto px-4 py-8 md:py-12">
+    <!-- Search Bar -->
+    <section class="mb-8">
+      <div class="relative">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search for books, authors, or keywords..." 
+          class="w-full bg-neutral-800 border border-neutral-700 rounded-lg py-3 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-primary/50 text-white"
+        >
+        <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+      </div>
+    </section>
+
     <!-- Book Categories Navigation -->
     <section class="mb-12">
       <div class="flex overflow-x-auto pb-4 gap-3">
-        <button class="category-btn bg-primary text-white px-6 py-2 rounded-full whitespace-nowrap" data-category="featured">
-          Featured Books
-        </button>
-        <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="all">
+        <button class="category-btn bg-primary text-white px-6 py-2 rounded-full whitespace-nowrap" data-category="all">
           All Books
+        </button>
+        <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="featured">
+          Featured Books
         </button>
         <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="new">
           New Books
@@ -204,261 +185,303 @@
         <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="popular">
           Popular Books
         </button>
+        <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="fantasy">
+          Fantasy
+        </button>
+        <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="mystery">
+          Mystery
+        </button>
+        <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="historical">
+          Historical
+        </button>
+        <button class="category-btn bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2 rounded-full whitespace-nowrap transition-colors duration-300" data-category="romance">
+          Romance
+        </button>
       </div>
     </section>
 
-    <!-- Featured Books Section -->
-    <section id="featured-books" class="book-section fade-in">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white">Featured Books</h2>
-        <a href="#" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-300">
-          View All <i class="fa fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        <!-- Book Card 1 -->
-        <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative h-60">
-            <img src="https://picsum.photos/id/20/500/700" alt="The Broken Umbrella" class="w-full h-full object-cover">
-            <div class="absolute top-3 right-3 bg-primary/90 text-white text-sm font-medium px-3 py-1 rounded-full">
-              Featured
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">The Broken Umbrella</h3>
-            <p class="text-neutral-300 text-sm mb-4">Untitled Document Series, #1</p>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center">
-                <i class="fa fa-star text-yellow-400 mr-1"></i>
-                <span class="text-sm text-neutral-200">4.8</span>
-              </div>
-              <span class="text-sm text-neutral-400">3 Chapters, 9 Parts</span>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fantasy</span>
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Adventure</span>
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Young Adult</span>
-            </div>
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-              <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
-                Read Chapter
-              </button>
-              <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
-                <i class="fa fa-bookmark-o mr-1"></i> Save
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Book Card 2 -->
-        <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative h-60">
-            <img src="https://picsum.photos/id/26/500/700" alt="The Lost Journal" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">The Lost Journal</h3>
-            <p class="text-neutral-300 text-sm mb-4">Mystery Series, #2</p>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center">
-                <i class="fa fa-star text-yellow-400 mr-1"></i>
-                <span class="text-sm text-neutral-200">4.5</span>
-              </div>
-              <span class="text-sm text-neutral-400">2 Chapters, 5 Parts</span>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Mystery</span>
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Thriller</span>
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Suspense</span>
-            </div>
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-              <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
-                Read Chapter
-              </button>
-              <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
-                <i class="fa fa-bookmark-o mr-1"></i> Save
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Book Card 3 -->
-        <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
-          <div class="relative h-60">
-            <img src="https://picsum.photos/id/29/500/700" alt="Echoes of the Past" class="w-full h-full object-cover">
-            <div class="absolute top-3 right-3 bg-accent/90 text-white text-sm font-medium px-3 py-1 rounded-full">
-              New
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Echoes of the Past</h3>
-            <p class="text-neutral-300 text-sm mb-4">Historical Series, #1</p>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center">
-                <i class="fa fa-star text-yellow-400 mr-1"></i>
-                <span class="text-sm text-neutral-200">4.7</span>
-              </div>
-              <span class="text-sm text-neutral-400">4 Chapters, 12 Parts</span>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Historical</span>
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fiction</span>
-              <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Drama</span>
-            </div>
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-              <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
-                Read Chapter
-              </button>
-              <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
-                <i class="fa fa-bookmark-o mr-1"></i> Save
-              </button>
-            </div>
-          </div>
-        </div>
+    <!-- Sort Options -->
+    <section class="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white">Our Collection</h2>
+      <div class="flex items-center space-x-4">
+        <span class="text-neutral-400">Sort by:</span>
+        <select id="sortOptions" class="bg-neutral-800 border border-neutral-700 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary/50 text-white">
+          <option value="popular">Most Popular</option>
+          <option value="newest">Newest First</option>
+          <option value="rating">Highest Rated</option>
+          <option value="alphabetical">Alphabetical</option>
+        </select>
       </div>
     </section>
 
-    <!-- Book Details and Chapters -->
-    <section id="book-details" class="mt-16 fade-in" style="animation-delay: 0.2s">
-      <div class="bg-neutral-800 rounded-2xl p-6 md:p-8 shadow-xl">
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/3">
-            <div class="relative">
-              <img src="https://picsum.photos/id/20/500/700" alt="The Broken Umbrella" class="w-full h-auto rounded-xl shadow-lg">
-              <div class="absolute -bottom-4 -left-4 bg-primary text-white font-bold px-4 py-2 rounded-lg shadow-lg">
-                Featured Book
-              </div>
-            </div>
-          </div>
-          <div class="lg:w-2/3">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">The Broken Umbrella</h2>
-            <p class="text-neutral-300 text-sm mb-4">Untitled Document Series, #1</p>
-            <div class="flex items-center mb-4">
-              <div class="flex items-center">
-                <i class="fa fa-star text-yellow-400 mr-1"></i>
-                <span class="text-sm text-neutral-200">4.8</span>
-                <span class="text-sm text-neutral-400 ml-2">(245 ratings)</span>
-              </div>
-              <span class="text-sm text-neutral-400 ml-4">3 Chapters, 9 Parts</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="bg-neutral-700 text-xs px-3 py-1 rounded-full">Fantasy</span>
-              <span class="bg-neutral-700 text-xs px-3 py-1 rounded-full">Adventure</span>
-              <span class="bg-neutral-700 text-xs px-3 py-1 rounded-full">Young Adult</span>
-            </div>
-            <p class="text-neutral-200 mb-6 leading-relaxed">
-              A captivating story about a young girl who discovers a magical broken umbrella that transports her to extraordinary worlds. Join Lily on her adventure as she uncovers the secrets of the umbrella and learns about courage, friendship, and self-discovery.
-            </p>
-            <div class="flex flex-wrap gap-4 mb-6">
-              <button class="bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 btn-pulse flex items-center">
-                <i class="fa fa-book mr-2"></i> Start Reading
-              </button>
-              <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-300 flex items-center">
-                <i class="fa fa-bookmark-o mr-2"></i> Add to Library
-              </button>
-            </div>
-            <div class="flex items-center text-neutral-400 text-sm">
-              <i class="fa fa-eye mr-2"></i>
-              <span>12.4k reads</span>
-              <span class="mx-3">•</span>
-              <i class="fa fa-calendar mr-2"></i>
-              <span>Updated 2 weeks ago</span>
-            </div>
+    <!-- Books Grid -->
+    <section id="booksGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+      <!-- Book Card 1 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/20/500/700" alt="The Broken Umbrella" class="w-full h-full object-cover">
+          <div class="absolute top-3 right-3 bg-primary/90 text-white text-sm font-medium px-3 py-1 rounded-full">
+            Featured
           </div>
         </div>
-        
-        <!-- Chapters Section - Display all parts of each chapter -->
-        <div class="mt-12">
-          <h3 class="text-xl font-bold text-white mb-6">Chapters & Parts</h3>
-          <div class="space-y-4">
-            <!-- Chapter 1 with all parts -->
-            <div class="bg-neutral-900 rounded-lg overflow-hidden">
-              <div class="p-4 border-b border-neutral-800">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center">
-                    <span class="text-primary font-medium mr-3">Chapter 1</span>
-                    <div>
-                      <h4 class="text-white font-medium">The Beginning</h4>
-                      <p class="text-neutral-400 text-sm">3 parts • 12 min read</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4">
-                <div class="space-y-3">
-                  <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter1-part1">
-                    <span class="font-medium">Part 1</span> - 4 min read
-                  </button>
-                  <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter1-part2">
-                    <span class="font-medium">Part 2</span> - 4 min read
-                  </button>
-                  <button class="chapter-btn bg-primary/20 hover:bg-primary/30 text-primary font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter1-part3">
-                    <span class="font-medium">Part 3</span> - 4 min read
-                  </button>
-                </div>
-              </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">The Broken Umbrella</h3>
+          <p class="text-neutral-300 text-sm mb-4">Untitled Document Series, #1</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.8</span>
             </div>
-            
-            <!-- Chapter 2 with all parts -->
-            <div class="bg-neutral-900 rounded-lg overflow-hidden">
-              <div class="p-4 border-b border-neutral-800">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center">
-                    <span class="text-neutral-400 font-medium mr-3">Chapter 2</span>
-                    <div>
-                      <h4 class="text-neutral-300 font-medium">The Mysterious Umbrella</h4>
-                      <p class="text-neutral-500 text-sm">2 parts • 10 min read</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4">
-                <div class="space-y-3">
-                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter2-part1" disabled>
-                    <span class="font-medium">Part 1</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
-                  </button>
-                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter2-part2" disabled>
-                    <span class="font-medium">Part 2</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Chapter 3 with all parts -->
-            <div class="bg-neutral-900 rounded-lg overflow-hidden">
-              <div class="p-4 border-b border-neutral-800">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center">
-                    <span class="text-neutral-400 font-medium mr-3">Chapter 3</span>
-                    <div>
-                      <h4 class="text-neutral-300 font-medium">First Journey</h4>
-                      <p class="text-neutral-500 text-sm">3 parts • 15 min read</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4">
-                <div class="space-y-3">
-                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter3-part1" disabled>
-                    <span class="font-medium">Part 1</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
-                  </button>
-                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter3-part2" disabled>
-                    <span class="font-medium">Part 2</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
-                  </button>
-                  <button class="chapter-btn bg-neutral-700 hover:bg-neutral-600 text-neutral-300 font-medium px-4 py-2 rounded-lg transition-colors duration-300 w-full text-left" data-chapter-id="chapter3-part3" disabled>
-                    <span class="font-medium">Part 3</span> - 5 min read <span class="ml-2 text-xs bg-neutral-600 px-2 py-0.5 rounded">Coming Soon</span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <span class="text-sm text-neutral-400">3 Chapters</span>
           </div>
-          <div class="mt-8 text-center">
-            <button class="bg-transparent border border-neutral-700 hover:border-primary text-white font-medium px-6 py-3 rounded-lg transition-all duration-300">
-              View All Chapters & Parts
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fantasy</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Adventure</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Young Adult</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
             </button>
           </div>
         </div>
       </div>
+      
+      <!-- Book Card 2 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/26/500/700" alt="The Lost Journal" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">The Lost Journal</h3>
+          <p class="text-neutral-300 text-sm mb-4">Mystery Series, #2</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.5</span>
+            </div>
+            <span class="text-sm text-neutral-400">2 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Mystery</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Thriller</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Suspense</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Card 3 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/29/500/700" alt="Echoes of the Past" class="w-full h-full object-cover">
+          <div class="absolute top-3 right-3 bg-accent/90 text-white text-sm font-medium px-3 py-1 rounded-full">
+            New
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Echoes of the Past</h3>
+          <p class="text-neutral-300 text-sm mb-4">Historical Series, #1</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.7</span>
+            </div>
+            <span class="text-sm text-neutral-400">4 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Historical</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fiction</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Drama</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Card 4 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/30/500/700" alt="Whispers of the Sea" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Whispers of the Sea</h3>
+          <p class="text-neutral-300 text-sm mb-4">Romance Series, #3</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.6</span>
+            </div>
+            <span class="text-sm text-neutral-400">5 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Romance</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Adventure</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Drama</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Card 5 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/32/500/700" alt="The Hidden City" class="w-full h-full object-cover">
+          <div class="absolute top-3 right-3 bg-secondary/90 text-white text-sm font-medium px-3 py-1 rounded-full">
+            Trending
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">The Hidden City</h3>
+          <p class="text-neutral-300 text-sm mb-4">Fantasy Series, #5</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.9</span>
+            </div>
+            <span class="text-sm text-neutral-400">6 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fantasy</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Mystery</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Adventure</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Card 6 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/34/500/700" alt="Beyond the Stars" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Beyond the Stars</h3>
+          <p class="text-neutral-300 text-sm mb-4">Sci-Fi Series, #2</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.4</span>
+            </div>
+            <span class="text-sm text-neutral-400">4 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Sci-Fi</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Adventure</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Futuristic</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Card 7 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/36/500/700" alt="The Last Guardian" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">The Last Guardian</h3>
+          <p class="text-neutral-300 text-sm mb-4">Fantasy Series, #4</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.7</span>
+            </div>
+            <span class="text-sm text-neutral-400">3 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Fantasy</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Adventure</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Action</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Card 8 -->
+      <div class="book-card bg-neutral-800 rounded-xl overflow-hidden book-card-shadow hover:book-card-shadow-hover transition-all duration-300 transform hover:-translate-y-2">
+        <div class="relative h-60">
+          <img src="https://picsum.photos/id/38/500/700" alt="Midnight Whispers" class="w-full h-full object-cover">
+          <div class="absolute top-3 right-3 bg-accent/90 text-white text-sm font-medium px-3 py-1 rounded-full">
+            New
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Midnight Whispers</h3>
+          <p class="text-neutral-300 text-sm mb-4">Mystery Series, #3</p>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <i class="fa fa-star text-yellow-400 mr-1"></i>
+              <span class="text-sm text-neutral-200">4.3</span>
+            </div>
+            <span class="text-sm text-neutral-400">2 Chapters</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Mystery</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Thriller</span>
+            <span class="bg-neutral-700 text-xs px-2 py-1 rounded-full">Horror</span>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button class="chapter-btn bg-primary hover:bg-primary/90 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center" data-chapter-id="chapter1-part1">
+              Read Chapter
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-300 text-center">
+              <i class="fa fa-bookmark-o mr-1"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Load More Button -->
+    <section class="mt-12 text-center">
+      <button id="loadMoreBtn" class="bg-neutral-800 hover:bg-neutral-700 text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center mx-auto">
+        <i class="fa fa-refresh mr-2"></i> Load More Books
+      </button>
     </section>
   </main>
 
@@ -477,7 +500,7 @@
         </div>
       </div>
       
-      <!-- Ad Progress Bar - Maintaining original logic -->
+      <!-- Ad Progress Bar -->
       <div id="adContainer" class="mb-8">
         <div class="bg-neutral-800 rounded-lg overflow-hidden mb-4">
           <div id="progressBar" class="progress-animation bg-success h-2 w-0"></div>
@@ -600,7 +623,138 @@
         btn.classList.add('bg-primary');
         const category = btn.getAttribute('data-category');
         console.log('Showing category:', category);
+        
+        // Filter books based on category (in a real app, this would fetch filtered data)
+        const bookCards = document.querySelectorAll('.book-card');
+        bookCards.forEach(card => {
+          card.classList.remove('opacity-0', 'pointer-events-none');
+          
+          // For demo purposes, only show Featured for Featured category
+          if (category === 'featured') {
+            const isFeatured = card.querySelector('.bg-primary\\/90');
+            if (!isFeatured) {
+              card.classList.add('opacity-0', 'pointer-events-none');
+            }
+          } else if (category === 'new') {
+            const isNew = card.querySelector('.bg-accent\\/90');
+            if (!isNew) {
+              card.classList.add('opacity-0', 'pointer-events-none');
+            }
+          } else if (category === 'popular') {
+            // For demo, show books with rating >= 4.7
+            const rating = parseFloat(card.querySelector('.text-neutral-200').textContent);
+            if (rating < 4.7) {
+              card.classList.add('opacity-0', 'pointer-events-none');
+            }
+          } else if (category === 'fantasy' || category === 'mystery' || category === 'historical' || category === 'romance') {
+            // For genre categories
+            const tags = card.querySelectorAll('.bg-neutral-700');
+            let hasTag = false;
+            tags.forEach(tag => {
+              if (tag.textContent.toLowerCase() === category) {
+                hasTag = true;
+              }
+            });
+            if (!hasTag) {
+              card.classList.add('opacity-0', 'pointer-events-none');
+            }
+          }
+        });
       });
+    });
+    
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const bookCards = document.querySelectorAll('.book-card');
+      
+      bookCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const author = card.querySelector('.text-neutral-300').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || author.includes(searchTerm)) {
+          card.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+          card.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+    });
+    
+    // Sort functionality
+    const sortOptions = document.getElementById('sortOptions');
+    sortOptions.addEventListener('change', () => {
+      const sortBy = sortOptions.value;
+      const booksGrid = document.getElementById('booksGrid');
+      const bookCards = Array.from(document.querySelectorAll('.book-card'));
+      
+      // For demo purposes, we'll just reorder the books based on mock data
+      if (sortBy === 'popular') {
+        // Sort by rating descending
+        bookCards.sort((a, b) => {
+          const ratingA = parseFloat(a.querySelector('.text-neutral-200').textContent);
+          const ratingB = parseFloat(b.querySelector('.text-neutral-200').textContent);
+          return ratingB - ratingA;
+        });
+      } else if (sortBy === 'newest') {
+        // Sort with "New" books first
+        bookCards.sort((a, b) => {
+          const isNewA = a.querySelector('.bg-accent\\/90') ? 1 : 0;
+          const isNewB = b.querySelector('.bg-accent\\/90') ? 1 : 0;
+          return isNewB - isNewA;
+        });
+      } else if (sortBy === 'rating') {
+        // Sort by rating ascending
+        bookCards.sort((a, b) => {
+          const ratingA = parseFloat(a.querySelector('.text-neutral-200').textContent);
+          const ratingB = parseFloat(b.querySelector('.text-neutral-200').textContent);
+          return ratingA - ratingB;
+        });
+      } else if (sortBy === 'alphabetical') {
+        // Sort alphabetically by title
+        bookCards.sort((a, b) => {
+          const titleA = a.querySelector('h3').textContent.toLowerCase();
+          const titleB = b.querySelector('h3').textContent.toLowerCase();
+          return titleA.localeCompare(titleB);
+        });
+      }
+      
+      // Clear the grid and append sorted cards
+      booksGrid.innerHTML = '';
+      bookCards.forEach(card => {
+        booksGrid.appendChild(card);
+      });
+    });
+    
+    // Load more books button
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    loadMoreBtn.addEventListener('click', () => {
+      loadMoreBtn.innerHTML = '<i class="fa fa-circle-o-notch fa-spin mr-2"></i> Loading...';
+      
+      // Simulate loading more books
+      setTimeout(() => {
+        const booksGrid = document.getElementById('booksGrid');
+        const bookCards = document.querySelectorAll('.book-card');
+        
+        // Clone existing cards for demo purposes
+        bookCards.forEach((card, index) => {
+          if (index < 4) {
+            const clone = card.cloneNode(true);
+            booksGrid.appendChild(clone);
+            
+            // Reattach event listeners to cloned chapter buttons
+            const chapterBtn = clone.querySelector('.chapter-btn');
+            if (chapterBtn) {
+              chapterBtn.addEventListener('click', () => {
+                const chapterId = chapterBtn.getAttribute('data-chapter-id');
+                openModal(chapterId);
+              });
+            }
+          }
+        });
+        
+        loadMoreBtn.innerHTML = '<i class="fa fa-refresh mr-2"></i> Load More Books';
+      }, 1500);
     });
     
     // Chapter Modal
@@ -644,7 +798,7 @@
         `,
         chapter: 'chapter1',
         part: 1,
-        prev: 'chapter1-part3', // Circular navigation for demo
+        prev: null,
         next: 'chapter1-part2',
         prevChapter: null,
         nextChapter: 'chapter2-part1'
@@ -689,7 +843,7 @@
         chapter: 'chapter1',
         part: 3,
         prev: 'chapter1-part2',
-        next: 'chapter1-part1', // Circular navigation for demo
+        next: null,
         prevChapter: null,
         nextChapter: 'chapter2-part1'
       },
@@ -725,17 +879,40 @@
         next: 'chapter3-part2',
         prevChapter: 'chapter2-part2',
         nextChapter: null
+      },
+      'chapter3-part2': {
+        title: 'Chapter 3 - First Journey (Part 2)',
+        info: '3 parts • 15 min read',
+        content: "Chapter 3 Part 2 content goes here (coming soon)",
+        chapter: 'chapter3',
+        part: 2,
+        prev: 'chapter3-part1',
+        next: 'chapter3-part3',
+        prevChapter: 'chapter2-part2',
+        nextChapter: null
+      },
+      'chapter3-part3': {
+        title: 'Chapter 3 - First Journey (Part 3)',
+        info: '3 parts • 15 min read',
+        content: "Chapter 3 Part 3 content goes here (coming soon)",
+        chapter: 'chapter3',
+        part: 3,
+        prev: 'chapter3-part2',
+        next: null,
+        prevChapter: 'chapter2-part2',
+        nextChapter: null
       }
     };
     
     let currentChapterId = null;
     let adInterval = null;
     
-    // Open modal function
+    // Open modal function - always reset ad state
     function openModal(chapterId) {
       const chapter = chapterData[chapterId];
       if (!chapter) return;
       
+      // Reset all modal elements
       currentChapterId = chapterId;
       modalTitle.textContent = chapter.title;
       chapterInfo.textContent = chapter.info;
@@ -792,7 +969,11 @@
     chapterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const chapterId = btn.getAttribute('data-chapter-id');
-        openModal(chapterId);
+        // Always reset ad state when clicking any chapter button
+        closeModalFunc();
+        setTimeout(() => {
+          openModal(chapterId);
+        }, 300);
       });
     });
     
