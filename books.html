@@ -669,10 +669,10 @@
     }, intervalTime);
     }
     
-    // Ad link handler - Redirects to blank page
+    // Handle ad banner click
     document.querySelector('#adContainer a').addEventListener('click', function(e) {
-        e.preventDefault();
-        window.open('', '_blank');
+        e.preventDefault(); // Prevent default link behavior
+        window.open('', '_blank'); // Open blank page
     });
     </script>
 
