@@ -172,7 +172,7 @@
     #chapterProgress {
     width: 100%;
     background-color: #ddd;
-    padding-left: 10px; /* Moved margin to container padding */
+    /* Removed padding-left: 10px */
     }
 
     #progressBar {
@@ -577,6 +577,7 @@
     const adContainer = document.getElementById("adContainer");
     const chapterContent = document.getElementById("chapterContent");
     const startReadingBtn = document.getElementById("startReadingBtn");
+    const progressBar = document.getElementById("progressBar");
 
     // Close modal when clicking X
     closeBtn.onclick = function() {
@@ -592,14 +593,15 @@
     }
     }
 
-    // Reset modal to initial state (ensures margin is applied at 0%)
+    // Reset modal to initial state
     function resetModal() {
     progressContainer.style.display = "block";
     adContainer.style.display = "none";
     chapterContent.style.display = "none";
     startReadingBtn.style.display = "block";
-    document.getElementById("progressBar").style.width = "0%";
-    document.getElementById("progressBar").innerHTML = "0%";
+    progressBar.style.width = "0%";
+    progressBar.style.marginLeft = "10px"; // Add margin only at 0%
+    progressBar.innerHTML = "0%";
     // Maintain button styles including margin
     startReadingBtn.style.color = "blue";
     startReadingBtn.style.backgroundColor = "white";
@@ -622,14 +624,13 @@
     });
     });
 
-    // Start reading button (maintains original functionality)
+    // Start reading button
     startReadingBtn.onclick = function() {
     progressContainer.style.display = "block";
     adContainer.style.display = "block";
     startReadingBtn.style.display = "none";
     
     let width = 0;
-    const progressBar = document.getElementById("progressBar");
     
     // Calculate interval for EXACT 30-second completion
     const intervalTime = 30000 / 100; // 300ms per step
@@ -642,7 +643,16 @@
         chapterContent.style.display = "block";
         } else {
         width++;
-        progressBar.style.width = width + "%";
+        
+        // Remove margin after initial 0% state
+        if (width > 0 && progressBar.style.marginLeft === "10px") {
+            progressBar.style.marginLeft = "0px";
+        }
+        
+        // Calculate width with adjustment for 0% margin
+        const adjustedWidth = width > 0 ? width + 1 : width; // Add 1% to account for initial margin
+        
+        progressBar.style.width = adjustedWidth + "%";
         progressBar.innerHTML = width + "%";
         }
     }, intervalTime);
