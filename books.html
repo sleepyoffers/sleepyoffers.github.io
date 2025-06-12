@@ -20,7 +20,7 @@
             primary: '#6C5CE7',
             secondary: '#FD79A8',
             accent: '#00CEFF',
-            success: '#04AA6D', // 新增绿色用于进度条
+            success: '#04AA6D', // Green color for progress bar
             dark: '#1A1A2E',
             light: '#F8F9FA',
             'neutral-100': '#F1F5F9',
@@ -125,7 +125,7 @@
       font-weight: 600;
     }
     
-    /* Ad progress bar styling (恢复旧版样式) */
+    /* Ad progress bar styling (original design) */
     #progressBar {
       height: 30px;
       background-color: #04AA6D;
@@ -477,7 +477,7 @@
         </div>
       </div>
       
-      <!-- Ad Progress Bar (恢复旧版设计) -->
+      <!-- Ad Progress Bar (reverted to original design) -->
       <div id="progressContainer" class="mb-8">
         <div id="adProgress" class="w-full bg-gray-300 rounded-lg overflow-hidden">
           <div id="progressBar" class="w-0 h-30 bg-success text-white flex items-center justify-center">
@@ -528,7 +528,7 @@
     </div>
   </div>
 
-  <!-- Footer-->
+  <!-- Footer -->
   <footer class="footer bg-neutral-900 border-t border-neutral-800">
     <p class="footer-text text-neutral-500 text-sm py-4">
       Copyright &copy; 2024 - SleepyOffers by SleepySurveys. All rights reserved.
@@ -601,7 +601,6 @@
     const closeModal = document.getElementById('closeModal');
     const chapterContent = document.getElementById('chapterContent');
     const progressBar = document.getElementById('progressBar');
-    const progressText = document.querySelector('#adContainer p');
     const adContainer = document.getElementById('adContainer');
     const readingControls = document.getElementById('readingControls');
     const chapterBtns = document.querySelectorAll('.chapter-btn');
@@ -673,7 +672,7 @@
     
     // Current chapter ID
     let currentChapterId = null;
-    let adInterval = null; // 用于跟踪广告计时器
+    let adInterval = null; // Track the ad timer
     
     // Open modal function
     function openModal(chapterId) {
@@ -703,7 +702,7 @@
     
     // Close modal function
     function closeModalFunc() {
-      // 清除广告计时器
+      // Clear the ad timer
       if (adInterval) {
         clearInterval(adInterval);
         adInterval = null;
@@ -725,13 +724,13 @@
       });
     });
     
-    // 开始播放广告
+    // Start ad timer when button is clicked
     startReadingBtn.addEventListener('click', () => {
       startReadingBtn.style.display = 'none';
       
       let width = 0;
-      const totalSteps = 300; // 300步 = 30秒 (300 x 100ms)
-      const intervalTime = 100; // 每100ms更新一次
+      const totalSteps = 300; // 300 steps for 30 seconds (30000ms / 100ms per step)
+      const intervalTime = 100; // 100ms per step
       
       adInterval = setInterval(() => {
         if (width >= 100) {
@@ -743,7 +742,7 @@
         } else {
           width += 100 / totalSteps;
           
-          // 当进度超过0.5%时移除左侧边距（恢复旧版逻辑）
+          // Remove left margin when progress exceeds 0.5% (original behavior)
           if (width > 0.5 && progressBar.style.marginLeft === '10px') {
             progressBar.style.marginLeft = '0px';
           }
@@ -766,7 +765,7 @@
       const prevChapterId = chapterData[currentChapterId].prev;
       if (prevChapterId) {
         closeModalFunc();
-        // 等待模态框关闭后打开新章节
+        // Wait for modal to close before opening new chapter
         setTimeout(() => {
           openModal(prevChapterId);
         }, 300);
@@ -779,7 +778,7 @@
       const nextChapterId = chapterData[currentChapterId].next;
       if (nextChapterId) {
         closeModalFunc();
-        // 等待模态框关闭后打开新章节
+        // Wait for modal to close before opening new chapter
         setTimeout(() => {
           openModal(nextChapterId);
         }, 300);
@@ -787,7 +786,7 @@
     });
     
     // Reading controls
-    let currentFontSize = 16; // 基础字体大小（像素）
+    let currentFontSize = 16; // Base font size in pixels
     const fontSizeIncrease = document.getElementById('fontSizeIncrease');
     const fontSizeDecrease = document.getElementById('fontSizeDecrease');
     const themeToggle = document.getElementById('themeToggle');
@@ -807,12 +806,12 @@
       isDarkTheme = !isDarkTheme;
       
       if (isDarkTheme) {
-        // 切换到深色主题
+        // Switch to dark theme
         document.body.classList.add('bg-neutral-900', 'text-light');
         document.body.classList.remove('bg-white', 'text-neutral-800');
         themeToggle.innerHTML = '<i class="fa fa-moon-o text-xl"></i>';
       } else {
-        // 切换到浅色主题
+        // Switch to light theme
         document.body.classList.remove('bg-neutral-900', 'text-light');
         document.body.classList.add('bg-white', 'text-neutral-800');
         themeToggle.innerHTML = '<i class="fa fa-sun-o text-xl"></i>';
